@@ -200,4 +200,3 @@ Orientações para relato responsável estão em [SECURITY.md](SECURITY.md). A p
 
 **Autor:** [Diego Fagundes — GitHub](https://github.com/Diego-Fagundes888).
 
-O projeto permanece **sem licença própria**, por decisão do autor. Não há concessão de reutilização por uma licença MIT/Apache. Dependências e assets de terceiros mantêm seus próprios avisos; consulte [ASSETS.md](ASSETS.md) e a [licença do Leaflet](dist/vendor/leaflet/LICENSE).
