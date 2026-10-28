@@ -6,3 +6,7 @@ backend-java/mvnw text eol=lf
 backend-java/docker/*.sh text eol=lf
 backend-java/Dockerfile text eol=lf
 compose.java.yaml text eol=lf
+# Stable static-asset bytes and cache identifiers on Windows and Linux.
+dist/**/*.css text eol=lf
+dist/**/*.js text eol=lf
+dist/*.html text eol=lf
