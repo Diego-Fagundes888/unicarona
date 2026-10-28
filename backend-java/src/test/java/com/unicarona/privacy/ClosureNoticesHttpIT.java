@@ -1,0 +1,89 @@
+package com.unicarona.privacy;
+
+import com.fasterxml.jackson.databind.*;
+import com.unicarona.UniCaronaApplication;
+import com.unicarona.job.service.OutboxProcessor;
+import com.unicarona.notification.provider.EmailProvider;
+import com.unicarona.privacy.service.*;
+import com.unicarona.security.CryptoService;
+import com.unicarona.support.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.junit.jupiter.api.*;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext;
+import org.springframework.context.annotation.*;
+import org.springframework.jdbc.core.JdbcTemplate;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClosureNoticesHttpIT {
+    private static RealPostgres db;private static ServletWebServerApplicationContext app;private static JdbcTemplate sql;private static String server,hash;private static Path storage,journal;private static Capture mail;
+    private static final String PASSWORD="Synthetic closure notice password 2026";
+    private final ObjectMapper json=new ObjectMapper();private final HttpClient http=HttpClient.newHttpClient();
+    private record Session(UUID id,String email,String cookie,String csrf){@Override public String toString(){return "ClosureNoticeSession[redacted]";}}
+    static class Capture implements EmailProvider {final List<Message> messages=new CopyOnWriteArrayList<>();final List<UUID> attempts=new CopyOnWriteArrayList<>();volatile boolean fail;public void send(Message input)throws IOException{attempts.add(input.id());if(fail)throw new IOException("Synthetic transport failure");messages.add(input);}}
+    @TestConfiguration static class MailConfig {@Bean @Primary Capture closureCapture(){return new Capture();}}
+    @BeforeAll static void start()throws Exception {
+        db=new RealPostgres();db.resetSchema();storage=Files.createTempDirectory("unicarona-closure-files-");journal=Files.createTempDirectory("unicarona-closure-journal-");var args=new ArrayList<>(List.of(AuthTestSettings.arguments(db.apiConnectionUrl())));args.add("--STORAGE_PATH="+storage);args.add("--PRIVACY_ERASURE_JOURNAL_PATH="+journal);
+        app=(ServletWebServerApplicationContext)new SpringApplicationBuilder(UniCaronaApplication.class,MailConfig.class).run(args.toArray(String[]::new));sql=app.getBean(JdbcTemplate.class);hash=app.getBean(CryptoService.class).hashPassword(PASSWORD);server="http://127.0.0.1:"+app.getWebServer().getPort();mail=app.getBean(Capture.class);LegalTestFixtures.publish(app);
+    }
+    @BeforeEach void reset(){sql.update("DELETE FROM rate_limits");sql.update("DELETE FROM outbox_jobs");mail.messages.clear();mail.attempts.clear();mail.fail=false;}
+    @AfterAll static void close()throws Exception {if(app!=null)app.close();if(db!=null)db.close();for(Path root:List.of(storage,journal)){assertTrue(root.getFileName().toString().startsWith("unicarona-closure-"));try(var paths=Files.walk(root)){for(Path p:paths.sorted(Comparator.reverseOrder()).toList()){assertTrue(p.toAbsolutePath().normalize().startsWith(root.toAbsolutePath().normalize()));Files.delete(p);}}}}
+    private String key(){return UUID.randomUUID().toString();}
+    private HttpResponse<String> send(String method,String path,Object body,Session actor,String key)throws Exception {var request=HttpRequest.newBuilder(URI.create(server+path)).header("Origin",AuthTestSettings.ORIGIN).header("Content-Type","application/json");if(actor!=null)request.header("Cookie",actor.cookie()).header("x-csrf-token",actor.csrf());if(key!=null)request.header("idempotency-key",key);request.method(method,"GET".equals(method)?HttpRequest.BodyPublishers.noBody():HttpRequest.BodyPublishers.ofString(json.writeValueAsString(body)));return http.send(request.build(),HttpResponse.BodyHandlers.ofString());}
+    private Session user(boolean admin)throws Exception {String email=UUID.randomUUID()+"@example.test";UUID id=sql.queryForObject("INSERT INTO users(email,password_hash,name,birth_date,email_verified_at,role) VALUES(?,?,'Synthetic closure user','2000-01-01',now(),?) RETURNING id",UUID.class,email,hash,admin?"admin":"user");var response=send("POST","/api/v1/auth/login",Map.of("email",email,"password",PASSWORD),null,null);assertEquals(200,response.statusCode());var cookies=new LinkedHashMap<String,String>();for(String header:response.headers().allValues("set-cookie")){String[] pair=header.split(";",2)[0].split("=",2);cookies.put(pair[0],pair[1]);}return new Session(id,email,String.join("; ",cookies.entrySet().stream().map(e->e.getKey()+"="+e.getValue()).toList()),cookies.get("uc_csrf"));}
+    private UUID request(Session owner)throws Exception {String version=json.readTree(send("GET","/api/v1/privacy/closure",null,owner,null).body()).path("policyVersion").asText();String key=key();var body=Map.of("password",PASSWORD,"acknowledged",true,"policyVersion",version);var response=send("POST","/api/v1/privacy/closure",body,owner,key);assertEquals(202,response.statusCode(),response.body());assertEquals(response.body(),send("POST","/api/v1/privacy/closure",body,owner,key).body());return UUID.fromString(json.readTree(response.body()).path("id").asText());}
+    private UUID due(Session owner)throws Exception {UUID id=request(owner);sql.update("UPDATE privacy_account_closures SET requested_at=now()-interval '8 days',erase_after=now()-interval '1 day' WHERE id=?",id);return id;}
+    private void erase(){app.getBean(PrivacyErasureMaintenance.class).run(100,()->false);}
+    private void notices(){app.getBean(PrivacyClosureNoticeMaintenance.class).run(100,()->false);}
+    private void drain(){for(int n=0;n<200;n++)if(!app.getBean(OutboxProcessor.class).processOne())return;fail("Synthetic outbox did not drain.");}
+    private String state(UUID closure){return sql.queryForObject("SELECT status FROM privacy_account_closures WHERE id=?",String.class,closure);}
+    private String event(UUID closure,String phase){return "closure-notice:"+closure+":"+phase;}
+    private UUID job(UUID closure,String phase){return sql.queryForObject("SELECT id FROM outbox_jobs WHERE event_key=?",UUID.class,event(closure,phase));}
+    private UUID file(Session owner)throws Exception {UUID id=UUID.randomUUID();sql.update("INSERT INTO stored_files(id,owner_id,purpose,storage_key,content_type,byte_size,sha256) VALUES(?,?,'identity',?,'image/png',4,?)",id,owner.id(),id.toString(),"a".repeat(64));app.getBean(com.unicarona.file.storage.PrivateFileStorage.class).put(id.toString(),new byte[]{1,2,3,4});return id;}
+    @Test void requestedNoticeIsEncryptedIdempotentAndEssentialEvenWhenMarketingIsOff()throws Exception {
+        var owner=user(false);UUID closure=request(owner);String payload=sql.queryForObject("SELECT payload::text FROM outbox_jobs WHERE event_key=?",String.class,event(closure,"requested"));assertFalse(payload.contains(owner.email()));assertFalse(payload.contains(PASSWORD));assertTrue(json.readTree(payload).path("toCiphertext").asText().startsWith("pvc1."));assertEquals(1,sql.queryForObject("SELECT count(*) FROM outbox_jobs WHERE event_key=?",Integer.class,event(closure,"requested")));
+        assertNull(sql.queryForObject("SELECT completion_contact_ciphertext FROM privacy_account_closures WHERE id=?",String.class,closure));drain();assertEquals(1,mail.messages.size());var message=mail.messages.getFirst();assertEquals("closure_requested",message.kind());assertEquals(owner.email(),message.to());assertTrue(message.content().text().contains("a partir de"));assertFalse(message.content().text().contains("link expira"));assertEquals("{}",sql.queryForObject("SELECT payload::text FROM outbox_jobs WHERE id=?",String.class,message.id()));
+    }
+    @Test void cancellationSkipsAnOutdatedRequestedNoticeAndDoesNotReactivatePreferences()throws Exception {
+        var owner=user(false);UUID closure=request(owner);var response=send("POST","/api/v1/privacy/closure/cancel",Map.of("password",PASSWORD),owner,key());assertEquals(200,response.statusCode(),response.body());drain();assertEquals(1,mail.messages.size());assertEquals("closure_cancelled",mail.messages.getFirst().kind());assertEquals("cancelled",state(closure));assertTrue(mail.messages.getFirst().content().text().contains("não foram reativadas"));assertEquals(1,sql.queryForObject("SELECT count(*) FROM audit_logs WHERE actor_id=? AND action='email_delivery_skipped'",Integer.class,owner.id()));
+    }
+    @Test void anOldCancellationCannotMisleadTheOwnerAfterANewClosureRequest()throws Exception {
+        var owner=user(false);UUID old=request(owner);assertEquals(200,send("POST","/api/v1/privacy/closure/cancel",Map.of("password",PASSWORD),owner,key()).statusCode());UUID current=request(owner);assertNotEquals(old,current);drain();assertEquals(1,mail.messages.size());assertEquals("closure_requested",mail.messages.getFirst().kind());assertEquals(job(current,"requested"),mail.messages.getFirst().id());assertEquals("scheduled",state(current));
+    }
+    @Test void completionIsNotSentBeforeFilesAreErasedAndUsesTheCapturedAddressAfterProfileRemoval()throws Exception {
+        var owner=user(false);UUID file=file(owner);Path path=storage.resolve(file.toString());Files.delete(path);Files.createDirectory(path);Files.writeString(path.resolve("obstruction"),"Synthetic obstruction");UUID closure=due(owner);
+        erase();notices();assertEquals("erasing",state(closure));assertEquals(0,sql.queryForObject("SELECT count(*) FROM outbox_jobs WHERE event_key=?",Integer.class,event(closure,"completed")));String contact=sql.queryForObject("SELECT completion_contact_ciphertext FROM privacy_account_closures WHERE id=?",String.class,closure);assertTrue(contact.startsWith("pvc1."));assertFalse(contact.contains(owner.email()));
+        Files.delete(path.resolve("obstruction"));Files.delete(path);sql.update("UPDATE stored_files SET erasure_retry_after=now() WHERE id=?",file);erase();assertEquals("completed",state(closure));assertEquals(0,mail.messages.size());notices();assertNull(sql.queryForObject("SELECT completion_contact_ciphertext FROM privacy_account_closures WHERE id=?",String.class,closure));assertTrue(sql.queryForObject("SELECT email LIKE '%@deleted.invalid' FROM users WHERE id=?",Boolean.class,owner.id()));drain();assertEquals(1,mail.messages.size());assertEquals(owner.email(),mail.messages.getFirst().to());assertEquals("closure_completed",mail.messages.getFirst().kind());assertTrue(mail.messages.getFirst().content().text().contains("acesso restrito"));assertTrue(mail.messages.getFirst().content().text().contains("privacy@example.test"));
+        erase();notices();drain();assertEquals(1,mail.messages.size());assertEquals(1,sql.queryForObject("SELECT count(*) FROM outbox_jobs WHERE event_key=?",Integer.class,event(closure,"completed")));
+    }
+    @Test void deliveryFailureRetriesTheSameNoticeWithoutReopeningTheAccount()throws Exception {
+        var owner=user(false);UUID closure=due(owner);erase();notices();UUID job=job(closure,"completed");mail.fail=true;assertTrue(app.getBean(OutboxProcessor.class).processOne());assertEquals("completed",state(closure));assertEquals("pending",sql.queryForObject("SELECT status FROM outbox_jobs WHERE id=?",String.class,job));assertFalse(sql.queryForObject("SELECT payload::text FROM outbox_jobs WHERE id=?",String.class,job).contains(owner.email()));
+        mail.fail=false;sql.update("UPDATE outbox_jobs SET available_at=now() WHERE id=?",job);assertTrue(app.getBean(OutboxProcessor.class).processOne());assertEquals(List.of(job,job),mail.attempts);assertEquals(1,mail.messages.size());assertEquals("{}",sql.queryForObject("SELECT payload::text FROM outbox_jobs WHERE id=?",String.class,job));assertEquals("completed",state(closure));
+    }
+    @Test void missingContactKeyCannotBlockErasureOrStarvePreparationForAnotherAccount()throws Exception {
+        var broken=user(false);UUID bad=due(broken);assertTrue(app.getBean(PrivacyErasureTransactions.class).prepare(bad));sql.update("UPDATE privacy_account_closures SET completion_contact_ciphertext=replace(completion_contact_ciphertext,'pvc1.derived-local-v1.','pvc1.missing-key.') WHERE id=?",bad);erase();assertEquals("completed",state(bad));
+        var good=user(false);UUID valid=due(good);erase();notices();assertEquals("completed",state(valid));assertTrue(sql.queryForObject("SELECT notice_retry_after>now() FROM privacy_account_closures WHERE id=?",Boolean.class,bad));assertEquals(0,sql.queryForObject("SELECT count(*) FROM outbox_jobs WHERE event_key=?",Integer.class,event(bad,"completed")));drain();assertTrue(mail.messages.stream().anyMatch(m->m.kind().equals("closure_completed")&&m.to().equals(good.email())));assertFalse(mail.messages.stream().anyMatch(m->m.to().equals(broken.email())));
+    }
+    @Test void expiredContactAndAnExpiredQueuedCompletionLoseTheirPrivatePayloads()throws Exception {
+        var first=user(false);UUID noQueue=due(first);assertTrue(app.getBean(PrivacyErasureTransactions.class).prepare(noQueue));sql.update("UPDATE privacy_account_closures SET notice_contact_expires_at=now()-interval '1 second' WHERE id=?",noQueue);erase();notices();app.getBean(PrivacyRetentionTransactions.class).prune(100);assertEquals("completed",state(noQueue));assertNull(sql.queryForObject("SELECT completion_contact_ciphertext FROM privacy_account_closures WHERE id=?",String.class,noQueue));assertEquals(0,sql.queryForObject("SELECT count(*) FROM outbox_jobs WHERE event_key=?",Integer.class,event(noQueue,"completed")));
+        var second=user(false);UUID queued=due(second);erase();notices();UUID id=job(queued,"completed");sql.update("UPDATE privacy_account_closures SET notice_contact_expires_at=now()-interval '1 second' WHERE id=?",queued);app.getBean(PrivacyRetentionTransactions.class).prune(100);assertEquals("{}",sql.queryForObject("SELECT payload::text FROM outbox_jobs WHERE id=?",String.class,id));drain();assertFalse(mail.messages.stream().anyMatch(m->m.kind().equals("closure_completed")));assertEquals(1,sql.queryForObject("SELECT count(*) FROM audit_logs WHERE action='closure_notice_contact_expired' AND resource_id=?",Integer.class,noQueue));assertEquals(1,sql.queryForObject("SELECT count(*) FROM audit_logs WHERE action='closure_notice_payload_expired' AND resource_id=?",Integer.class,id));
+    }
+    @Test void replayOfSuppressionDoesNotRegenerateOrDeliverOldClosureNotices()throws Exception {
+        var owner=user(false);UUID closure=due(owner);erase();notices();assertEquals(1,sql.queryForObject("SELECT count(*) FROM outbox_jobs WHERE event_key=?",Integer.class,event(closure,"completed")));
+        sql.update("UPDATE users SET name='Synthetic restored profile',email=?,password_hash=?,birth_date='2000-01-01',deleted_at=NULL,account_status='active' WHERE id=?",owner.email(),hash,owner.id());app.getBean(PrivacyRestoreGuard.class).run(new org.springframework.boot.DefaultApplicationArguments());notices();drain();assertEquals("completed",state(closure));assertNotNull(sql.queryForObject("SELECT notice_suppressed_at FROM privacy_account_closures WHERE id=?",java.sql.Timestamp.class,closure));assertEquals(0,mail.messages.size());assertEquals("{}",sql.queryForObject("SELECT payload::text FROM outbox_jobs WHERE event_key=?",String.class,event(closure,"completed")));
+    }
+    @Test void platformInitiatedClosureAndAdministrativeCancellationUseTheirOwnNotices()throws Exception {
+        var admin=user(true);var owner=user(false);var body=new LinkedHashMap<String,Object>(Map.of("password",PASSWORD,"action","close","expectedStatus","active","reasonCode","security","publicReason","Synthetic public decision requiring account closure","reason","Synthetic specific internal case requiring this administrative decision"));
+        var closed=send("POST","/api/v1/admin/privacy/accounts/"+owner.id()+"/decision",body,admin,key());assertEquals(200,closed.statusCode(),closed.body());drain();assertEquals(1,mail.messages.size());assertEquals("closure_platform",mail.messages.getFirst().kind());assertTrue(mail.messages.getFirst().content().text().contains("peça revisão"));mail.messages.clear();body.put("action","cancel_closure");body.put("expectedStatus","suspended");var cancelled=send("POST","/api/v1/admin/privacy/accounts/"+owner.id()+"/decision",body,admin,key());assertEquals(200,cancelled.statusCode(),cancelled.body());drain();assertEquals(1,mail.messages.size());assertEquals("closure_cancelled",mail.messages.getFirst().kind());assertEquals("suspended",sql.queryForObject("SELECT account_status FROM users WHERE id=?",String.class,owner.id()));
+    }
+    @Test void aCompletedKindCannotBypassLifecycleValidationThroughAnUnknownEventNamespace()throws Exception {
+        var owner=user(false);UUID closure=request(owner);sql.update("DELETE FROM outbox_jobs");var cipher=app.getBean(PrivacyEvidenceCrypto.class);String event="synthetic-unrelated-notice";
+        var payload=Map.of("ownerId",owner.id().toString(),"closureId",closure.toString(),"kind","closure_completed","toCiphertext",cipher.sealMail(PrivacyEvidenceCrypto.Field.MAIL_TO,owner.id(),event,owner.email()),"urlCiphertext",cipher.sealMail(PrivacyEvidenceCrypto.Field.MAIL_URL,owner.id(),event,AuthTestSettings.ORIGIN+"/login.html#privacidade"));UUID id=sql.queryForObject("INSERT INTO outbox_jobs(type,event_key,payload) VALUES('email',?,?::jsonb) RETURNING id",UUID.class,event,json.writeValueAsString(payload));drain();assertEquals(0,mail.messages.size());assertEquals("done",sql.queryForObject("SELECT status FROM outbox_jobs WHERE id=?",String.class,id));assertEquals("{}",sql.queryForObject("SELECT payload::text FROM outbox_jobs WHERE id=?",String.class,id));
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "password": "Cross-language-fixture-2026",
+  "key": "abababababababababababababababababababababababababababababababab",
+  "text": "PIN 0012 — teste",
+  "ciphertext": "AwMDAwMDAwMDAwMDveEMfEt04IFuTch7Gp6vUt5CnmeMHNSdUiPNnE2TbUMtng==",
+  "passwordHash": "$argon2id$v=19$m=19456,p=1,t=2$Do8qPGnP+nbKWcyh7tmMlQ$kmZDqXQ3mYkKsl3TqMZ195vIM8KNiGuREkju88YN2ng",
+  "token": "synthetic-token",
+  "pepper": "synthetic-pepper",
+  "tokenHash": "b15fa3e9b1513445c1db9e6f3a2b61d939817dc0f60c2b29175d86a245bc5498"
+}

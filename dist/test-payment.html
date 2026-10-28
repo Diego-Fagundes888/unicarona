@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>Pagamento de teste | UniCarona</title>
+    <link rel="icon" href="assets/brand/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/brand/site.webmanifest" />
+    <link rel="stylesheet" href="login.css?v=706b8a124671" />
+    <link rel="stylesheet" href="design-system.css?v=a028fbfd0b4a" />
+    <link rel="stylesheet" href="brand.css?v=b7d66a6a3fae" />
+    <script src="ui.js?v=3b7f71853ad8" defer></script>
+    <script src="api.js?v=aa477ce0e985" defer></script>
+    <script src="test-payment.js?v=5cb178e5b5c0" defer></script>
+  </head>
+  <body data-auth-view="payment-test">
+    <header class="auth-header">
+      <a class="brand" href="dashboard.html" aria-label="UniCarona, painel">
+        <img class="uc-brand-logo" src="assets/brand/logo-horizontal-dark.svg" width="194" height="44" alt="" />
+      </a>
+    </header>
+    <main class="auth-main">
+      <section class="auth-column" aria-labelledby="payment-title">
+        <h1 id="payment-title">Pagamento de teste</h1>
+        <p class="intro">
+          Este ambiente não movimenta dinheiro. Escolha um resultado para testar
+          sua reserva.
+        </p>
+        <p id="payment-state" role="status">Carregando cobrança…</p>
+        <div id="payment-loading" class="m-loading" aria-hidden="true">
+          <div class="m-skeleton"></div>
+          <div class="m-skeleton short"></div>
+        </div>
+        <div id="payment-actions" class="stack" hidden>
+          <button class="primary m-button" type="button" data-result="approved">
+            Testar pagamento aprovado
+          </button>
+          <button
+            class="secondary m-button secondary"
+            type="button"
+            data-result="failed"
+          >
+            Testar pagamento recusado
+          </button>
+        </div>
+        <p id="payment-error" class="feedback" role="alert" tabindex="-1"></p>
+        <a class="back-link" id="payment-back" href="dashboard.html"
+          >Voltar ao UniCarona</a
+        >
+      </section>
+    </main>
+  </body>
+</html>

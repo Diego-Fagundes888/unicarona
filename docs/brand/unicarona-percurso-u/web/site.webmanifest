@@ -1,0 +1,27 @@
+{
+  "name": "UniCarona",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#087B5B",
+  "background_color": "#087B5B",
+  "display": "standalone",
+  "short_name": "UniCarona",
+  "lang": "pt-BR",
+  "description": "Caronas universitárias avulsas e mensais."
+}

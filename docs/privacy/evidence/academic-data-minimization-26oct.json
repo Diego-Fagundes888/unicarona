@@ -1,0 +1,257 @@
+{
+  "at": "2026-10-26T23:45:45.7136630-03:00",
+  "status": "Academic disclosure minimized in development source; full44 goal remains active",
+  "schemaVersion": 46,
+  "newMigration": false,
+  "privacyDraftRevision": 11,
+  "priorPrivacySource": "history/privacy-r10.md",
+  "priorPrivacySourceSha256": "c7bd3512d9d355159ea4d9609c2f55ae748415c4127ee32bb8abbffdbd3219c7",
+  "priorPrivacySourcePreservedExactly": true,
+  "driverTermsDraftRevision": 3,
+  "legalPublicationState": "draft",
+  "legalPublicationPerformed": false,
+  "retroactiveAcceptanceCreated": false,
+  "controllerIdentityChanged": false,
+  "academicOwnAccessPreserved": true,
+  "academicCounterpartyValuesOmittedAtSqlProjection": true,
+  "academicDisclosureProtectedInCatalog": true,
+  "academicDisclosureProtectedBeforePayment": true,
+  "academicDisclosureProtectedInPaidReservation": true,
+  "academicDisclosureProtectedInHistory": true,
+  "academicProfileValuesDeletedByThisChange": false,
+  "monthlyCompatibilityPreserved": true,
+  "compatibilityInferenceRemainsPossible": true,
+  "anonymousDataClaim": false,
+  "driverPeriodStatusProtectedIsPresentationOnly": true,
+  "frontendCopy": "Dados acadêmicos protegidos",
+  "newHttpCases": 4,
+  "reinforcedAcceptedMonthlyCase": true,
+  "finalUnit": 191,
+  "finalIntegration": 189,
+  "integrationClasses": {
+    "LegalHttpIT": 15,
+    "IdentityDriverHttpIT": 11,
+    "RideHttpIT": 20,
+    "PaymentHttpIT": 24,
+    "ContractHttpIT": 39,
+    "PrivacyRightsHttpIT": 18,
+    "LifecycleHttpIT": 30,
+    "RequestHttpIT": 16,
+    "RoutineHttpIT": 16
+  },
+  "finalFailures": 0,
+  "finalErrors": 0,
+  "finalSkipped": 0,
+  "finalJs": 50,
+  "countsOverlap": true,
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "realProviderCalls": false,
+  "realEmailDelivery": false,
+  "nativeV26MutationPerformed": false,
+  "privateFrozenFrontendMutationPerformed": false,
+  "sourceFrontendChanged": true,
+  "sourceFrontendBeforeSha256": "04d89d3a53313258d89d1364734155575e3353dcc78542fdd382f803fee5e0c6",
+  "newCss": false,
+  "newAssets": false,
+  "designSystemChanged": false,
+  "visualState": "Deferred by human instruction; no browser retry or access bypass",
+  "impeccableDetectorRuns": 1,
+  "impeccableDetector": [],
+  "visualPublicationVerdict": "Not issued",
+  "productionPublication": false,
+  "nativePitrRerunThisPhase": false,
+  "runs": [
+    {
+      "approved": false,
+      "file": "privacy-academic-minimization-first-26oct.log",
+      "unit": 3,
+      "sha256": "977784e7f264137110ac3f567a5a62c5fbef309973c47ec5d5c3671cd35fd05d",
+      "errors": 1,
+      "integration": 36,
+      "note": "Database correctly rejected direct planned-to-completed transition in new fixture. Corrected fixture, no guard weakened."
+    },
+    {
+      "approved": true,
+      "file": "privacy-academic-minimization-final-26oct.log",
+      "unit": 191,
+      "sha256": "2835b11496a0d995cbdd90be02b653188e8014235361cb5265ab6946e1b1e301",
+      "errors": 0,
+      "integration": 189,
+      "note": "Final source; nine integration classes, four new literal HTTP privacy cases and reinforced accepted monthly case."
+    },
+    {
+      "errors": 0,
+      "js": 50,
+      "note": "Protected payload with stale values, own defined/undefined fields and existing UI cases.",
+      "file": "privacy-academic-js-first-26oct.log",
+      "sha256": "9d8e203f9b9b366beda02319606cda29a1c20d4f001f25265241f02bd4403a4b",
+      "approved": true
+    },
+    {
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "file": "privacy-academic-impeccable-26oct.json",
+      "approved": true,
+      "note": "One detector run; [] is mechanical evidence, not visual approval."
+    }
+  ],
+  "sources": [
+    {
+      "file": "backend-java/src/main/java/com/unicarona/ride/repository/RideReadRepository.java",
+      "sha256": "557f788ed55dbff5ce25e67933dec0b5a1da716d1218312b42638b33bd3d528c"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/ride/service/RideService.java",
+      "sha256": "bef8410d6d85ac65865e539e481adecfbd4c0edae4a735ba6fbf959be7c27a57"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/subscription/repository/RoutineReadRepository.java",
+      "sha256": "21731fdb7565370c170fe2af7665fc6e50442eaf7293d55b615506481d326ebd"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/ride/dto/RideDto.java",
+      "sha256": "1d578459b9a8f9a398a385e86305dfc2b95ea4a4640c230ec3c92aeeb05ec85e"
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "a93907360f80fa53dde76acaec5949d53b9f53e1d9f723f3446ce3351d245ece"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/support/LegacyPrivacyProjection.java",
+      "sha256": "e5cceb1f12099f2936b2be0aacc5f234184b4b02e8547873d38644427d241331"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/ride/RideHttpIT.java",
+      "sha256": "df56512701fb506790cd1527cb9be799d98d1abf9059c45f8d77616ad2a0ecf5"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/subscription/RoutineHttpIT.java",
+      "sha256": "8361dd6f4bc5d9fe54c2eb45f1dd27806b74befc247abf0bfbecaa3e7c3b3bbf"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/subscription/ContractHttpIT.java",
+      "sha256": "330dc336e6d15e9bc2e506a176ea14f109eea8391d9bb40e8f2ae1e2845d67e6"
+    },
+    {
+      "file": "tests/privacy-ui.test.mjs",
+      "sha256": "e9dd93b4086d0db1b46b3c8199db79597b562f1ac73cb9b5032b9dc45193e474"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "006ca07301b625b2868d69d61e4600ff3d6190262355ef27b78e0f5d868c921d"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "1aea347f40306f0bedc30b95012f58dd8d1fee4a05207e170fda838da6a48c11"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/privacy-r10.md",
+      "sha256": "c7bd3512d9d355159ea4d9609c2f55ae748415c4127ee32bb8abbffdbd3219c7"
+    },
+    {
+      "file": "docs/privacy/Dados_Academicos_Entre_Participantes.md",
+      "sha256": "80b02949d165a2e55ff54e994318ba0ab40ea1550e36f2e9ffe23194f15e0671"
+    },
+    {
+      "file": "docs/privacy/Plano_Implementacao.md",
+      "sha256": "1e34fe6b61e4034e63f8eba528d53757990f80fbd7b04f2eba26c5fa49423d73"
+    },
+    {
+      "file": "docs/privacy/Inventario_Dados.md",
+      "sha256": "2c5f2b2082bfba2e421203d322daf785fd8470a935b8c79258b8231a0198ebff"
+    },
+    {
+      "file": "docs/privacy/Matriz_44_Requisitos.md",
+      "sha256": "e27bcb653832f95ea99a5e6962d526b39af4e3d5a64c2e143deaafbda412cfb8"
+    },
+    {
+      "file": "docs/privacy/Consistencia_Documentos.md",
+      "sha256": "336d1e0ae737381ab6bacb04bfaba78403214b79ef34070a32da4564219d657b"
+    },
+    {
+      "file": ".impeccable/review/privacy/academic-data-minimization-review.md",
+      "sha256": "9135e925404ffae24f530784488794f7caab2429cf677506754e08d65ffbea77"
+    },
+    {
+      "file": ".impeccable/surfaces/privacy.md",
+      "sha256": "c8fd7915d7dea5d89e45f89ea6c296e0c9bd59ebb1db1e006e756fccbbbf6fbe"
+    }
+  ],
+  "preserved": [
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f",
+      "file": "dist/privacy.css"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912",
+      "file": "dist/design-system.css"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327",
+      "file": "DESIGN.md"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d",
+      "file": "PRODUCT.md"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852",
+      "file": "dist/legal.js"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "4182e0443c1e4903130242390cff92be8798e3409a66bd0addbc60cbfe45082c",
+      "file": "backend-java/src/main/java/com/unicarona/privacy/recovery/PitrEncryptedArchive.java"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "0d8e1ffe694e04ce07169348d50a7e1550a76ad702a1e133e4330512567eb603",
+      "file": "backend-java/src/main/java/com/unicarona/privacy/recovery/PitrRecoveryBundle.java"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "e39ea8c1566f408f8de2233f0fcaec80ccd1f60195cffa437e5f5f08f42c7e10",
+      "file": "backend-java/src/main/java/com/unicarona/privacy/ops/PitrArchiveCommand.java"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "ed3c6d208a0fd5b627a5e2783d97e0f4cff55ff534ac2e3ab1bfa209d52a6999",
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PitrEncryptedArchiveTest.java"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "7f9fd4674a5c787642f819e51f28c830d0a02d4d2922f81aaf8d953d8a82990f",
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PitrRecoveryBundleTest.java"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "f53d4caa13bb8ca76a62299bf37ee870e524be7c06ef0acbcf6c0059b57869e6",
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PrivacyNativePitrIT.java"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "e45f1b2419d879ba755fc2d4b38d5c70ca9e4ecc1df6024df975fe6317e96dee",
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PrivacyPitrMemoryIT.java"
+    },
+    {
+      "unchangedSinceNativePitr": true,
+      "sha256": "407df3cc063ac0051a656e4a730352cebbd8f3dc91f3f9c66fbebfb94623f6f5",
+      "file": "backend-java/src/test/java/com/unicarona/support/IsolatedPitrPostgres.java"
+    }
+  ],
+  "outstanding": [
+    "Inference via compatibility and proportionate abuse controls",
+    "Remaining identifiers, notes, schedule and cache minimization",
+    "Paid financial and fulfilled contract retention",
+    "True anonymous aggregation",
+    "Continuous/external recovery with operational readiness and keys",
+    "Deferred rendered journeys, material document update and coordinated publication",
+    "Full legal/technical red teams, all44 audit and sixteen final deliverables"
+  ]
+}

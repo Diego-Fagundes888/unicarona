@@ -1,0 +1,11 @@
+[extend]
+useDefault = true
+
+# Fixed cross-language test vector: derived from the synthetic token and pepper
+# in this same JSON fixture. This is not an application credential.
+[[allowlists]]
+description = "Synthetic cross-language token hash"
+condition = "AND"
+paths = ['''backend-java/src/test/resources/node-crypto-fixture\.json$''']
+regexTarget = "secret"
+regexes = ['''^b15fa3e9b1513445c1db9e6f3a2b61d939817dc0f60c2b29175d86a245bc5498$''']

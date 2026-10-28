@@ -1,0 +1,4362 @@
+{
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/health"
+    },
+    {
+      "method": "GET",
+      "path": "/health/ready"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/metrics"
+    },
+    {
+      "path": "/api/v1/auth/register",
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120
+          },
+          "email": {
+            "type": "string",
+            "maxLength": 254,
+            "format": "email",
+            "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 128
+          },
+          "birth": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 25
+          },
+          "truth": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          },
+          "terms": {
+            "type": "boolean",
+            "enum": [
+              true
+            ]
+          },
+          "academic": {
+            "type": "object",
+            "properties": {
+              "universityId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "courseId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "regionId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "region": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "periodStatus": {
+                "type": "string",
+                "enum": [
+                  "numbered",
+                  "irregular",
+                  "undefined"
+                ]
+              },
+              "periodNumber": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 100,
+                "nullable": true
+              },
+              "shift": {
+                "type": "string",
+                "enum": [
+                  "morning",
+                  "afternoon",
+                  "night",
+                  "full-time",
+                  "variable"
+                ]
+              },
+              "classLabel": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B",
+                  "C"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "universityId",
+              "courseId",
+              "region",
+              "periodStatus",
+              "shift"
+            ],
+            "additionalProperties": false
+          },
+          "legal": {
+            "type": "object",
+            "properties": {
+              "privacyNotice": {
+                "type": "boolean",
+                "const": true
+              },
+              "documents": {
+                "type": "array",
+                "minItems": 5,
+                "maxItems": 5,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "slug": {
+                      "type": "string",
+                      "enum": [
+                        "terms",
+                        "privacy",
+                        "driver-terms",
+                        "participation",
+                        "payments",
+                        "safety"
+                      ]
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z0-9._-]{1,64}$"
+                    },
+                    "contentSha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  },
+                  "required": [
+                    "slug",
+                    "version",
+                    "contentSha256"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "privacyNotice",
+              "documents"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "password",
+          "birth",
+          "truth",
+          "terms",
+          "academic",
+          "legal"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/auth/login",
+      "body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "maxLength": 254,
+            "format": "email",
+            "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+          },
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "email",
+          "password"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/auth/verify-email",
+      "body": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/auth/resend-verification",
+      "body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "maxLength": 254,
+            "format": "email",
+            "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/auth/forgot-password",
+      "body": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "maxLength": 254,
+            "format": "email",
+            "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/auth/reset-password",
+      "body": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "password": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "token",
+          "password"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/auth/refresh",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/auth/logout",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/auth/change-password",
+      "body": {
+        "type": "object",
+        "properties": {
+          "currentPassword": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "password": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "currentPassword",
+          "password"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/me"
+    },
+    {
+      "path": "/api/v1/drivers/applications",
+      "body": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "color": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 40
+          },
+          "plate": {
+            "type": "string"
+          },
+          "capacity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "identityFileId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "licenseFileId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "model",
+          "color",
+          "plate",
+          "capacity",
+          "identityFileId",
+          "licenseFileId"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/drivers/applications",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected",
+              "replaced"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/drivers/applications",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "approved",
+              "rejected",
+              "replaced"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/drivers/applications/{id}/review",
+      "body": {
+        "type": "object",
+        "properties": {
+          "approve": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1200
+          }
+        },
+        "required": [
+          "approve",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/files"
+    },
+    {
+      "path": "/api/v1/files/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/rides",
+      "body": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "meeting": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "ida",
+              "volta"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "time": {
+            "type": "string",
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+          },
+          "capacity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "distance": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2000
+          },
+          "toll": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2000
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{1,4}(\\.\\d{1,2})?$"
+              }
+            ]
+          },
+          "automatic": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1200
+          }
+        },
+        "required": [
+          "region",
+          "meeting",
+          "direction",
+          "date",
+          "time",
+          "capacity",
+          "distance",
+          "automatic"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/rides",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "driverId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "maxPrice": {
+            "type": "string",
+            "pattern": "^\\d{1,9}$"
+          },
+          "time": {
+            "type": "string",
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+          },
+          "region": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "onlyAvailable": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          "automatic": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          "direction": {
+            "default": "ida",
+            "type": "string",
+            "enum": [
+              "ida",
+              "volta"
+            ]
+          },
+          "date": {
+            "default": "2026-10-02",
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/rides/{id}",
+      "body": {
+        "type": "object",
+        "properties": {
+          "capacity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "distance": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2000
+          },
+          "toll": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2000
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{1,4}(\\.\\d{1,2})?$"
+              }
+            ]
+          },
+          "automatic": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1200
+          },
+          "version": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "capacity",
+          "distance",
+          "automatic"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "PATCH"
+    },
+    {
+      "path": "/api/v1/rides/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/rides/mine",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "upcoming": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/routines",
+      "body": {
+        "type": "object",
+        "properties": {
+          "region": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "meeting": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "ida",
+              "volta",
+              "ambos"
+            ]
+          },
+          "time": {
+            "type": "string",
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+          },
+          "returnTime": {
+            "type": "string",
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+          },
+          "weekdays": {
+            "minItems": 1,
+            "maxItems": 7,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 6
+            }
+          },
+          "capacity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "distance": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 2000
+          },
+          "toll": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2000
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{1,4}(\\.\\d{1,2})?$"
+              }
+            ]
+          },
+          "automatic": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 1200
+          }
+        },
+        "required": [
+          "region",
+          "meeting",
+          "direction",
+          "time",
+          "weekdays",
+          "capacity",
+          "distance",
+          "automatic"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/routines",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "compatibleOnly": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "time": {
+            "type": "string",
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+          },
+          "region": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "direction": {
+            "type": "string",
+            "enum": [
+              "ida",
+              "volta"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/routines/mine",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/routines/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/subscriptions/preview",
+      "body": {
+        "type": "object",
+        "properties": {
+          "routineId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "startDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "directions": {
+            "type": "string",
+            "enum": [
+              "ida",
+              "volta",
+              "ambos"
+            ]
+          },
+          "weekdays": {
+            "minItems": 1,
+            "maxItems": 7,
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 6
+            }
+          },
+          "previousContractId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "routineId",
+          "startDate",
+          "directions",
+          "weekdays"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/routines/{id}/availability",
+      "body": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "PATCH"
+    },
+    {
+      "path": "/api/v1/subscriptions",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "side": {
+            "default": "passenger",
+            "type": "string",
+            "enum": [
+              "passenger",
+              "driver"
+            ]
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/subscriptions/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/subscriptions/{id}/rights",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "path": "/api/v1/subscriptions/{id}/cancel-renewal",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/subscriptions/{id}/remove",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/waitlist",
+      "body": {
+        "type": "object",
+        "properties": {
+          "routineId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "routineId"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/waitlist"
+    },
+    {
+      "path": "/api/v1/waitlist/{id}/leave",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/ride-requests",
+      "body": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "avulsa"
+                ]
+              },
+              "rideId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              }
+            },
+            "required": [
+              "type",
+              "rideId"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "mensal"
+                ]
+              },
+              "routineId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "startDate": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "directions": {
+                "type": "string",
+                "enum": [
+                  "ida",
+                  "volta",
+                  "ambos"
+                ]
+              },
+              "weekdays": {
+                "minItems": 1,
+                "maxItems": 7,
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 6
+                }
+              },
+              "previousContractId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              }
+            },
+            "required": [
+              "type",
+              "routineId",
+              "startDate",
+              "directions",
+              "weekdays"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/ride-requests",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "side": {
+            "default": "passenger",
+            "type": "string",
+            "enum": [
+              "passenger",
+              "driver"
+            ]
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "accepted",
+              "confirmed",
+              "rejected",
+              "cancelled",
+              "expired"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/ride-requests/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/ride-requests/{id}/respond",
+      "body": {
+        "type": "object",
+        "properties": {
+          "accept": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "accept"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/ride-requests/{id}/cancel",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/reservations",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "contractId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "rideId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "side": {
+            "default": "passenger",
+            "type": "string",
+            "enum": [
+              "passenger",
+              "driver"
+            ]
+          },
+          "upcoming": {
+            "type": "string",
+            "enum": [
+              "true",
+              "false"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/reservations/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/reservations/{id}/contact",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/rides/{id}/start",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/rides/{id}/finish",
+      "body": {
+        "type": "object",
+        "properties": {
+          "availability": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "availability"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/rides/{id}/cancel",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/rides/{id}/no-class",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/reservations/{id}/board",
+      "body": {
+        "type": "object",
+        "properties": {
+          "pin": {
+            "type": "string",
+            "pattern": "^\\d{4}$"
+          }
+        },
+        "required": [
+          "pin"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/reservations/{id}/final",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/reservations/{id}/contest",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/reservations/{id}/cancel",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/reservations/{id}/absence",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/rides/{id}/time-proposal",
+      "body": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "string",
+            "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "time",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/rides/{id}/keep-time",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/reservations/{id}/time-response",
+      "body": {
+        "type": "object",
+        "properties": {
+          "accept": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "accept"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/runtime"
+    },
+    {
+      "path": "/api/v1/development/payments/{id}/result",
+      "body": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "approved",
+              "failed"
+            ]
+          }
+        },
+        "required": [
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/payments/{id}/checkout",
+      "body": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "pix",
+              "card"
+            ]
+          },
+          "useCredit": {
+            "type": "boolean"
+          },
+          "tripReview": {
+            "type": "string",
+            "minLength": 64,
+            "maxLength": 64,
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "method",
+          "useCredit"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/payments/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/webhooks/payments",
+      "body": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9_-]+$"
+          },
+          "paymentId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "amountCents": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 100000000
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "approved",
+              "failed"
+            ]
+          }
+        },
+        "required": [
+          "eventId",
+          "paymentId",
+          "reference",
+          "amountCents",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/wallet"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/reconciliation"
+    },
+    {
+      "path": "/api/v1/transfers",
+      "body": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "withdraw",
+              "refund"
+            ]
+          },
+          "cents": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 100000000
+          }
+        },
+        "required": [
+          "type",
+          "cents"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/transfers",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/webhooks/transfers",
+      "body": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[a-zA-Z0-9_-]+$"
+          },
+          "transferId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "amountCents": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 100000000
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "approved",
+              "failed"
+            ]
+          }
+        },
+        "required": [
+          "eventId",
+          "transferId",
+          "reference",
+          "amountCents",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/occurrences",
+      "body": {
+        "type": "object",
+        "properties": {
+          "otherId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "reservationId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          },
+          "severe": {
+            "type": "boolean"
+          },
+          "block": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "otherId",
+          "reason",
+          "severe",
+          "block"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/occurrences",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/blocks",
+      "body": {
+        "type": "object",
+        "properties": {
+          "otherId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "otherId",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/blocks",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/blocks/{id}/remove",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/admin/occurrences",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/occurrences/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/occurrences/{id}/review",
+      "body": {
+        "type": "object",
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "released",
+              "credited",
+              "retained",
+              "no_financial_change"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          },
+          "acknowledgedDecisionIds": {
+            "maxItems": 1000,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          }
+        },
+        "required": [
+          "outcome",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/notifications",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/notifications/{id}/read",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me"
+    },
+    {
+      "path": "/api/v1/users/me",
+      "body": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 25
+          },
+          "academic": {
+            "type": "object",
+            "properties": {
+              "universityId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "courseId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "regionId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "region": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "periodStatus": {
+                "type": "string",
+                "enum": [
+                  "numbered",
+                  "irregular",
+                  "undefined"
+                ]
+              },
+              "periodNumber": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 100,
+                "nullable": true
+              },
+              "shift": {
+                "type": "string",
+                "enum": [
+                  "morning",
+                  "afternoon",
+                  "night",
+                  "full-time",
+                  "variable"
+                ]
+              },
+              "classLabel": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B",
+                  "C"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "universityId",
+              "courseId",
+              "region",
+              "periodStatus",
+              "shift"
+            ],
+            "additionalProperties": false
+          },
+          "acknowledgeMonthlyImpact": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name",
+          "academic",
+          "acknowledgeMonthlyImpact"
+        ],
+        "additionalProperties": false
+      },
+      "method": "PATCH"
+    },
+    {
+      "path": "/api/v1/users/me/settings",
+      "body": {
+        "type": "object",
+        "properties": {
+          "notices": {
+            "type": "boolean"
+          },
+          "withdrawal": {
+            "type": "string",
+            "enum": [
+              "daily",
+              "monthly"
+            ]
+          }
+        },
+        "required": [
+          "notices",
+          "withdrawal"
+        ],
+        "additionalProperties": false
+      },
+      "method": "PATCH"
+    },
+    {
+      "path": "/api/v1/users/me/academic-verification",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/admin/academic-verifications",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/academic-verifications/{id}/review",
+      "body": {
+        "type": "object",
+        "properties": {
+          "approve": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "approve",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/admin/jobs",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "status": {
+            "default": "dead",
+            "type": "string",
+            "enum": [
+              "pending",
+              "processing",
+              "done",
+              "dead"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/jobs/{id}/retry",
+      "body": {
+        "type": "object",
+        "properties": {
+          "expectedAttempts": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483646
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "expectedAttempts",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/admin/accounts",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "q": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "suspended",
+              "closing",
+              "deactivated",
+              "banned"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/accounts/{id}/review",
+      "body": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "suspended"
+            ]
+          },
+          "expectedStatus": {
+            "type": "string",
+            "enum": [
+              "active",
+              "suspended",
+              "closing",
+              "deactivated"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "status",
+          "expectedStatus",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/admin/pricing",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "universityId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "universityId"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/pricing",
+      "body": {
+        "type": "object",
+        "properties": {
+          "universityId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "previousVersionId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "fuelCents": {
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 10000
+          },
+          "efficiency": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "wearCents": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2000
+          },
+          "referencePassengers": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          },
+          "commissionBps": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9500
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "universityId",
+          "previousVersionId",
+          "fuelCents",
+          "efficiency",
+          "wearCents",
+          "referencePassengers",
+          "commissionBps",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/admin/calendar",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "universityId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "endDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "startDate": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          }
+        },
+        "required": [
+          "universityId",
+          "startDate",
+          "endDate"
+        ],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/calendar",
+      "body": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "universityId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "date": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "university"
+                ]
+              }
+            },
+            "required": [
+              "universityId",
+              "date",
+              "title",
+              "scope"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "universityId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "date": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "scope": {
+                "type": "string",
+                "enum": [
+                  "class"
+                ]
+              },
+              "courseId": {
+                "type": "string",
+                "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+              },
+              "periodNumber": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 100
+              },
+              "classLabel": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B",
+                  "C"
+                ]
+              }
+            },
+            "required": [
+              "universityId",
+              "date",
+              "title",
+              "scope",
+              "courseId",
+              "periodNumber",
+              "classLabel"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      },
+      "method": "POST"
+    },
+    {
+      "path": "/api/v1/admin/calendar/{id}/deactivate",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/catalogs"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/payments/{id}/gateway",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "body": {
+        "required": [
+          "type",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "order"
+            ]
+          },
+          "data": {
+            "required": [
+              "id"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^ORD[A-Za-z0-9]{10,64}$"
+              }
+            }
+          }
+        }
+      },
+      "method": "POST",
+      "query": {
+        "required": [
+          "data.id"
+        ],
+        "type": "object",
+        "properties": {
+          "data.id": {
+            "type": "string",
+            "pattern": "^ORD[A-Za-z0-9]{10,64}$"
+          }
+        }
+      },
+      "path": "/api/v1/webhooks/mercadopago"
+    },
+    {
+      "body": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "token",
+          "method",
+          "type",
+          "installments",
+          "identificationType",
+          "identificationNumber"
+        ],
+        "properties": {
+          "installments": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1
+          },
+          "method": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_]{1,32}$"
+          },
+          "identificationNumber": {
+            "type": "string",
+            "pattern": "^([0-9]{11}|[0-9]{14})$"
+          },
+          "deviceSessionId": {
+            "type": "string",
+            "pattern": "^[\\x21-\\x7E]{8,1024}$"
+          },
+          "identificationType": {
+            "type": "string",
+            "enum": [
+              "CPF",
+              "CNPJ"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "credit_card",
+              "debit_card"
+            ]
+          },
+          "token": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{8,256}$"
+          }
+        }
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "path": "/api/v1/payments/{id}/card"
+    },
+    {
+      "path": "/api/v1/payments/config",
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/payments/{id}/sync",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "method": "POST",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "path": "/api/v1/payments/{id}/summary",
+      "method": "GET",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "path": "/api/v1/transfers/{id}/refunds",
+      "method": "GET",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/wallet/refund-review"
+    },
+    {
+      "path": "/api/v1/admin/payment-reviews",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "method": "GET"
+    },
+    {
+      "path": "/api/v1/admin/payment-reviews/{id}",
+      "method": "GET",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "path": "/api/v1/admin/payment-reviews/{id}/recheck",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/wallet/debt"
+    },
+    {
+      "path": "/api/v1/wallet/debt/checkout",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/wallet/debt/payments/{id}",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "path": "/api/v1/wallet/debt/payments/{id}/sync",
+      "body": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "method": "POST",
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "path": "/api/v1/admin/payment-reviews/{id}/resolve",
+      "body": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 1000
+          },
+          "evidenceKey": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "reason",
+          "evidenceKey"
+        ],
+        "additionalProperties": false
+      },
+      "params": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "method": "POST"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/auth/email-service-status",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/preferences",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "PATCH",
+      "path": "/api/v1/privacy/preferences",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "marketing": {
+            "type": "boolean"
+          },
+          "statementVersion": {
+            "type": "string",
+            "maxLength": 64
+          }
+        },
+        "required": [
+          "marketing"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/requests",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/requests",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "access",
+              "correction",
+              "erasure",
+              "restriction",
+              "opposition",
+              "portability",
+              "appeal",
+              "other"
+            ]
+          },
+          "details": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 2000
+          }
+        },
+        "required": [
+          "kind",
+          "details"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/requests/{id}",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/export",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/privacy/requests",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "received",
+              "in_review",
+              "awaiting_information",
+              "completed",
+              "denied"
+            ]
+          }
+        },
+        "required": [],
+        "type": "object"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/privacy/requests/{id}",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/privacy/requests/{id}/respond",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "expectedStatus": {
+            "type": "string",
+            "enum": [
+              "received",
+              "in_review",
+              "awaiting_information"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "in_review",
+              "awaiting_information",
+              "completed",
+              "denied"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 3000
+          },
+          "actionPerformed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "expectedStatus",
+          "status",
+          "message"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/closure",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/closure",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "acknowledged": {
+            "type": "boolean",
+            "const": true
+          },
+          "policyVersion": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          }
+        },
+        "required": [
+          "password",
+          "acknowledged",
+          "policyVersion"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/closure/cancel",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/legal/documents",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/legal/documents/{slug}",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "enum": [
+              "terms",
+              "privacy",
+              "driver-terms",
+              "participation",
+              "payments",
+              "safety"
+            ]
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/legal/documents/{slug}/{version}",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "enum": [
+              "terms",
+              "privacy",
+              "driver-terms",
+              "participation",
+              "payments",
+              "safety"
+            ]
+          },
+          "version": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9._-]{1,64}$"
+          }
+        },
+        "required": [
+          "slug",
+          "version"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/legal",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/legal/history",
+      "query": {
+        "additionalProperties": false,
+        "properties": {
+          "offset": {
+            "default": "0",
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "default": "30",
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "type": "object"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/legal",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "terms": {
+            "type": "boolean",
+            "const": true
+          },
+          "privacyNotice": {
+            "type": "boolean",
+            "const": true
+          },
+          "driverTerms": {
+            "type": "boolean"
+          },
+          "documents": {
+            "type": "array",
+            "minItems": 5,
+            "maxItems": 6,
+            "items": {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string",
+                  "enum": [
+                    "terms",
+                    "privacy",
+                    "driver-terms",
+                    "participation",
+                    "payments",
+                    "safety"
+                  ]
+                },
+                "version": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9._-]{1,64}$"
+                },
+                "contentSha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "slug",
+                "version",
+                "contentSha256"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "terms",
+          "privacyNotice",
+          "documents"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/account",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/account/deactivate",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "acknowledged": {
+            "type": "boolean",
+            "const": true
+          }
+        },
+        "required": [
+          "password",
+          "acknowledged"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/account/reactivate",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/privacy/accounts/{id}",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/privacy/accounts/{id}/decision",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "ban",
+              "close",
+              "lift_ban",
+              "cancel_closure"
+            ]
+          },
+          "expectedStatus": {
+            "type": "string",
+            "enum": [
+              "active",
+              "deactivated",
+              "suspended",
+              "banned",
+              "closing"
+            ]
+          },
+          "reasonCode": {
+            "type": "string",
+            "enum": [
+              "fraud",
+              "violence",
+              "harassment",
+              "false_documents",
+              "security",
+              "repeated_terms_breach"
+            ]
+          },
+          "publicReason": {
+            "type": "string",
+            "minLength": 10,
+            "maxLength": 1000
+          },
+          "restrictionDays": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 365
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 3000
+          }
+        },
+        "required": [
+          "password",
+          "action",
+          "expectedStatus",
+          "reasonCode",
+          "publicReason",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/identity",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/identity/email",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "email": {
+            "type": "string",
+            "maxLength": 254,
+            "format": "email",
+            "pattern": "^(?:[A-Za-z0-9_'+\\-]+\\.)*[A-Za-z0-9_'+\\-]*[A-Za-z0-9_+-]@(?:[A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+          }
+        },
+        "required": [
+          "password",
+          "email"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/identity/email/confirm",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "token": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_-]{43}$"
+          }
+        },
+        "required": [
+          "password",
+          "token"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/identity/email/cancel",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/privacy/identity/birth",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "birth": {
+            "type": "string",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+          }
+        },
+        "required": [
+          "password",
+          "birth"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/admin/privacy/holds",
+      "query": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          },
+          "userId": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "review_due",
+              "released",
+              "expired"
+            ]
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/privacy/holds",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "userId": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "profile",
+              "files",
+              "location",
+              "contract_identity",
+              "vehicle_identity",
+              "identity_change",
+              "account_decision",
+              "privacy_request",
+              "consent",
+              "legal",
+              "notifications"
+            ]
+          },
+          "resourceId": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          },
+          "legalBasis": {
+            "type": "string",
+            "enum": [
+              "legal_obligation",
+              "regular_exercise_of_rights",
+              "contract",
+              "security"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 3000
+          },
+          "caseReference": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 160
+          },
+          "reviewAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "password",
+          "userId",
+          "category",
+          "resourceId",
+          "legalBasis",
+          "reason",
+          "caseReference",
+          "reviewAt",
+          "expiresAt"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/privacy/holds/{id}/review",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          },
+          "expectedRevision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "review",
+              "release"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 20,
+            "maxLength": 3000
+          },
+          "caseReference": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 160
+          },
+          "reviewAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "password",
+          "expectedRevision",
+          "action",
+          "reason",
+          "caseReference"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/privacy/holds/{id}/evidence",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/privacy/retentions",
+      "query": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "string",
+            "pattern": "^\\d{1,4}$"
+          },
+          "limit": {
+            "type": "string",
+            "pattern": "^\\d{1,3}$"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/admin/privacy/holds/{id}/data",
+      "query": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "params": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "additionalProperties": false
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128
+          }
+        },
+        "required": [
+          "password"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ],
+  "source": "docs/java-migration/api-baseline.json"
+}

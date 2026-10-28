@@ -1,0 +1,22 @@
+/* Approved Percurso U lockups retain their geometry; only the SVG canvas is cropped vertically. */
+:is(.home .brand, .brand, .dashboard .d-brand, .p-brand, .m-bootstrap-brand) > .uc-brand-logo {
+  display: block;
+  flex: none;
+  width: 194px;
+  height: 44px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+.home .account-panel-heading .uc-brand-symbol {
+  border-radius: 0;
+}
+@media (max-width: 600px) {
+  :is(.home .brand, .brand, .dashboard .d-brand, .p-brand, .m-bootstrap-brand) > .uc-brand-logo {
+    width: 180px;
+    height: 41px;
+  }
+  .dashboard .d-topbar {
+    gap: 12px;
+  }
+}

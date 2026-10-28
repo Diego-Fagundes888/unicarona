@@ -1,0 +1,8 @@
+# Preserve versioned migration checksums and Unix container entrypoint scripts.
+Dockerfile text eol=lf
+compose.yaml text eol=lf
+backend-java/src/main/resources/db/migration/*.sql text eol=lf
+backend-java/mvnw text eol=lf
+backend-java/docker/*.sh text eol=lf
+backend-java/Dockerfile text eol=lf
+compose.java.yaml text eol=lf

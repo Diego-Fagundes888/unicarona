@@ -1,0 +1,546 @@
+{
+  "at": "2026-10-26T10:04:56.0905284-03:00",
+  "status": "Final business-source bounded verification passed; rendered UI verification pending host access policy. Full44 goal active.",
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "countsOverlap": true,
+  "nativeV26MutationPerformed": false,
+  "privateFrozenFrontendMutationPerformed": false,
+  "productionPublication": false,
+  "newMigration": false,
+  "schemaVersion": 40,
+  "legalPublicationState": "draft",
+  "privacyDraftRevision": 4,
+  "driverTermsDraftRevision": 3,
+  "priorDraftSourcesPreserved": [
+    "privacy-r3.md",
+    "driver-terms-r2.md"
+  ],
+  "implemented": [
+    "90-day detailed-review and reviewer minimization with pre-worker visibility guard",
+    "365-day terminal-application cleanup only after linked documents retired and no current approval/transport purpose",
+    "Unreferenced nonapproved vehicle cleanup after365days",
+    "Stable original erasure task/event boundary rather than replay updated_at",
+    "driver_application specific case ownership, encrypted copy, audited private access and typed recovery",
+    "No reconstruction of expired narrative by new case",
+    "No destructive cleanup when active case lacks its private copy",
+    "Owner export of preserved application fields without reviewer identity",
+    "Fair bounded cursor and startup suppression before readiness"
+  ],
+  "runs": [
+    {
+      "log": "privacy-driver-metadata-first-25oct.log",
+      "outcome": "preflight-rejected",
+      "scope": "Preflight rejected nonexistent AdminPrivacyHoldsIT selector. Maven did not start; diagnostic was in tool output; log is empty.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "buildSuccess": false,
+      "unitReported": 0,
+      "integrationReported": 0,
+      "functionalIntegrationScenariosExecuted": 0,
+      "js": 0,
+      "classes": []
+    },
+    {
+      "log": "privacy-driver-metadata-targeted-25oct.log",
+      "outcome": "failed",
+      "scope": "First source. One fixture exactly at365-day boundary and one direct checkpoint update rejected by DB guard.",
+      "sha256": "1e991472967e1213b5b3101b555cb5449335c761378b722cf5b662b7a69daf3c",
+      "buildSuccess": false,
+      "unitReported": 49,
+      "integrationReported": 40,
+      "functionalIntegrationScenariosExecuted": 40,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverApplicationRetentionIT",
+          "tests": 11,
+          "failures": 1,
+          "errors": 1,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldsHttpIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-metadata-corrected-26oct.log",
+      "outcome": "environment-failed",
+      "scope": "49 units passed; five integration classes failed initialization because cluster55432 was stopped. No functional integration scenarios ran.",
+      "sha256": "0ec5dbe62ff398eeb079370d0c260688eddbc55d3b081c20b72b011ac02388c5",
+      "buildSuccess": false,
+      "unitReported": 49,
+      "integrationReported": 5,
+      "functionalIntegrationScenariosExecuted": 0,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverApplicationRetentionIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 1,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 1,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldsHttpIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 1,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 1,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 1,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-metadata-final-26oct.log",
+      "outcome": "passed",
+      "scope": "49 units+103 integrations passed before original-account-erasure purpose boundary refinement and its15th scenario.",
+      "sha256": "110c4f01f5b007f29f0b012710f5443c231b47d97d318f774b6d21d3704defb2",
+      "buildSuccess": true,
+      "unitReported": 49,
+      "integrationReported": 103,
+      "functionalIntegrationScenariosExecuted": 103,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.student.IdentityDriverHttpIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverApplicationRetentionIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyFileRetirementHttpIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldsHttpIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-metadata-stable-dates-26oct.log",
+      "outcome": "passed",
+      "scope": "Final business source.49 units+43 integrations including15 metadata,15 legal,13 suppression cases.",
+      "sha256": "0f4ef0b89cc03a389c79c6125a79c71176b8184c9c9232e19d11e9ee4f988b2e",
+      "buildSuccess": true,
+      "unitReported": 49,
+      "integrationReported": 43,
+      "functionalIntegrationScenariosExecuted": 43,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverApplicationRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-metadata-js-26oct.log",
+      "outcome": "passed",
+      "scope": "Final46 JS; category switching clears owner ID when choosing application resource.",
+      "sha256": "cee1f9ec1a17b7346e18e4eb816f0abd1b4cc0b1c45a3505a99395e2f6651e45",
+      "buildSuccess": false,
+      "unitReported": 0,
+      "integrationReported": 0,
+      "functionalIntegrationScenariosExecuted": 0,
+      "js": 46,
+      "classes": []
+    },
+    {
+      "log": "privacy-driver-metadata-impeccable-26oct.json",
+      "outcome": "empty-findings",
+      "scope": "One mechanical scan of admin-privacy.js and privacy.js. Empty findings is not rendered UX proof.",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "buildSuccess": false,
+      "unitReported": 0,
+      "integrationReported": 0,
+      "functionalIntegrationScenariosExecuted": 0,
+      "js": 0,
+      "classes": []
+    }
+  ],
+  "sources": [
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyDriverApplicationRetention.java",
+      "sha256": "ad2cf31d3623ef2004217c09282a93abd234ef1363307039d21e703725383f1c"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyDriverApplicationMaintenance.java",
+      "sha256": "a69a52149f4df86671715353c279fd8305db43e124e30f401d00b3ea32e4c0b5"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRestoreGuard.java",
+      "sha256": "59ed00be49d502d3ced34364d0ae60c9e36cee0bc39a9597da063d57fb4baa47"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/dto/PrivacyHoldDto.java",
+      "sha256": "07f696f6ae0f42a033eb10211e1328b92c62f62587ea76bdbc4622bb0170c618"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/AdminPrivacyHoldTransactions.java",
+      "sha256": "9453ba83e03b057ae41b4d93829749e456b7829ad60591672a89d737b36265c0"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRetentionSnapshot.java",
+      "sha256": "893f84e98f5087cebac253ea0518dc13d60a05a8b4fe52e6a2ff5aca024fb643"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyExportService.java",
+      "sha256": "abc42b908f66bcda969cf98b6e30f36644cb4dc916ee6622b7a50e2efc65a749"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyErasureTransactions.java",
+      "sha256": "d5b22ead8ee77d914396f2409e46df46f9ed1db7a4b5adb4ea32836f9cd383b8"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyProfileSuppression.java",
+      "sha256": "b57ba9535c781e0110dfa2e98184c2a7383b1b1761cc57d7e90aaabc6623d2fd"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/driver/repository/DriverRepository.java",
+      "sha256": "c2dd175f5073719b5c40479dfbc9430e542c6961a5a3245031f50e897237765f"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/DriverApplicationRetentionIT.java",
+      "sha256": "24d3cddb0870d9841c22d6f67586023316ab9776315b2037dc12ae63ed168283"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/support/PrivacyPreviewServer.java",
+      "sha256": "17a888e42527ce66cf52c971b8ca9f0eeafbf182abcb0adf37c94e9f980cbf81"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "ea5825ab08c259e70279fe9143129ea03d6e8b6213eea79d8b95b29652884e70"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "3435fc63ac05522193b692dbf9d78a86eb432639e836b3c4de6f1fa2a1f87a09"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/driver-terms.md",
+      "sha256": "8faa711ae43624b3d569e90a29735b8a1dbbd2e412e76252b1e525151cac57f3"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/privacy-r3.md",
+      "sha256": "59ccf1739f6b952d4f0c3a61d77a949dd3b687335421974cc284e92e34d5794c"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/driver-terms-r2.md",
+      "sha256": "3eea6e5e949fd12506bc8718d0aadd5b5c5123fe1341d572faecd594d40348eb"
+    },
+    {
+      "file": "dist/admin-privacy.js",
+      "sha256": "03b1aa2b66044f025f6ba025f088f190cfa8bad24b92811884c609e8df1940af"
+    },
+    {
+      "file": "dist/privacy.js",
+      "sha256": "6f1ae9097de79cc4b0f6a97f5c82c09224a8a86c59bac9c8b29e51e8c6d5eaf7"
+    },
+    {
+      "file": "tests/admin-privacy-ui.test.mjs",
+      "sha256": "125b6899e6f5a754e6e16e5939c1ed4a4f0edad0593c3fafdcf6e0ecdcfc2624"
+    },
+    {
+      "file": "docs/api/openapi-java.json",
+      "sha256": "edd8aa1d81573463d8be2e254b0f868e7c4848ab4f46e84717d6ba45cf049083"
+    },
+    {
+      "file": "docs/privacy/Metadados_Candidatura_Motorista.md",
+      "sha256": "640560e7cb6a00bcc036ab2df359c082d978793a602f53b882c6a4ea7a03a2e8"
+    },
+    {
+      "file": "docs/privacy/Inventario_Dados.md",
+      "sha256": "a792f6a21b6cecbac76796071baeceda9a4bbc8bcaf629b3d9374bb761644305"
+    },
+    {
+      "file": "docs/privacy/Matriz_44_Requisitos.md",
+      "sha256": "400a6f494bc00065559eaeae393679ccc1962534c06ce9e9864068d02b7d973d"
+    },
+    {
+      "file": "docs/privacy/Plano_Implementacao.md",
+      "sha256": "f9b4b4308d7b7347338e78de5029e52046e5841c86d2e63ff5d97043d5050a66"
+    },
+    {
+      "file": ".impeccable/surfaces/privacy.md",
+      "sha256": "49547b4a3af44ac10fd4c0ec25ee8ccfbc6f3e77bbfab542a21a142daaea0e7f"
+    },
+    {
+      "file": ".impeccable/review/privacy/driver-application-retention-review.md",
+      "sha256": "68a057ff18ad70eb9e9257e9fa0bba8d54da0446fe57bc7f6bdb7c7f2585c391"
+    },
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f"
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912"
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327"
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d"
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "419723f901f4e6e43b62bb78f425ae667b3a6463ed40410519c1e671df423ab2"
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852"
+    }
+  ],
+  "preserved": [
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f",
+      "matchesPriorV40Evidence": true
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912",
+      "matchesPriorV40Evidence": true
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327",
+      "matchesPriorV40Evidence": true
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d",
+      "matchesPriorV40Evidence": true
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "419723f901f4e6e43b62bb78f425ae667b3a6463ed40410519c1e671df423ab2",
+      "matchesPriorV40Evidence": true
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852",
+      "matchesPriorV40Evidence": true
+    }
+  ],
+  "environmentRecovery": {
+    "clusterWasStopped": true,
+    "initialDefaultPortStartFailed": true,
+    "isolatedLauncherWaitTimedOut": true,
+    "serverStillObservedLive": true,
+    "subsequentReadyConfirmed": true,
+    "port": 55432,
+    "initializedOrReplacedCluster": false,
+    "windows5432ServiceChanged": false
+  },
+  "visual": {
+    "report": ".impeccable/review/privacy/driver-application-retention-review.md",
+    "previewPid": 8184,
+    "previewPort": 4190,
+    "previewReadyConfirmed": true,
+    "previewIndependentRecoveryEnabled": false,
+    "browserAttempt": "Chrome extension",
+    "attemptedUrl": "http://localhost:4190/login.html#login",
+    "result": "Host access is restricted by policy.",
+    "newScreenshots": 0,
+    "workaroundAttempted": false,
+    "accessQuestionPending": true,
+    "verdict": "Rendered desktop/mobile verification pending; no ship certification"
+  },
+  "policies": {
+    "reviewNarrativeDays": 90,
+    "unusedTerminalApplicationDays": 365,
+    "unusedVehicleDays": 365,
+    "universalStatutoryDeadlines": false,
+    "contractLinkedMinimumApprovalRetention": "Depends on remaining contractual/financial lifecycle, explicitly still open"
+  },
+  "remaining": [
+    "Rendered UI access and desktop/mobile review",
+    "Financial/contracts and security/audit log finite lifecycle",
+    "Contract-linked minimum approval lifecycle",
+    "Anonymous aggregation and remaining minimization",
+    "Off-device recovery and operator/category/volume exercises",
+    "Material acceptance and email-link journeys",
+    "Six-document consistency matrix, legal/technical redteams,44audit and16 final deliverables",
+    "Coordinated publication and real receipts"
+  ],
+  "legalFlag": "VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA."
+}

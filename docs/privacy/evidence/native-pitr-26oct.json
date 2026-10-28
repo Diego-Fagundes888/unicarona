@@ -1,0 +1,199 @@
+{
+  "at": "2026-10-26T23:29:26.5179134-03:00",
+  "status": "Finite encrypted native PITR recovery verified in development source; full44 goal remains active",
+  "schemaVersion": 46,
+  "newMigration": false,
+  "snapshotFormat": 3,
+  "finalRun": "privacy-native-pitr-streaming-final-26oct.log",
+  "finalUnit": 191,
+  "finalIntegration": 2,
+  "finalFailures": 0,
+  "finalErrors": 0,
+  "finalSkipped": 0,
+  "countsOverlap": true,
+  "syntheticOnly": true,
+  "database": "unicarona_java_test in newly initialized PG18 clusters",
+  "databasePorts": "Random loopback ports excluding 5432, 55432 and 55433",
+  "nativePostgresRecovery": true,
+  "logicalDumpUsedForThisRecovery": false,
+  "nativePostBaseBoardingRecovered": true,
+  "consumedPinAbsentAfterReplay": true,
+  "cancellationCreditCents": 500,
+  "financialRowsEqualAtExpectedTarget": true,
+  "ledgerDifference": 0,
+  "newerIndependentErasureReappliedBeforeReadiness": true,
+  "newerIndependentHoldReappliedBeforeReadiness": true,
+  "missingWalBlocksPromotion": true,
+  "corruptWalBlocksPromotion": true,
+  "resourceExpiryVerified": true,
+  "catalogRestorePoint": "Start of base capture, not later WAL target",
+  "catalogDefaultRetentionDays": 35,
+  "objectEncryption": "AES-256-GCM with purpose-derived keys and authenticated resource/dataset/cluster/name binding",
+  "indexAuthentication": "HMAC-SHA256",
+  "captureFinite": true,
+  "continuousBackupInstalled": false,
+  "offsiteRecoveryVerified": false,
+  "zeroLossClaim": false,
+  "nativeRecoverySeconds": 150.1,
+  "memoryProbeSeconds": 21.57,
+  "memoryProbeObjectMiB": 96,
+  "memoryProbeHeapMiB": 64,
+  "memoryProbeIsNativeWal": false,
+  "fullIntegrationRegressionThisPhase": false,
+  "realProviderCalls": false,
+  "realEmailDelivery": false,
+  "nativeV26MutationPerformed": false,
+  "privateFrozenFrontendMutationPerformed": false,
+  "activeClusterConfigurationChanged": false,
+  "activeClusterRestarted": false,
+  "productionPublication": false,
+  "legalPublicationState": "draft",
+  "privacyDraftRevision": 10,
+  "driverTermsDraftRevision": 3,
+  "newCss": false,
+  "newFrontendCode": false,
+  "jsRunThisPhase": false,
+  "visualState": "Deferred by human instruction; no browser retry or access bypass",
+  "globalShipVerdict": "Not issued; operational recovery and full44 requirements remain open",
+  "runs": [
+    {
+      "unit": 12,
+      "note": "Native helper refused JUnit directory outside configured private temporary root; no native cluster created.",
+      "integration": 1,
+      "file": "privacy-native-pitr-first-26oct.log",
+      "sha256": "c21b9d4fce4182d8fdcb6d951e49e5fcf9ab034d8afdd35f71c0b55582b0e220",
+      "approved": false,
+      "errors": 1
+    },
+    {
+      "unit": 12,
+      "note": "Native capture completed; SQL attempted before promotion. Helper now waits for SQL and pg_is_in_recovery=false.",
+      "integration": 1,
+      "file": "privacy-native-pitr-private-temp-26oct.log",
+      "sha256": "81a8c3b17caa5d1f491310f9c651888f28b8951dc3be6768ac36d251f8d020b5",
+      "approved": false,
+      "errors": 1
+    },
+    {
+      "unit": 12,
+      "note": "Native replay and failure cases passed before streaming/provider/dataset refinements.",
+      "integration": 1,
+      "file": "privacy-native-pitr-readiness-26oct.log",
+      "sha256": "c21e700e553f8318a78b593c76ea87261254587cc60aabfeef1e3f42af57b555",
+      "approved": true,
+      "errors": 0
+    },
+    {
+      "unit": 191,
+      "note": "Final source; all unit tests, native PostgreSQL replay, missing/corrupt WAL, independent privacy replay, finite expiry and 96MiB/64MiB heap probe.",
+      "integration": 2,
+      "file": "privacy-native-pitr-streaming-final-26oct.log",
+      "sha256": "eae930bc1a5174861d890079ef8ba0cff900d8098c37cbfe863e12ac74ddd779",
+      "approved": true,
+      "errors": 0
+    }
+  ],
+  "sources": [
+    {
+      "sha256": "4182e0443c1e4903130242390cff92be8798e3409a66bd0addbc60cbfe45082c",
+      "file": "backend-java/src/main/java/com/unicarona/privacy/recovery/PitrEncryptedArchive.java"
+    },
+    {
+      "sha256": "0d8e1ffe694e04ce07169348d50a7e1550a76ad702a1e133e4330512567eb603",
+      "file": "backend-java/src/main/java/com/unicarona/privacy/recovery/PitrRecoveryBundle.java"
+    },
+    {
+      "sha256": "e39ea8c1566f408f8de2233f0fcaec80ccd1f60195cffa437e5f5f08f42c7e10",
+      "file": "backend-java/src/main/java/com/unicarona/privacy/ops/PitrArchiveCommand.java"
+    },
+    {
+      "sha256": "ed3c6d208a0fd5b627a5e2783d97e0f4cff55ff534ac2e3ab1bfa209d52a6999",
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PitrEncryptedArchiveTest.java"
+    },
+    {
+      "sha256": "7f9fd4674a5c787642f819e51f28c830d0a02d4d2922f81aaf8d953d8a82990f",
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PitrRecoveryBundleTest.java"
+    },
+    {
+      "sha256": "f53d4caa13bb8ca76a62299bf37ee870e524be7c06ef0acbcf6c0059b57869e6",
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PrivacyNativePitrIT.java"
+    },
+    {
+      "sha256": "e45f1b2419d879ba755fc2d4b38d5c70ca9e4ecc1df6024df975fe6317e96dee",
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PrivacyPitrMemoryIT.java"
+    },
+    {
+      "sha256": "407df3cc063ac0051a656e4a730352cebbd8f3dc91f3f9c66fbebfb94623f6f5",
+      "file": "backend-java/src/test/java/com/unicarona/support/IsolatedPitrPostgres.java"
+    },
+    {
+      "sha256": "72c116dc0d015d7205c2993ae60e005606016084e917be1f18cadef3ebcdfbb8",
+      "file": "docs/privacy/Recuperacao_Transacional_PITR.md"
+    },
+    {
+      "sha256": "e11c0d4dc1915a4d1d7910b72bf6b864a6874f2cb3d31eb1378ed960ee7e1c83",
+      "file": "docs/privacy/Plano_Implementacao.md"
+    },
+    {
+      "sha256": "b10eaecf0b5129be14c9b4eacc14b4396d9f9a7c4467fdb69510a98494204b33",
+      "file": "docs/privacy/Inventario_Dados.md"
+    },
+    {
+      "sha256": "bad268dee084528960f8852342cb491dc9d119a093d26f09f787aef206651c15",
+      "file": "docs/privacy/Matriz_44_Requisitos.md"
+    },
+    {
+      "sha256": "1bc94eda4efeccfde0069dff0826ece76cb6243ca221c30028a4727789418ea9",
+      "file": "docs/privacy/Retencao_Backups_Diario.md"
+    },
+    {
+      "sha256": "ace2b521282471b582894bfed5f478129f8ea687667482ffe6ac5013f3bff194",
+      "file": "docs/privacy/PIN_Embarque_Retencao.md"
+    },
+    {
+      "sha256": "813d68f0c54ad5512bc40c3205340848f70a89fb46c85be592f9994ff7e2c37d",
+      "file": "docs/privacy/Consistencia_Documentos.md"
+    }
+  ],
+  "preserved": [
+    {
+      "unchangedSinceV46": true,
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f"
+    },
+    {
+      "unchangedSinceV46": true,
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912"
+    },
+    {
+      "unchangedSinceV46": true,
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327"
+    },
+    {
+      "unchangedSinceV46": true,
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d"
+    },
+    {
+      "unchangedSinceV46": true,
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852"
+    },
+    {
+      "unchangedSinceV46": true,
+      "file": "dist/backend-ui.js",
+      "sha256": "04d89d3a53313258d89d1364734155575e3353dcc78542fdd382f803fee5e0c6"
+    }
+  ],
+  "outstanding": [
+    "Continuous base/WAL orchestration and gap prevention",
+    "Archive lag monitoring, fail-closed operational readiness, RPO/RTO",
+    "Recovery outside host with keys, current independent controls and private files",
+    "Provider reconciliation after disaster recovery",
+    "Paid financial and fulfilled contract retention",
+    "Remaining minimization and truly anonymous aggregates",
+    "Final legal/technical red teams, journey/acceptance QA, coordinated publication and sixteen deliverables"
+  ]
+}

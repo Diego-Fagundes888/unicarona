@@ -1,0 +1,4 @@
+# Compatibility entrypoint. The Java stack has one canonical configuration.
+name: unicarona-java
+include:
+  - path: compose.yaml

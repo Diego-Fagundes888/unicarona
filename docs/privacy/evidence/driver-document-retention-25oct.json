@@ -1,0 +1,758 @@
+{
+  "at": "2026-10-25T20:45:59.7245805-03:00",
+  "status": "V40 bounded synthetic verification; full44 goal remains active",
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "nativeV26Changed": false,
+  "privateFrozenFrontendChanged": false,
+  "productionPublication": false,
+  "newMigration": "V40__driver_document_lifecycle.sql",
+  "legalPublicationState": "draft",
+  "privacyDraftRevision": 3,
+  "driverTermsDraftRevision": 2,
+  "countsOverlap": true,
+  "controllerSource": "User-confirmed natural person/name/contact/city; no invented CPF/company/street address",
+  "implemented": [
+    "Finite current-purpose consultation and retirement of driver raw documents",
+    "Expired pending request requires new application; retired copies do not revoke approval or alter money",
+    "Private case preservation remains separate from common document links",
+    "Review requires current applicant state, real available bytes and hash",
+    "Erased file metadata eligible after90 days with rechecks",
+    "Typed retention snapshot2 preserves real lastUploadedAt; strict legacy1 conversion",
+    "Fair bounded maintenance cursors and startup recovery before readiness",
+    "Export lifecycle metadata and omission report for concurrently removed files"
+  ],
+  "runs": [
+    {
+      "log": "privacy-driver-documents-compile-25oct.log",
+      "scope": "Compile before tests",
+      "outcome": "passed",
+      "sha256": "e31df3536b140a96993420568afa5344e0205cf120f406b2c9bb4b06ad114117",
+      "unit": 0,
+      "integration": 0,
+      "js": 0,
+      "classes": []
+    },
+    {
+      "log": "privacy-driver-documents-first-25oct.log",
+      "scope": "Additive DTO comparison fixture failed; old-field equivalence retained after correction",
+      "outcome": "failed",
+      "sha256": "44a051fad71d5470c7a10c7c68844d313075bf4e1d890844f8bbe99f86f143ca",
+      "unit": 32,
+      "integration": 31,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.student.IdentityDriverHttpIT",
+          "tests": 11,
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyFileRetirementHttpIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-documents-integration-25oct.log",
+      "scope": "Four invalid fixture errors: archive actor absent and erasure chronology rejected",
+      "outcome": "failed",
+      "sha256": "694900e44d8965115ffd12a19e72d3ab421e4bcd654e827272dd7321b8304d71",
+      "unit": 32,
+      "integration": 23,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.student.IdentityDriverHttpIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 12,
+          "failures": 0,
+          "errors": 4,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-documents-recovered-25oct.log",
+      "scope": "Compilation failed; no tests executed",
+      "outcome": "failed",
+      "sha256": "3ff5e4f4f7b9a292a99969061998e738bdb7a0a4c442884f16ef939116d57c96",
+      "unit": 0,
+      "integration": 0,
+      "js": 0,
+      "classes": []
+    },
+    {
+      "log": "privacy-driver-documents-confirmed-25oct.log",
+      "scope": "Before lastUploadedAt recovery reinforcement and final compatibility correction",
+      "outcome": "passed",
+      "sha256": "0131028f8fb8ce4c7768836d0ae17435d43b5568b7178f364b95514c5aa064d4",
+      "unit": 32,
+      "integration": 46,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-documents-regression-25oct.log",
+      "scope": "Broad regression failed in two post-backup hold cases: blob cleanup expected only typed format1",
+      "outcome": "failed",
+      "sha256": "c8b2d70705186531c2243ab6b5353e0849e189a9f0daf2c770cfaebfeae7a975",
+      "unit": 58,
+      "integration": 128,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.job.service.MaintenanceServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.job.service.WorkerLifecycleTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.student.IdentityDriverHttpIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.file.FileHttpIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyFileRetirementHttpIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyOrphanFilesIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 2,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-documents-final-25oct.log",
+      "scope": "Final business source:15 document-retention cases plus rotation/control/post-backup recovery",
+      "outcome": "passed",
+      "sha256": "87e620c51995dfe358cce5aeaf75c527676da8b32eab3e342c638641205f0505",
+      "unit": 49,
+      "integration": 38,
+      "js": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceRotationIT",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlTransactionsIT",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-driver-documents-js-25oct.log",
+      "scope": "JS before final UI fixes",
+      "outcome": "passed",
+      "sha256": "376f564218d752c178e435e3051c99e69e9eace1fa69122b8f56e099e459d315",
+      "unit": 0,
+      "integration": 0,
+      "js": 46,
+      "classes": []
+    },
+    {
+      "log": "privacy-driver-documents-js-final-25oct.log",
+      "scope": "Final UI with three corrections and table-hint order assertion",
+      "outcome": "passed",
+      "sha256": "082154a6cad5f8ce6a0b35e1fcda7636a0eb6fd5b3ab712edadb603e98b61b04",
+      "unit": 0,
+      "integration": 0,
+      "js": 46,
+      "classes": []
+    },
+    {
+      "log": "privacy-driver-documents-package-25oct.log",
+      "scope": "Earlier package; replaced by final UI package",
+      "outcome": "passed",
+      "sha256": "1d542f2906ecdffa43cf722c9f215a7c47af00b985867ee58fb4ffbfa62e872e",
+      "unit": 0,
+      "integration": 0,
+      "js": 0,
+      "classes": []
+    },
+    {
+      "log": "privacy-driver-documents-ui-package-25oct.log",
+      "scope": "Final package including synthetic preview chronology and final UI",
+      "outcome": "passed",
+      "sha256": "68feea1005da97f7a73c770e0f7f64807cc3847d70c58cf49e2878ae7127e2f6",
+      "unit": 0,
+      "integration": 0,
+      "js": 0,
+      "classes": []
+    },
+    {
+      "log": "privacy-driver-documents-impeccable-25oct.json",
+      "scope": "One mechanical scan on final backend-ui.js and legal.js; empty findings is not accessibility certification",
+      "outcome": "empty-findings",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "unit": 0,
+      "integration": 0,
+      "js": 0,
+      "classes": []
+    }
+  ],
+  "sources": [
+    {
+      "file": "backend-java/src/main/resources/db/migration/V40__driver_document_lifecycle.sql",
+      "sha256": "9728854e65d72ca4e2e56a6cf567509d2e594df4c4c16c9e91a62f3b084b6e02"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/driver/dto/DriverDto.java",
+      "sha256": "8e349cba6647597b3d67bf0ccb2c744e48c0981e62a3afbfb88b56877c359742"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/driver/repository/DriverRepository.java",
+      "sha256": "2c8dedc0f80a7831c78839fb0806ee9b90cca01422f674ea08b533579753b635"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/driver/service/DriverTransactions.java",
+      "sha256": "852a8e0a1e6517eee1e3668c9b86997745d963acac597304fc88adeba0ab45e5"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/driver/controller/DriverController.java",
+      "sha256": "eb7cd3c784f9af98edbe1ed343396ef027ba1be39ac025b20dbcd531bb02f6c1"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/file/repository/FileAccessRepository.java",
+      "sha256": "edf975cdc2f7021b57fc33131e9749d3c4cc6b8db7fd73c3c4b788fdbd57c5de"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/file/service/FileService.java",
+      "sha256": "7077ef250a1faa31e8e5f043026e8bd009edd0d29342680b04b29e38109115bc"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyDriverDocuments.java",
+      "sha256": "4a21de2348dcb9464fecd36644d037597679046a411edcfb6b521be51bca41d8"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyDriverDocumentsMaintenance.java",
+      "sha256": "ae161e6349ab94fe22ab8dcef638decf1ad5ea27a786ef0fbe5867ea586de7a4"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyFileMetadataRetention.java",
+      "sha256": "a39efbc887b2439ecc68bd761f8ee65dd1fa19cd38c9d55d72270b8a9378957d"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyFileMetadataMaintenance.java",
+      "sha256": "0a0e7dc5213f479ce5799115b93bccdbe912e8df33fb8e867e2473c3df2b0df6"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyExportService.java",
+      "sha256": "bf7894c57f890cd65b2f9abdec1c0e07d31eba0f9edd8fbc6d992f5efb8eaaf7"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRestoreGuard.java",
+      "sha256": "6bae6212efa8b6ad8937e1af7774e9d266980cc8614bd250a665c9362e3c0357"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRetentionSnapshot.java",
+      "sha256": "74b112ab9e18a3f82aaf50be5b415483663db120975a2bee4f5a023badbe6b32"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRetainedFileBlobs.java",
+      "sha256": "dec0cb6fe8c0bc9d70c64ddd78494bc51a821b93b4295799ed0588e3db7c334a"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyClosureTransactions.java",
+      "sha256": "1b6351d36ff16e9262c60bd020f0bd2e6049011947be35d0456bef448106fd3e"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyProfileSuppression.java",
+      "sha256": "c0a3c606ba02dae64aaabb951fef68ca34aec79d6f69e36caf5d051541cb9137"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/DriverDocumentsRetentionIT.java",
+      "sha256": "95fe3dd8325335bd852cc80975795b979af392ae2ccfa6e132c3e54711cff335"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/PrivacyCopiesTest.java",
+      "sha256": "7b78e1605ec7ff28bd3f78d46463870a1742e2113eeeb1fb6c7881de10376762"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/student/IdentityDriverHttpIT.java",
+      "sha256": "12ca732783a6ae2cc4d891618eebc2bc334dd627dbf996ba3f5804703e51146a"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/support/PrivacyPreviewServer.java",
+      "sha256": "49b0909fc9f162f4a03a5622de3bd498f0c3adc3e0e72ec2203221d0bf6bf1af"
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "419723f901f4e6e43b62bb78f425ae667b3a6463ed40410519c1e671df423ab2"
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852"
+    },
+    {
+      "file": "tests/privacy-ui.test.mjs",
+      "sha256": "736b447dbcfa9d0e60bbf069738b02bebf3765dc9ce3991f47ed98eff171514c"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "e02bf78a3aaa6490fba961940b6c6f598ba8061f1256039507ef7eb2c059d6ce"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "59ccf1739f6b952d4f0c3a61d77a949dd3b687335421974cc284e92e34d5794c"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/driver-terms.md",
+      "sha256": "3eea6e5e949fd12506bc8718d0aadd5b5c5123fe1341d572faecd594d40348eb"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/privacy-r2.md",
+      "sha256": "27966bf13d6a1965318cd28bcf1646df286279631e6fcf3f23fa21e886be99e5"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/driver-terms-r1.md",
+      "sha256": "8fb43edff9ff4fceb29681918f9e42624e583ed865ef5b0cdb5199546d481e3c"
+    },
+    {
+      "file": "docs/privacy/Documentos_Motorista_Retencao.md",
+      "sha256": "6d1d7518aba8adf8496b1bbcfd9a37d83054b51e7bc26ab9df6307ce0dd17e58"
+    },
+    {
+      "file": "docs/privacy/Inventario_Dados.md",
+      "sha256": "ee117bf03b0dcf002a158940b78890732668de1f75074ee7e9f58ad16b7466d5"
+    },
+    {
+      "file": "docs/privacy/Matriz_44_Requisitos.md",
+      "sha256": "cf680debb0d3ca0476a1fbdd36e3cab4b17d96a85146f63c22e27145638bef74"
+    },
+    {
+      "file": "docs/privacy/Arquivos_Sem_Uso.md",
+      "sha256": "32050d9ae8c5ade87b8c8184457a78553a30e28244644b1a1de3ca32b980c49a"
+    },
+    {
+      "file": "docs/privacy/Recuperacao_Retencoes.md",
+      "sha256": "3b9b6a01c4e5c7bd53f55dc5d526c0f528ffd2553e019105c59f7200fe05103b"
+    },
+    {
+      "file": "docs/privacy/Plano_Implementacao.md",
+      "sha256": "5d581a659049652985ac4ae84d86c7d90c0f3fbf4fb943dc3dd3fd78f4371065"
+    },
+    {
+      "file": ".impeccable/surfaces/privacy.md",
+      "sha256": "5fcde7093b371775e41d4d709043ccbf798bb7f1a5bd346734c289d60a7d3145"
+    },
+    {
+      "file": ".impeccable/review/privacy/driver-document-retention-review.md",
+      "sha256": "78c49455e18719671a656dec490717490d8e2b684a94cb7640afa6e6eb03ac02"
+    },
+    {
+      "file": ".impeccable/review/ui/driver-document-retention/capture-index.json",
+      "sha256": "cb7da705321c27f3b22ec6a97821189d076c50f0afdf2ba06331e01c53a3e95e"
+    },
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f"
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912"
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327"
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d"
+    }
+  ],
+  "visual": {
+    "report": ".impeccable/review/privacy/driver-document-retention-review.md",
+    "captureIndex": ".impeccable/review/ui/driver-document-retention/capture-index.json",
+    "captures": [
+      {
+        "file": "before/driver-1440.png",
+        "sha256": "1ad72caa6a282ac16cd15cf94fcff73ccf485389c8984450e262ed507c999e58",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "before/driver-390-top.png",
+        "sha256": "eb78edc81752e49cc35ee1078c4905553d6ce61743a6e6170a51e12cabda1bfd",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "before/driver-390-documents.png",
+        "sha256": "927c8ef6e876a17f09ff8d8f2421b54cb63127e221746c6acdfbf15d5ae6c6d4",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/expired-1440-top.png",
+        "sha256": "5189651632d1d9df41701ffde3bb86fe077803764b18791a0c6cbaf68b8f8f48",
+        "classification": "historical-composition-only"
+      },
+      {
+        "file": "after/expired-1440-native-check.png",
+        "sha256": "5189651632d1d9df41701ffde3bb86fe077803764b18791a0c6cbaf68b8f8f48",
+        "classification": "historical-composition-only"
+      },
+      {
+        "file": "after/expired-390-top.png",
+        "sha256": "ba4fa79e5bbb66b07ac618912e85928aceafd1ceb86ec5e107ad6db7a51a032e",
+        "classification": "invalid-stale-frame"
+      },
+      {
+        "file": "after/expired-390-documents.png",
+        "sha256": "c14f0898953356be1c031f16a5bfcdfb792bf05c5690e5b76f560ec09b3c95ba",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/expired-390-top-confirmed.png",
+        "sha256": "ee559f3405c3d8a5cd41747d515be4a5bc1f28e01b34fa01008b6a20a33d91b0",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/expired-834-documents.png",
+        "sha256": "58475b4443943ea652cdac0400e132daca5335ac0f700caa00d74ed2bd1d696c",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/approved-1440-expanded.png",
+        "sha256": "35381190e32dcd13f3587329ca76d80175bb5dfb6ca40608d23f2dd49caffc06",
+        "classification": "historical-composition-only"
+      },
+      {
+        "file": "after/approved-390-expanded.png",
+        "sha256": "0f9c646a108abdb6c3b1490ca4d4ab5c8fbea3114e099e65ee1fa421755da334",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/approved-390-top.png",
+        "sha256": "640eeb9b405dabd787ee479d827db065e5204fd929501a4223a853120671d1fc",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/pending-390-top.png",
+        "sha256": "0bcd1962f6a5d73127df23c440066d5efd3406be1b4f9848a20831d500201069",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/admin-1440-top.png",
+        "sha256": "de67ba3348df4bce08062fb04d7c4123cacf0ab04e2e6bc36ee462be52cad4b2",
+        "classification": "historical-composition-only"
+      },
+      {
+        "file": "after/admin-1440-retired.png",
+        "sha256": "e0037aff884b5e01a691e15a3065bf7c7d7b6318eab09546884b523f8aa01455",
+        "classification": "historical-composition-only"
+      },
+      {
+        "file": "after/privacy-r3-390-retention.png",
+        "sha256": "804b6dbac5197db187b50af749e42f902d94bf78c7c6fafb357d283f39401a77",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/privacy-r3-390-driver-row.png",
+        "sha256": "cbbd14add92510ab752e148c8252a099fd1cdfcb49ee527d796cdd174536ef1b",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/privacy-r3-390-metadata-row.png",
+        "sha256": "66283dd589ee957e4fd68e7a0085a5f66aea701f3d726e2efe50b29aa83dadb3",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "after/driver-terms-r2-390-retention.png",
+        "sha256": "a044f5a114cba2618f612d776760d8d81e7b726b06f4e917ff9964761019695c",
+        "classification": "historical-before-final-fix"
+      },
+      {
+        "file": "final/pending-390.png",
+        "sha256": "1cb48b71856b4a7b4295c960b02d2811ab1f3cb697d0bb67e2b56d0fead3cee1",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/pending-1440.png",
+        "sha256": "608f62a0834f30887052b16ba797b46134d7c1b6d554054bf93dc1a05970a578",
+        "classification": "composition-and-dom-only"
+      },
+      {
+        "file": "final/upload-320.png",
+        "sha256": "5115228bb648bd44ec2e4827df69d84292f1263f2aad69974f4a39be9d309a79",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/expired-390.png",
+        "sha256": "ee559f3405c3d8a5cd41747d515be4a5bc1f28e01b34fa01008b6a20a33d91b0",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/approved-390-expanded.png",
+        "sha256": "b9105bf4b152970d2ac5a85e3c062502772c71caf60e90303b9c761c77158856",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/approved-1440-expanded.png",
+        "sha256": "32f99b833e1777b3f338fc62aa4aef598fa7311a58a98d6359f075e881748c67",
+        "classification": "invalid-full-width-proof"
+      },
+      {
+        "file": "final/admin-1440-expired.png",
+        "sha256": "1956d56a52721a9cf4c770f8b191943dc00c14ec86cd29b03a0bafb3faa5b579",
+        "classification": "composition-and-dom-only"
+      },
+      {
+        "file": "final/admin-390-expired.png",
+        "sha256": "f5154ae4537f5dbd1bd92e8adf7fe0bffe6235be07489510d319de21274f28d1",
+        "classification": "invalid-stale-frame"
+      },
+      {
+        "file": "final/admin-390-expired-confirmed.png",
+        "sha256": "c60c91a5d76d10ecd46dc7d1cc4c5dd855f2a91f3015eeb59767f5ea3356fc35",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/admin-390-available.png",
+        "sha256": "1d4e5cd107701ebd2ef2c282062a8e8edd4593248e0a3fa78c6e61099745a7b8",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/admin-390-approved-retired.png",
+        "sha256": "e4bbb7fd3da9b25e01e1160a401e04b0f75d7d80e5da1e9229ecbc8ad94c847c",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/privacy-r3-390-hint.png",
+        "sha256": "804b6dbac5197db187b50af749e42f902d94bf78c7c6fafb357d283f39401a77",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/privacy-r3-390-table-keyboard.png",
+        "sha256": "266e66a4cfee789b8db1787b10f84cb594b8ed9a72d249c745d8d363c3904080",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/privacy-r3-390-hint-visible.png",
+        "sha256": "ebd6485c1945fb45d5f743299269cf0c31e42cd7f3e99376461c368592ca8eb6",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/privacy-r3-390-driver-rules.png",
+        "sha256": "7594b0d7f82bd6ba5cb8ae2343df9e1d3c24616a022d6cf5d54c0cbf53c1e28a",
+        "classification": "valid-mobile-capture"
+      },
+      {
+        "file": "final/driver-terms-r2-390.png",
+        "sha256": "a044f5a114cba2618f612d776760d8d81e7b726b06f4e917ff9964761019695c",
+        "classification": "valid-mobile-capture"
+      }
+    ],
+    "browser": "IAB",
+    "previewPort": 4190,
+    "independentRecoveryEnabledInVisualFixture": false,
+    "rounds": 2,
+    "fixBatches": 1,
+    "temporaryViewportReset": true,
+    "noNewShippingRaster": true,
+    "verdict": "Mobile confirmed in bounded scope; desktop DOM geometry/content only; no global ship",
+    "limits": [
+      "Wide captures blurred or cropped, insufficient for desktop pixel certification",
+      "No physical device or screen-reader certification",
+      "Visual fixture is not recovery evidence"
+    ]
+  },
+  "policies": {
+    "pendingDays": 30,
+    "postDecisionCopyDays": 30,
+    "erasedMetadataDays": 90,
+    "statutoryUniversalPeriods": false
+  },
+  "open": [
+    "Application/decision metadata finite lifecycle",
+    "Financial/security/log retention and anonymous aggregates",
+    "Necessity of extra identity document and real verification method",
+    "Off-device recovery/operator exercises and category/volume cases",
+    "Remaining minimization and material acceptance journeys",
+    "Six-document consistency, legal/technical redteams,44audit and16 final deliverables",
+    "Coordinated publication and real receipts",
+    "Adequate desktop raster evidence"
+  ],
+  "legalFlag": "VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA."
+}

@@ -1,0 +1,81 @@
+name: unicarona-java
+services:
+  db:
+    image: postgres:18-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${PG_SUPERUSER_PASSWORD:?Define PG_SUPERUSER_PASSWORD in private environment}
+      PG_APP_PASSWORD: ${PG_APP_PASSWORD:?Define PG_APP_PASSWORD in private environment}
+      POSTGRES_DB: unicarona
+    volumes:
+      - postgres:/var/lib/postgresql
+      - ./backend-java/docker/init-db.sh:/docker-entrypoint-initdb.d/01-app-role.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U postgres -d unicarona"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  seed:
+    image: unicarona-java:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment: &java-env
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 3000
+      APP_ORIGIN: http://localhost:${JAVA_HTTP_PORT:-3003}
+      DATABASE_URL: ${JAVA_DATABASE_URL:?Define JAVA_DATABASE_URL for db:5432/unicarona with URL-encoded credentials}
+      TOKEN_PEPPER: ${TOKEN_PEPPER:?Define TOKEN_PEPPER}
+      PIN_ENCRYPTION_KEY: ${PIN_ENCRYPTION_KEY:?Define PIN_ENCRYPTION_KEY}
+      JWT_SECRET: ${JWT_SECRET:?Define JWT_SECRET}
+      PAYMENT_WEBHOOK_SECRET: ${PAYMENT_WEBHOOK_SECRET:?Define PAYMENT_WEBHOOK_SECRET}
+      PAYMENT_PROVIDER: ${PAYMENT_PROVIDER:-development}
+      MERCADO_PAGO_ENVIRONMENT: ${MERCADO_PAGO_ENVIRONMENT:-test}
+      MERCADO_PAGO_ACCESS_TOKEN: ${MERCADO_PAGO_ACCESS_TOKEN:-}
+      MERCADO_PAGO_PUBLIC_KEY: ${MERCADO_PAGO_PUBLIC_KEY:-}
+      MERCADO_PAGO_WEBHOOK_SECRET: ${MERCADO_PAGO_WEBHOOK_SECRET:-}
+      MERCADO_PAGO_MARKETPLACE_APPROVED: ${MERCADO_PAGO_MARKETPLACE_APPROVED:-false}
+      EMAIL_PROVIDER: development
+      SEED_PASSWORD: ${SEED_PASSWORD:?Define SEED_PASSWORD with 16+ characters}
+      STORAGE_PATH: /app/storage
+      DEV_MAIL_PATH: /app/storage/mail
+    command: ["--UNICARONA_MODE=seed"]
+    volumes: ["storage:/app/storage"]
+    healthcheck:
+      disable: true
+    depends_on:
+      db:
+        condition: service_healthy
+  api:
+    image: unicarona-java:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment: *java-env
+    ports: ["127.0.0.1:${JAVA_HTTP_PORT:-3003}:3000"]
+    volumes: ["storage:/app/storage"]
+    stop_grace_period: 45s
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+  worker:
+    image: unicarona-java:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment: *java-env
+    command: ["--UNICARONA_MODE=worker"]
+    volumes: ["storage:/app/storage"]
+    stop_grace_period: 45s
+    healthcheck:
+      disable: true
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+volumes:
+  postgres:
+  storage:

@@ -1,0 +1,57 @@
+{
+  "brand": "UniCarona",
+  "date": "23/10/2026",
+  "deck_title": "Identidade final · Percurso U",
+  "label": "Direção A · escolhida",
+  "final": true,
+  "greyscale": false,
+  "tagline": "Sua turma. Seu trajeto.",
+  "brief": "Caronas universitárias avulsas e mensais: estudantes que combinam o caminho de ida e volta à UNICEPLAC.",
+  "adjectives": [
+    "Próxima",
+    "Clara",
+    "Organizada",
+    "Contemporânea"
+  ],
+  "criteria": "Uma silhueta simples, reconhecível no celular e independente de símbolos institucionais.",
+  "industry": "consumer-app",
+  "mockups": [
+    "app-icon",
+    "website",
+    "social",
+    "favicon-tab",
+    "sticker",
+    "tshirt"
+  ],
+  "nav": [
+    "Buscar",
+    "Mensal",
+    "Entrar"
+  ],
+  "brand_color": "#087B5B",
+  "concepts": [
+    {
+      "name": "Percurso U",
+      "symbol": "../digital/svg/unicarona-symbol-color.svg",
+      "lockup": "../digital/svg/unicarona-horizontal-color.svg",
+      "stacked": "../digital/svg/unicarona-stacked-color.svg",
+      "symbol_on_tile": "../digital/svg/unicarona-symbol-white.svg",
+      "stacked_on_tile": "../digital/svg/unicarona-stacked-white.svg",
+      "symbol_on_dark": "../digital/svg/unicarona-symbol-dark.svg",
+      "lockup_on_dark": "../digital/svg/unicarona-horizontal-dark.svg",
+      "idea": "Um ponto de encontro no U do seu percurso.",
+      "rationale": [
+        "O U preserva uma referência da identidade anterior.",
+        "O ponto separado sugere encontro sem desenhar um pin.",
+        "Curvas abertas e espessuras firmes resistem à redução.",
+        "Verde no claro; menta e branco no escuro."
+      ]
+    }
+  ],
+  "recommendation": "A direção escolhida está pronta em SVG e PNG, com versões de cor, monocromáticas e para redução.",
+  "next_steps": [
+    "Usar o guia de aplicação para escolher cada arquivo.",
+    "Aplicações são simulações visuais; não indicam lançamento de aplicativo ou perfis sociais.",
+    "O kit inclui os arquivos para futura integração no site."
+  ]
+}

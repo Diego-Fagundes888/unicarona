@@ -1,0 +1,50 @@
+# Decisões jurídicas e operacionais propostas
+
+Minuta de trabalho de 16/10/2026. Não é um documento contratual publicado nem prova de que os fluxos abaixo já foram implementados. Confrontar novamente com o código final antes da publicação. **VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.**
+
+## Alternativas e escolhas
+
+| Tema | Mais favorável ao responsável, dentro dos limites possíveis | Equilibrada | Mais favorável ao usuário | Escolha e fundamento operacional |
+| --- | --- | --- | --- | --- |
+| Papel da plataforma | Delimitar a obrigação de intermediação e distinguir a condução do veículo, sem excluir falha própria | Responsabilidades discriminadas por atividade | Garantia ampla de todo transporte e ressarcimento automático | Delimitação específica do que o UniCarona efetivamente faz. Não prometer imunidade por usar o rótulo intermediador. Operação, CDC e nexo causal prevalecem sobre o nome do contrato |
+| Acidentes/danos/objetos | Exigir prova e preservar direito de regresso contra o causador, sem renúncia prévia de direitos | Análise individual por conduta e contribuição causal | Plataforma indeniza qualquer incidente | Análise individual com deveres de cada parte, suporte e preservação de evidência; responsabilidade legal não excluída. Não adotar teto universal de indenização equivalente à taxa |
+| Atraso e cancelamento | Informar que disponibilidade depende da oferta aceita, exigir aviso e permitir medidas proporcionais por reincidência | Cancelamento transparente e restituição correspondente | Garantia de carro substituto e compensação fixa | Sem promessa de substituição inexistente; restituição quando devida e sanção somente com motivo, prova e revisão |
+| Força maior e fornecedor externo | Prever efeitos de evento efetivamente externo e inevitável, com mitigação e comunicação | Solução negociada por caso | Plataforma assume qualquer falha externa | Não equiparar toda falha de PSP, manutenção ou indisponibilidade previsível a força maior. Não excluir responsabilidade própria nem impedir reembolso obrigatório |
+| Mensal e ausência | Contratação de disponibilidade reservada, claramente informada, sem revenda da vaga e com evidência de cumprimento | Regras graduais e análise de circunstâncias | Reembolso de todo trecho em que não embarcou | Disponibilidade pode ser objeto contratual apenas com informação prévia clara e operação correspondente. A cobrança não pode remunerar trecho cancelado/não oferecido como se cumprido. Revisar proporcionalidade e hipóteses legais |
+| Sem aula e custo não incorrido | Prever apenas despesas demonstráveis e juridicamente admissíveis | Reembolso proporcional, sem receita injustificada | Restituição integral do trecho não prestado | A implementação Java foi revisada: novas confirmações e encerramentos por prazo geram crédito integral, elegível ao fluxo de devolução. A plataforma não recebe essa parcela. A decisão antiga já liquidada não é reescrita; ver `Sem_Aula_Regra_Revisada.md` e evidência dos testes |
+| Crédito/reembolso | Oferecer crédito como opção conveniente, com destinação contábil rastreável | Escolha informada por crédito ou restituição elegível | Restituição ao meio de origem por padrão | Crédito não substitui direito legal de restituição. A disponibilidade comercial do provedor e seus prazos precisam ser informados. Não prometer saque/repasse universal com adapter indisponível |
+| Suspensão e banimento | Suspensão imediata diante de risco concreto, restrição proporcional e evidência | Aviso prévio quando não houver risco | Manutenção do acesso integral até revisão | Suspensão preventiva pode ser imediata por segurança; motivo acessível, recurso e revisão humana, protegendo informação de terceiros. Acesso a privacidade, defesa e valores devidos não é punição |
+| Retorno de banido | Identificador HMAC do e-mail verificado com chave, motivo delimitado e prazo revisável | Revisão manual de sinal de reincidência | Nenhum controle de retorno | Restrição finita e recurso, sem fingerprint oculto de todo dispositivo ou nova coleta indiscriminada de documento. Não afirmar que e-mail impede toda pessoa de criar outra conta |
+| Encerramento pelo titular | Janela curta contra exclusão indevida e retenção mínima de prova/obrigações | Reversão em sete dias e limpeza do perfil | Limpeza imediata de todo dado | Sete dias informados como política de segurança, com senha novamente. Não apagar dívida, saldo ou obrigação; também não condicionar todo direito de privacidade a quitar uma dívida. Pedidos específicos continuam disponíveis |
+| Prova de aceite | Documento e versão imutáveis, hash, data, origem e evidência mínima | Mesma prova, menor coleta técnica | Apenas checkbox sem trilha | Prova versionada e minimizada. Não retroagir aceite. IP cifrado só na medida justificada e por prazo próprio; não guardar user-agent completo sem necessidade |
+| Alteração contratual | Aviso e novo aceite para mudança material que o exija; novas condições para novas contratações | Prazo para avaliar alteração | Impossibilidade de alterar qualquer regra | Não mudar preço, direitos ou perdas retroativamente. Conservar versões e contratos existentes; permitir discordar e encerrar sem renunciar a valores/direitos |
+| Foro e arbitragem | Solução extrajudicial facultativa e foro admitido pela lei | Consumidor conserva foro protegido | Escolha irrestrita pelo consumidor | Não impor arbitragem nem foro exclusivo que dificulte defesa. Canal de atendimento não impede Procon, ANPD ou Judiciário |
+| Retenção de evidências | Manter somente o necessário para obrigação/defesa identificada e com hold documentado | Prazos por categoria, revisão e eliminação | Apagar todo histórico de imediato | Prazo finito, gatilho de contagem, finalidade e revisão. Não tratar o prazo de prescrição de uma espécie de pretensão como obrigação universal de guardar qualquer dado |
+
+## Pontos que exigem validação específica
+
+1. **Transporte e intermediação:** preço parametrizado, comissão e recorrência mensal impedem presumir que se trata apenas de carona gratuita/divisão informal de custos. Examinar Lei 12.587/2012, regras de Novo Gama/GO, Distrito Federal e trajetos entre entes, habilitação aplicável, seguro, tributos e condições do PSP. **VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.**
+2. **Pessoa física como fornecedor/controlador:** a LGPD alcança pessoa natural em atividades abrangidas pela lei; não presumir dispensa por ser projeto de aluno. Avaliar obrigações de identificação comercial do Decreto 7.962/2013, sem inventar CNPJ e sem publicar documento/endereço pessoal por inferência. **VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.**
+3. **CDC e desistência:** aplicar os direitos legais quando cabíveis, inclusive regras de contratação fora do estabelecimento, sem cláusula de renúncia genérica. Prestação já iniciada, despesas demonstráveis e direito de arrependimento exigem adequação ao modelo concreto. **VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.**
+4. **Prazos de retenção:** avaliar CDC art. 27 e Código Civil arts. 205/206 conforme cada pretensão, além de obrigações fiscais/regulatórias realmente aplicáveis. Prazos propostos de defesa não equivalem a prazo legal universal. Um hold deve delimitar dado, processo/fato, base, responsável, revisão e vencimento. **VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.**
+5. **MCI:** o art. 15 caput contém requisitos de pessoa jurídica e atividade profissional/econômica. Para o responsável pessoa física informado, não declarar essa obrigação automática; avaliar logs mínimos de segurança e eventual ordem de preservação. **VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.**
+6. **Provedores e transferências:** verificar instrumentos efetivamente contratados com Gmail/Google, Resend, hospedagem e Mercado Pago, papéis de cada agente e mecanismo válido de transferência quando aplicável. Não afirmar adesão a cláusulas-padrão, localização de servidor ou acordo de tratamento não verificados. **VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.**
+7. **Relação com motorista:** autonomia deve corresponder à operação. Não usar declaração de ausência de vínculo para negar consequências que fatos reais possam gerar. Sem controle de jornada/frota empregadora implementado, descrever somente funcionalidades existentes. **VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.**
+8. **Menores:** preservar a regra atual de 18 anos completos. E-mail confirmado e autodeclaração não comprovam idade. Qualquer abertura a menores requer revisão específica: **VALIDAÇÃO JURÍDICA OBRIGATÓRIA.**
+
+## Documentos finais e temas consolidados
+
+Proposta de seis documentos versionados, evitando repetir regras com redações diferentes:
+
+| Documento | Conteúdo que deve cobrir |
+| --- | --- |
+| Termos de Uso | Conta, elegibilidade, intermediação real, propriedade intelectual, disponibilidade, responsabilidade, mudanças e conflitos |
+| Política de Privacidade | Controlador, inventário, bases, fornecedores, direitos, localização, cookies/tecnologias e política de retenção/exclusão como anexos claros |
+| Termos do Motorista | Documentos, veículo, habilitação, conduta, publicação, segurança e deveres operacionais |
+| Regras de Participação | Passageiro, avulsa, mensalidade, agenda, aceite e disponibilidade, ausência e confirmação |
+| Política de Pagamentos, Cancelamento e Reembolso | Comissão, PSP, checkout, crédito, restituição, chargeback, dívida e repasses, sem garantia comercial inexistente |
+| Política de Segurança, Suspensão e Encerramento | Comunidade, denúncia, bloqueio, revisão, banimento, recurso, encerramento e reversão |
+
+Os treze temas pedidos pelo usuário devem aparecer explicitamente no índice e na matriz de consistência final. A consolidação não dispensa nenhum tema. O aviso de cookies deve refletir os cookies necessários e os terceiros efetivos, sem banner ou consentimento fictício para analytics inexistente.
+
+Fontes primárias e diagnóstico técnico em [Inventario_Dados.md](Inventario_Dados.md). Nenhuma das escolhas deste documento autoriza perda automática de valores, exclusão de prova de disputa ou tratamento de dados fora da finalidade.

@@ -1,0 +1,745 @@
+{
+  "at": "2026-10-26T19:05:28.0651523-03:00",
+  "status": "V45 bounded failed zero-net transfer lifecycle verified; full44 goal remains active",
+  "schemaVersion": 45,
+  "newMigration": "V45__failed_transfer_retention.sql",
+  "snapshotFormat": 3,
+  "windowCalendarYears": 5,
+  "windowZone": "America/Sao_Paulo",
+  "universalLegalDeadlineClaimed": false,
+  "providerReceiptProtocol": "development-transfer",
+  "perAccountNetRequired": 0,
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "realProviderCalls": false,
+  "realEmailDelivery": false,
+  "nativeV26MutationPerformed": false,
+  "privateFrozenFrontendMutationPerformed": false,
+  "productionPublication": false,
+  "legalPublicationState": "draft",
+  "privacyDraftRevision": 9,
+  "driverTermsDraftRevision": 3,
+  "priorPrivacySource": "history/privacy-r8.md",
+  "previousPrivacySourcePreservedExactly": true,
+  "finalRun": "privacy-failed-transfer-final-26oct.log",
+  "finalUnit": 176.0,
+  "finalIntegration": 232.0,
+  "failedTransferScenarios": 21,
+  "countsOverlap": true,
+  "finalDelta": "Whole zero-net graph and dependent receipt/cache/job/audit/notice boundary; new financial case defence window; original completion date; later hold release and restore replay; no partial delete, truncate or known-purpose tampering.",
+  "newCss": false,
+  "newFrontendCode": false,
+  "jsRunThisPhase": false,
+  "visualState": "Deferred by user; no Chrome-policy bypass",
+  "globalShipVerdict": false,
+  "paidFinancialHistoryCompacted": false,
+  "successfulTransfersCompacted": false,
+  "realMercadoPagoRefundsRetired": false,
+  "trueAnonymousAggregatesImplemented": false,
+  "independentFinancialForwardRecoveryImplemented": false,
+  "runs": [
+    {
+      "log": "privacy-failed-transfer-first-26oct.log",
+      "sha256": "d9285d6ff65c1168f5719b38b57e0db83a62287d85c56f97e484a5938f90cb4a",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 5.0,
+      "integration": 13.0,
+      "failures": 0.0,
+      "errors": 0.0,
+      "classes": [
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.FailedTransferRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-failed-transfer-regression-26oct.log",
+      "sha256": "5fadd721d08258c0d9a8a2422a92ef008ac1ea05540c2816a4a1bb39bdbb3604",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 176.0,
+      "integration": 215.0,
+      "failures": 0.0,
+      "errors": 0.0,
+      "classes": [
+        {
+          "name": "com.unicarona.payment.PaymentProviderTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PricingCalculatorTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.WebhookAuthenticationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoSignatureTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.CryptoServiceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.RequestContractValidationTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.ExternalCallsTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.JavaScriptNumbersTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.TransactionRetriesTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.student.CatalogServiceTest",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.auth.AuthBoundaryTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.service.ImageProcessorTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.storage.PrivateFileStorageTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.MaintenanceServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.WorkerLifecycleTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.provider.ResendEmailProviderTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.EmailProviderTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedCatalogTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedSettingsTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ParticipantIdentityTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySettingsTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyUnusedFilesMaintenanceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.LedgerHttpIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PaymentHttpIT",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.TransferHttpIT",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 65,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.UnsubmittedCheckoutRetentionIT",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.FailedTransferRetentionIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-failed-transfer-final-26oct.log",
+      "sha256": "2c0d998c10c0052406b860794580c21425bbfa4dbe95ec25634857ba5c3bc7d4",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 176.0,
+      "integration": 232.0,
+      "failures": 0.0,
+      "errors": 0.0,
+      "classes": [
+        {
+          "name": "com.unicarona.payment.PaymentProviderTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PricingCalculatorTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.WebhookAuthenticationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoSignatureTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.CryptoServiceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.RequestContractValidationTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.ExternalCallsTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.JavaScriptNumbersTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.TransactionRetriesTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.student.CatalogServiceTest",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.auth.AuthBoundaryTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.service.ImageProcessorTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.storage.PrivateFileStorageTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.MaintenanceServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.WorkerLifecycleTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.provider.ResendEmailProviderTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.EmailProviderTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedCatalogTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedSettingsTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ParticipantIdentityTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySettingsTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyUnusedFilesMaintenanceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.LedgerHttpIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PaymentHttpIT",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.TransferHttpIT",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 65,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.UnsubmittedCheckoutRetentionIT",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.FailedTransferRetentionIT",
+          "tests": 21,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.SecurityAuditRetentionIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "file": "backend-java/src/main/resources/db/migration/V45__failed_transfer_retention.sql",
+      "sha256": "6a42b1c1da74bd7e24897f2cc35ec12b9b74d7a1c60ebabd89d7a1854372ae90"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyFailedTransferRetention.java",
+      "sha256": "737ad12f6b55b6ae900ccefd00ea65252cfb1667100660d9484bb1a877b95389"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyFailedTransferMaintenance.java",
+      "sha256": "42228f80869c21cfe0d33eceff2cae57ed5fd2d97d8bf615e67d484c398c69f2"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRestoreGuard.java",
+      "sha256": "df068e8426dbc3d6fa39f1423e8a1349c35a622fb635d8a4d607e74cb2471d35"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/FailedTransferRetentionIT.java",
+      "sha256": "acf62cac4839c3b85f17555613fe3193fd124c77d913dcc529c8340953056096"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/config/FlywayCompatibilityIT.java",
+      "sha256": "795f430ddc01677a230fe887e936d4c3aaa8754e8e3fb624d56d2bf379e8fc68"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "65ea5469c3eae7824b69cf66f59caf49056c4d2c1b19e9fbd045cb2d7e0bd536"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "8574cba4b1301c5a4fc1fbb110913ab25e466292f4bbd91e9a16b20b7353d6cf"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/privacy-r8.md",
+      "sha256": "be8507a45cf0b89fb3b7b5deca5dafa7987c79fa8c3837299030a2a47236a004"
+    },
+    {
+      "file": "docs/privacy/Transferencias_Falhas_Retencao.md",
+      "sha256": "4d7ee181567343f90f321a6b8e81ee6c5452830a2891327a5874ed6d54c8587c"
+    },
+    {
+      "file": "docs/privacy/Plano_Implementacao.md",
+      "sha256": "c2ae831f42ffceaadd0a5d62ed273a9397877b2c8cfb4dd0464d955901eda497"
+    },
+    {
+      "file": "docs/privacy/Inventario_Dados.md",
+      "sha256": "b821288b49264cdbac504b7e1936ccf221715339cdea6c7491607bde576beeef"
+    },
+    {
+      "file": "docs/privacy/Matriz_44_Requisitos.md",
+      "sha256": "175ab49db7cfdacc9f4790ae420d0004eb8a15b56bc11a1de92c955fb27be35a"
+    },
+    {
+      "file": "docs/privacy/Consistencia_Documentos.md",
+      "sha256": "9f3700a58465730e1465d9878c28e343c2be93f8023715b92809292ae97353c0"
+    }
+  ],
+  "preserved": [
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f",
+      "unchangedSinceV44": true
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912",
+      "unchangedSinceV44": true
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327",
+      "unchangedSinceV44": true
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d",
+      "unchangedSinceV44": true
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852",
+      "unchangedSinceV44": true
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "04d89d3a53313258d89d1364734155575e3353dcc78542fdd382f803fee5e0c6",
+      "unchangedSinceV44": true
+    }
+  ],
+  "outstanding": [
+    "Received payments, performed contracts and nonzero successful transfer history retention",
+    "Other webhook classes and pending/unknown financial records",
+    "Noncanonical generic transfer receipt UUID formats require separate recognition proof",
+    "True anonymous aggregate design and remaining personal-data minimization",
+    "Complete independently recoverable financial facts and external restore exercise",
+    "Deferred visual review, final legal/technical red teams and complete 44 requirements/16 deliverables",
+    "Brazilian lawyer validation and coordinated production publication"
+  ]
+}

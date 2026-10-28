@@ -1,0 +1,42 @@
+
+=== concept-a-v2.svg  (311 bytes)
+viewBox 0 0 256 256 · aspect 1.0 (square)
+colours 1: #111111 · gradients 0 · anchors 12
+margins L32.0 R32.0 T24.0 B24.0 · bbox fill 0.609
+✔ no issues found
+production-readiness score: 100/100 (heuristic)
+
+=== concept-b-v2.svg  (356 bytes)
+viewBox 0 0 256 256 · aspect 1.0 (square)
+colours 1: #111111 · gradients 0 · anchors 18
+margins L24.0 R24.0 T32.0 B32.0 · bbox fill 0.609
+✔ no issues found
+production-readiness score: 100/100 (heuristic)
+
+=== concept-c-v2.svg  (362 bytes)
+viewBox 0 0 256 256 · aspect 1.0 (square)
+colours 1: #111111 · gradients 0 · anchors 18
+margins L24.0 R24.0 T32.0 B24.0 · bbox fill 0.635
+· INFO [off-centre-y] Vertical margins differ (top 32.0, bottom 24.0). Remember the optical centre sits slightly above the geometric centre.
+production-readiness score: 99/100 (heuristic)
+
+=== concept-a-lockup-v2.svg  (1989 bytes)
+viewBox 0 0 950 256 · aspect 3.711 (horizontal)
+colours 1: #111111 · gradients 0 · anchors 121
+margins L36.0 R68.0 T37.0 B37.0 · bbox fill 0.633
+· INFO [off-centre-x] Horizontal margins differ (left 36.0, right 68.0). Intentional optical centring? Otherwise centre it.
+production-readiness score: 99/100 (heuristic)
+
+=== concept-b-lockup-v2.svg  (2034 bytes)
+viewBox 0 0 950 256 · aspect 3.711 (horizontal)
+colours 1: #111111 · gradients 0 · anchors 127
+margins L29.0 R68.0 T44.0 B44.0 · bbox fill 0.589
+· INFO [off-centre-x] Horizontal margins differ (left 29.0, right 68.0). Intentional optical centring? Otherwise centre it.
+production-readiness score: 99/100 (heuristic)
+
+=== concept-c-lockup-v2.svg  (2040 bytes)
+viewBox 0 0 950 256 · aspect 3.711 (horizontal)
+colours 1: #111111 · gradients 0 · anchors 127
+margins L29.0 R68.0 T44.0 B37.0 · bbox fill 0.614
+· INFO [off-centre-x] Horizontal margins differ (left 29.0, right 68.0). Intentional optical centring? Otherwise centre it.
+production-readiness score: 99/100 (heuristic)

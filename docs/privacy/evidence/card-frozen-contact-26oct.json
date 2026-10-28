@@ -1,0 +1,349 @@
+{
+  "at": "2026-10-26T11:13:48.2803448-03:00",
+  "status": "Frozen card contact verified in bounded synthetic HTTP/DB tests. Full44 goal remains active.",
+  "schemaVersion": 41,
+  "newMigration": false,
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "realProviderCalls": false,
+  "realEmailDelivery": false,
+  "productionPayerBranch": "Client logic only; synthetic settings and loopback HTTP endpoint. App remains in test mode.",
+  "nativeV26MutationPerformed": false,
+  "privateFrozenFrontendMutationPerformed": false,
+  "productionPublication": false,
+  "newUI": false,
+  "legalPublicationState": "draft",
+  "privacyDraftRevision": 5,
+  "driverTermsDraftRevision": 3,
+  "countsOverlap": true,
+  "finalRegression": {
+    "integration": 106,
+    "providerHTTP": 65,
+    "checkoutRetention": 13,
+    "unit": 59,
+    "identityCorrection": 13,
+    "legal": 15
+  },
+  "finalProductionBranchFixture": {
+    "integration": 4,
+    "unit": 22
+  },
+  "runs": [
+    {
+      "log": "privacy-card-email-reproduction-26oct.log",
+      "sha256": "8d0b46303cd890ebf0955ce8dcb604a2b1c9e3c9409eb31e76a58029aeba3440",
+      "buildSuccess": true,
+      "classes": [
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-card-email-live-branch-reproduction-26oct.log",
+      "sha256": "5ccc211129831d825f1f1dd9c06b8444eb550401ad4592b8af1f303cf19b424f",
+      "buildSuccess": false,
+      "classes": [
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 1,
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-card-frozen-contact-first-26oct.log",
+      "sha256": "cd1261fcd04d0440579cf9234ae261d7e111875f9cb486a0e7398797ee35cee9",
+      "buildSuccess": true,
+      "classes": [
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-card-frozen-contact-regression-26oct.log",
+      "sha256": "0d7d4d16ed0d27b1f93a486d342455f059fb007bc185927a905f42d6bae7787a",
+      "buildSuccess": true,
+      "classes": [
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.CheckoutDataRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 65,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.IdentityCorrectionHttpIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-card-frozen-contact-live-branch-final-26oct.log",
+      "sha256": "7cdc44e070843372b9bb4a82e6c3160ca47c6db76ed70f95961036a7f030e081",
+      "buildSuccess": true,
+      "classes": [
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-card-frozen-contact-strict-final-26oct.log",
+      "sha256": "40cb36543bf82e2d908b311762045b427cfd19a2f9e81f1542627c9da376e825",
+      "buildSuccess": true,
+      "classes": [
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "file": "backend-java/src/main/java/com/unicarona/payment/service/MercadoPagoCardCommand.java",
+      "sha256": "557cb57d87516c4bf402ec23f14c1bbb55cb08347c1c7071d7ccf64949c620be"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/payment/service/MercadoPagoTransactions.java",
+      "sha256": "0f7eca2809b1d66a2a4422cac12436bcb773a1e2a662041397714ea8dec2afd9"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/payment/service/MercadoPagoService.java",
+      "sha256": "70ef766dc341153627de077b264cac12282cd4e5c7ba702bf2c80d8225c67be3"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/payment/config/MercadoPagoConfiguration.java",
+      "sha256": "416ea17e6d65e520671e8f798b4fa43d9d9741451f7cdef69626086fb231f327"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/payment/dto/MercadoPagoDto.java",
+      "sha256": "90068f75a8ebe3476a217e0a0df1c0d34a249b4da29cdb635d31277e35bff5a4"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/payment/provider/MercadoPagoOrdersClient.java",
+      "sha256": "439a9677ddb3f497a9387cbff4db5e594f2ca815ac1a0e4b21e01d8f20d6a899"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/payment/service/MercadoPagoCardCommandTest.java",
+      "sha256": "4823f261130d765c1bc4fd4712b1d9fe917027ae2b85c820673698b77393df97"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/payment/provider/MercadoPagoHttpIT.java",
+      "sha256": "36de678d01fa4944187a6674c6693d22c339699cbc1f1a836bfbca708f9ec63d"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/IdentityCorrectionHttpIT.java",
+      "sha256": "b28be898f96d391aa1118c60d20bdb336389ce7f2bc4392afdf89454947c87fc"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyCheckoutRetention.java",
+      "sha256": "829fd1fa1b38f7019a16fe021218492d167815def399f3b2f8a143836ce2a8c0"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "6c8b51360b5ceeda515a01b96276e8104692573d85a3625dd26e897fd36810a7"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "858734f04b1beb91f2b1c9d21db313e0e8af1bffd4c2f2786400c0daacf8d3e7"
+    }
+  ],
+  "preserved": [
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "dist/admin-privacy.js",
+      "sha256": "03b1aa2b66044f025f6ba025f088f190cfa8bad24b92811884c609e8df1940af",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "dist/privacy.js",
+      "sha256": "6f1ae9097de79cc4b0f6a97f5c82c09224a8a86c59bac9c8b29e51e8c6d5eaf7",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "04d89d3a53313258d89d1364734155575e3353dcc78542fdd382f803fee5e0c6",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "858734f04b1beb91f2b1c9d21db313e0e8af1bffd4c2f2786400c0daacf8d3e7",
+      "matchesV41Evidence": true
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "6c8b51360b5ceeda515a01b96276e8104692573d85a3625dd26e897fd36810a7",
+      "matchesV41Evidence": true
+    }
+  ],
+  "implemented": [
+    "Original card payer contact encrypted with typed versioned command",
+    "Payment/owner/amount context and input hash checked before provider submission",
+    "Prepare/start contact coordination under owner/payment/command locks; external call outside transaction",
+    "Authenticated email confirmation revokes old sessions without changing frozen payment request",
+    "Legacy never-sent commands upgraded before sending; legacy sent commands fail closed without guessed contact",
+    "Verified signed webhook and fresh provider order recover legacy; duplicate callback posts one receipt",
+    "Known order clears creation input; never-sent expiry cleanup remains under V41"
+  ],
+  "limitations": [
+    "No off-device key/control recovery proof",
+    "No new proof for rendered UI pending browser host access",
+    "No financial/contractual/security/audit-log expiry completion",
+    "No anonymous aggregation completion",
+    "Pending commands must be reconciled before environment/credential/protocol change; mixed old/new readers unsupported",
+    "Legacy without verifiable order requires operational investigation; no invented approval",
+    "Six-document final consistency/redteams,12case map,44audit and16deliverables remain"
+  ],
+  "references": [
+    "https://www.mercadopago.com.br/developers/en/reference/online-payments/checkout-api/create-order/post"
+  ],
+  "legalFlag": "VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA.",
+  "broadRegressionScope": "59 unit and106 integration passed before final strict integer-format and payer-contact validation hardening.22unit and4local production-branch HTTP scenarios passed on the final source.",
+  "controllerConfigurationMatchesUserConfirmation": true
+}

@@ -1,0 +1,411 @@
+{
+  "at": "2026-10-26T10:49:19.2395033-03:00",
+  "status": "V41 business/JS bounded verification passed. Rendered UI pending existing browser-host permission. Full44 objective remains active.",
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "countsOverlap": true,
+  "schemaVersion": 41,
+  "newMigration": "V41__checkout_transient_purpose.sql",
+  "nativeV26MutationPerformed": false,
+  "privateFrozenFrontendMutationPerformed": false,
+  "productionPublication": false,
+  "privacyDraftRevision": 5,
+  "driverTermsDraftRevision": 3,
+  "legalPublicationState": "draft",
+  "priorPrivacySource": "history/privacy-r4.md",
+  "implemented": [
+    "Purpose-bound Pix creation contact removal with one-way DB guard",
+    "Debt creation contact removal after external identity known without changing financial identity or reversal monotonicity",
+    "Never-submitted expired Pix/card/debt commands stop without provider call",
+    "Unknown submitted requests retain recovery inputs rather than being treated as definitive failure",
+    "Known order identity ends creation-input purpose without declaring approval",
+    "Unused provider ticket URL not persisted or returned",
+    "QR/challenge visibility limited to current own checkout and physical column cleanup on maintenance",
+    "Original deadline applied before readiness after actual archive restore",
+    "Fair bounded cursor and independent-checkpoint gate",
+    "Expired pending checkout stops card/Pix collection and redraws once at clock deadline"
+  ],
+  "runs": [
+    {
+      "log": "privacy-checkout-transients-first-26oct.log",
+      "scope": "First implementation.49 unit and10 migrations passed;10 of13 checkout scenarios failed at fixture payment insertion because existing financial guard requires awaiting with coherent lines.",
+      "outcome": "failed",
+      "sha256": "5c9320af56a6c612bb14c3916424eb42bfd8e69a7100c60119ae2658fb0c1875",
+      "unit": 49,
+      "integration": 23,
+      "js": 0,
+      "buildSuccess": false,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.CheckoutDataRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 10,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-checkout-transients-corrected-26oct.log",
+      "scope": "Corrected fixture respects financial state and distribution.49 unit+92 integrations:13 checkout,61 provider HTTP,18 privacy rights. Before final draft r5 and additional migration case/UI deadline transition.",
+      "outcome": "passed",
+      "sha256": "1783afb8dadfb0d10d189334b3c36f150bf503e4743d0fdc27030291cb66e0b5",
+      "unit": 49,
+      "integration": 92,
+      "js": 0,
+      "buildSuccess": true,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.CheckoutDataRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 61,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-checkout-transients-final-26oct.log",
+      "scope": "Final source/package with draft r5 and additional V40-upgrade preservation case.47 unit+39 integrations:11 migration,13 checkout,15 legal.",
+      "outcome": "passed",
+      "sha256": "7b9676328b0aa0eb211c729d228dd9a24764de7c6f46fdec843bb6712864bf95",
+      "unit": 47,
+      "integration": 39,
+      "js": 0,
+      "buildSuccess": true,
+      "classes": [
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.CheckoutDataRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-checkout-transients-js-26oct.log",
+      "scope": "47 JS before clock-driven redraw reinforcement.",
+      "outcome": "passed",
+      "sha256": "bcce9d7a89507d4e4adcc56e424e1fdbe6e6cea71ed226bc45aa4170d050524d",
+      "unit": 0,
+      "integration": 0,
+      "js": 47,
+      "buildSuccess": false,
+      "classes": []
+    },
+    {
+      "log": "privacy-checkout-transients-js-final-26oct.log",
+      "scope": "48 JS final, including expired card/Pix collection guard and one redraw without refresh loop.",
+      "outcome": "passed",
+      "sha256": "8bf8260060fbc973468de19ba1e3b6ae3bea58ac1b13460ad6d8426daa171ade",
+      "unit": 0,
+      "integration": 0,
+      "js": 48,
+      "buildSuccess": false,
+      "classes": []
+    },
+    {
+      "log": "privacy-checkout-transients-impeccable-26oct.json",
+      "scope": "One scan of final backend-ui.js;[] is not a visual approval.",
+      "outcome": "empty-findings",
+      "sha256": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f",
+      "unit": 0,
+      "integration": 0,
+      "js": 0,
+      "buildSuccess": false,
+      "classes": []
+    }
+  ],
+  "sources": [
+    {
+      "file": "backend-java/src/main/resources/db/migration/V41__checkout_transient_purpose.sql",
+      "sha256": "966d4fb96b933c59b7fdb62f8a7534f7964548a723439570592797b5e313c10f"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyCheckoutRetention.java",
+      "sha256": "829fd1fa1b38f7019a16fe021218492d167815def399f3b2f8a143836ce2a8c0"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyCheckoutMaintenance.java",
+      "sha256": "84dfbe6ac71ed7f6bd4bd808be7999797f9734f4b5f875a17f06bc5e85a8f89e"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRestoreGuard.java",
+      "sha256": "98f205c2a94542e570aaa1edcda17aec9b9e70c5ae5b588495ed65dc8f2962b6"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/payment/service/MercadoPagoService.java",
+      "sha256": "f2ebad0b96b5b2a9280a5a8f7f1ecab395415fa17981a69f571240dad9707994"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/payment/service/DebtPaymentTransactions.java",
+      "sha256": "6949f7525db3b385ce67ca47370e9275e35e286b09f7384564eef6fa9e7fcc08"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyExportService.java",
+      "sha256": "accc0e196add7e71d152e31200260655856c3addfb06843f8f0c3385238adec5"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/payment/provider/CheckoutDataRetentionIT.java",
+      "sha256": "de00bc4815d1cf1124fc85b839834e26314feaa8c490b723cd66feff69552acd"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/config/FlywayCompatibilityIT.java",
+      "sha256": "601159361846a60958a6d76243d71794d1bd3094d03fa9a50b40669a8eb1d634"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "6c8b51360b5ceeda515a01b96276e8104692573d85a3625dd26e897fd36810a7"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "858734f04b1beb91f2b1c9d21db313e0e8af1bffd4c2f2786400c0daacf8d3e7"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/privacy-r4.md",
+      "sha256": "3435fc63ac05522193b692dbf9d78a86eb432639e836b3c4de6f1fa2a1f87a09"
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "04d89d3a53313258d89d1364734155575e3353dcc78542fdd382f803fee5e0c6"
+    },
+    {
+      "file": "tests/privacy-ui.test.mjs",
+      "sha256": "8e0aec2bb1d7f258ea47ff5012e37ba4f65c6d27a6b5360933df8912de96cc1b"
+    },
+    {
+      "file": "docs/privacy/Dados_Transitorios_Checkout.md",
+      "sha256": "10f492d4e2d3504da95853938e44d249cbbeee4c689366e8b3fa79efb83f5f04"
+    },
+    {
+      "file": "docs/privacy/Inventario_Dados.md",
+      "sha256": "5e29858cce0ddf9904059e3b8a85e364549cbc85101dc931d0764a9831256039"
+    },
+    {
+      "file": "docs/privacy/Matriz_44_Requisitos.md",
+      "sha256": "6f1808af33d9617b1b8cda02e18b6192845777a76ba6272510d615a25f858a49"
+    },
+    {
+      "file": "docs/privacy/Plano_Implementacao.md",
+      "sha256": "37fbe0366a838316c626728d96012915211a8550775fe408dd7e35db9531fff6"
+    },
+    {
+      "file": ".impeccable/surfaces/privacy.md",
+      "sha256": "b025a2d7b24e5e2ab6977039dd00d652ae8d489301a7b434fc3f2de5a83cd167"
+    },
+    {
+      "file": ".impeccable/review/privacy/checkout-transient-purpose-review.md",
+      "sha256": "198dfa1ce5ddf6014844c2cf21f0dc472c883a1177b134e7ed6fbe273a84c8a6"
+    },
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f"
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912"
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327"
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d"
+    },
+    {
+      "file": "dist/admin-privacy.js",
+      "sha256": "03b1aa2b66044f025f6ba025f088f190cfa8bad24b92811884c609e8df1940af"
+    },
+    {
+      "file": "dist/privacy.js",
+      "sha256": "6f1ae9097de79cc4b0f6a97f5c82c09224a8a86c59bac9c8b29e51e8c6d5eaf7"
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852"
+    }
+  ],
+  "preserved": [
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f",
+      "matchesPriorMetadataEvidence": true
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912",
+      "matchesPriorMetadataEvidence": true
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327",
+      "matchesPriorMetadataEvidence": true
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d",
+      "matchesPriorMetadataEvidence": true
+    },
+    {
+      "file": "dist/admin-privacy.js",
+      "sha256": "03b1aa2b66044f025f6ba025f088f190cfa8bad24b92811884c609e8df1940af",
+      "matchesPriorMetadataEvidence": true
+    },
+    {
+      "file": "dist/privacy.js",
+      "sha256": "6f1ae9097de79cc4b0f6a97f5c82c09224a8a86c59bac9c8b29e51e8c6d5eaf7",
+      "matchesPriorMetadataEvidence": true
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852",
+      "matchesPriorMetadataEvidence": true
+    }
+  ],
+  "caseCoverage": [
+    "Current Pix QR remains usable; unused ticket/card challenge not stored",
+    "Expiry hides QR before worker and leaves payment/ledger unchanged",
+    "Provider updates cannot repopulate credentials in completed lifecycle",
+    "Challenge retained only in actual current card step",
+    "Contact cannot be arbitrarily changed/removed while still necessary or repopulated after removal",
+    "Never-submitted expiry distinguished from unknown submission",
+    "Known identity clears inputs while payment remains pending and no ledger is invented",
+    "Debt lifecycle continues after contact removal with immutable amounts",
+    "Expired never-started debt checkout does not newly submit; unknown can recover identical contact",
+    "Debt QR ends at original deadline without amount rewrite",
+    "Physical pg_dump/restore does not renew deadline",
+    "Locked owner does not starve other expired checkout",
+    "Unconfirmed independent control prevents destructive cleanup"
+  ],
+  "visual": {
+    "report": ".impeccable/review/privacy/checkout-transient-purpose-review.md",
+    "newScreenshots": 0,
+    "verification": "pending",
+    "reason": "Previous Chrome attempt denied Host access is restricted by policy; user access question remains pending. No alternate browser mechanism attempted.",
+    "sourceUiFilesChanged": [
+      "dist/backend-ui.js"
+    ],
+    "detectorPasses": 1,
+    "detectorFindings": [],
+    "newShippingRaster": false,
+    "newCss": false,
+    "globalShipVerdict": false
+  },
+  "providerCalls": {
+    "realPayments": false,
+    "realCredentials": false,
+    "realEmails": false,
+    "checkoutTestClient": "loopback127.0.0.1:9; no external submission",
+    "providerRegression": "explicit local HTTP protocol fixture"
+  },
+  "limitations": [
+    "Not full financial/contractual/security/audit-log expiry",
+    "Not anonymous aggregation",
+    "Logical column erasure is not immediate physical page/WAL overwrite; backup lifecycle separate",
+    "Restored unknown provider outcomes require reconciliation; no invented financial finality",
+    "Original card-request email versus profile correction/lost-response interaction needs dedicated verification",
+    "Rendered desktop/mobile and legal reader r5 still pending",
+    "Off-device recovery/operator/category/volume exercises remain",
+    "Six-document consistency/redteams,12case map,44audit and16 deliverables remain",
+    "Coordinated publication and real receipts remain"
+  ],
+  "references": [
+    "https://www.mercadopago.com.br/developers/pt/docs/checkout-api-orders/payment-integration/websites/pix",
+    "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm"
+  ],
+  "legalFlag": "VALIDAÇÃO POR ADVOGADO BRASILEIRO RECOMENDADA."
+}

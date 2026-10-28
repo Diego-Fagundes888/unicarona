@@ -1,0 +1,749 @@
+{
+  "at": "2026-10-26T14:36:43.9629760-03:00",
+  "status": "V43 bounded source implementation verified; full44 goal remains active",
+  "schemaVersion": 43,
+  "newMigration": "V43__contract_identity_purpose.sql",
+  "snapshotFormat": 3,
+  "acceptedLegacyFormats": [
+    1,
+    2
+  ],
+  "purposeFormat": 1,
+  "purposePolicy": "contract-identity-v1",
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "realProviderCalls": false,
+  "realEmailDelivery": false,
+  "nativeV26MutationPerformed": false,
+  "privateFrozenFrontendMutationPerformed": false,
+  "productionPublication": false,
+  "legalPublicationState": "draft",
+  "privacyDraftRevision": 7,
+  "driverTermsDraftRevision": 3,
+  "priorPrivacySource": "history/privacy-r6.md",
+  "previousPrivacySourcePreservedExactly": true,
+  "finalRun": "privacy-financial-identity-readiness-final-26oct.log",
+  "finalUnit": 50,
+  "finalIntegration": 63,
+  "financialIdentityScenarios": 17,
+  "countsOverlap": true,
+  "newCss": false,
+  "newFrontendCode": false,
+  "jsRunThisPhase": false,
+  "visualState": "Deferred by user after Chrome local-host access policy denial; no bypass attempted",
+  "globalShipVerdict": false,
+  "reconstructsFinancialLedger": false,
+  "financialCheckpointIsAtomicForAllMoneyEvents": false,
+  "limits": {
+    "factsPerIdentity": 10000,
+    "factsPerSnapshot": 50000,
+    "identityCopies": 10000,
+    "expiredProtocolsBeforeReadiness": 10000
+  },
+  "runs": [
+    {
+      "log": "privacy-financial-identity-reproduction-26oct.log",
+      "sha256": "4d7a442bad3fe92ad5777853b4047ae2a51439382e98d31ae205674f650ba71b",
+      "buildSuccess": false,
+      "buildFailure": true,
+      "unit": 5,
+      "integration": 1,
+      "failures": 1,
+      "errors": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 1,
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-financial-identity-first-26oct.log",
+      "sha256": "3efc3faf7e464b1a782518c10a9df4450538c4f5e59a90ef0e394843ac817c3c",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 5,
+      "integration": 13,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-financial-identity-cases-26oct.log",
+      "sha256": "cac4459aa455f7c218eac86fb19253ec868e72ef807c6a157fa936f8fdd99278",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 45,
+      "integration": 48,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.SecurityAuditRetentionIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-financial-identity-clock-26oct.log",
+      "sha256": "16f4b1fb851f603612f6b3b50297252e0fc82acbc3ba1f38aac3c91f58e0cdc6",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 10,
+      "integration": 39,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-financial-identity-final-26oct.log",
+      "sha256": "cb3c0a6ea707b6fbd3f682051164d0db166c745284e8bd7b7b40a7a42a17f689",
+      "buildSuccess": false,
+      "buildFailure": true,
+      "unit": 50,
+      "integration": 130,
+      "failures": 1,
+      "errors": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.AccountControlsHttpIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.IdentityCorrectionHttpIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlTransactionsIT",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.SecurityAuditRetentionIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-financial-identity-protocol-26oct.log",
+      "sha256": "b8037c17dcef760ea03e0306943136486f145a44c8283fc70feebf688b18440e",
+      "buildSuccess": false,
+      "buildFailure": true,
+      "unit": 10,
+      "integration": 62,
+      "failures": 0,
+      "errors": 1,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 16,
+          "failures": 0,
+          "errors": 1,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-financial-identity-transition-26oct.log",
+      "sha256": "2ba5f1ee43b1aa338ad722252f23a4c1903756bf1c9a5545ad35b5c4c4f9a159",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 10,
+      "integration": 3,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-financial-identity-regression-26oct.log",
+      "sha256": "4613050aa7ee727bfd00ac396d65cee4695af2bbeda6b4f1a18bacc15ca1abfb",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 50,
+      "integration": 240,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.PaymentHttpIT",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 65,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.auth.AuthHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.AccountControlsHttpIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.DriverDocumentsRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.IdentityCorrectionHttpIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlTransactionsIT",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.SecurityAuditRetentionIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-financial-identity-readiness-final-26oct.log",
+      "sha256": "2800100c034b0df37d54df7c6a530b6b0275698e93f45966273f0766307573f0",
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 50,
+      "integration": 63,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "file": "backend-java/src/main/resources/db/migration/V43__contract_identity_purpose.sql",
+      "sha256": "62d5b0e7309a55c898495dca773f2b8718afa6ecb260170792826d3e838e5ee4"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyContractIdentityPurpose.java",
+      "sha256": "38975192fc6ff0a8cfd9ea1b5255c6f183a560e9d81fb849a34d9f52e0c718c8"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyProtocolRetention.java",
+      "sha256": "f3d31e50bf4c6bb39376af05e45a56496fe646882be968ca1bb47fb37eac85f7"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRetentionSnapshot.java",
+      "sha256": "d3beae552b4088a6229909560179cc09e2239970ec7485281730f182d92cb03c"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRetainedFileBlobs.java",
+      "sha256": "4f3ea83f913b57e5476931a797e7775b8d6f302ea691fa9938ab3a493a4a89cd"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRetentionTransactions.java",
+      "sha256": "f1fb297fcb5e98533c1cd7795083a8e72be0c4742ea17b20130d87ebf490b471"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRestoreGuard.java",
+      "sha256": "265a85eb06f7d8767a6caf834f94d8967451009191c07379a6e94e9df1a50587"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyErasureTransactions.java",
+      "sha256": "b5bd794a32fa003d617bff9922e7688ec85b36b1a95b90516e4a85a835400075"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyExportService.java",
+      "sha256": "173a9482521d324b9a3716ed706f02f41a7f0a4878304771bed39f5442061c2e"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "8f4619c6f28b53ee05d5f2f8feb8b8d3c5951a137851034fad8b5c5563fc2d31"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "3b18b6ead152e26710e79fb028a86469299df6570abdaca8d6620ac8a191f30a"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/privacy-r6.md",
+      "sha256": "8ea534e6598081585af98b2ea2e10ac1d8c22fc0b9566102f0201e395237a155"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/ContractIdentityPurposeTest.java",
+      "sha256": "274b3610880d8c134fc83410f3c9cd644e970f3bc9b8484872a0844d360df0db"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/FinancialIdentityRetentionIT.java",
+      "sha256": "50219782b96fe2e0b200e8dbb6317c231459e0caaa35fbf8a6f9cdfdbeca5092"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/config/FlywayCompatibilityIT.java",
+      "sha256": "4a2c53a8888ad9e9131ad970454f115f9d3b9c6d263d4f9f488ccecc6eba1b47"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/DriverDocumentsRetentionIT.java",
+      "sha256": "93bee9000bdef05124cbddf4e141a266d0a6366a4d0c4adab807430d46d05516"
+    },
+    {
+      "file": "docs/privacy/Identificacao_Obrigacoes_Financeiras.md",
+      "sha256": "262f24bd1e57dee06da6234e1672401723091d38649b330661ec601b7f547406"
+    },
+    {
+      "file": "docs/privacy/Consistencia_Documentos.md",
+      "sha256": "8e88585db1d97c46163eb35aabdfdd64c9e9282c49f1c12d8c255767ad749caf"
+    },
+    {
+      "file": "docs/privacy/Inventario_Dados.md",
+      "sha256": "be428583c18dbe36f6942acbf2cf48a4cd3a9af26876e4fcf5a57077752ca996"
+    },
+    {
+      "file": "docs/privacy/Matriz_44_Requisitos.md",
+      "sha256": "71e29a73ae01d255e3c7afd8e070e6f5415db9d7f99028686e07353a32cf9349"
+    },
+    {
+      "file": "docs/privacy/Plano_Implementacao.md",
+      "sha256": "1ac1046a13972007a0e963c85d8647636e41effc907e64428529511885f462c6"
+    }
+  ],
+  "preserved": [
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f",
+      "unchangedSinceV42": true
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912",
+      "unchangedSinceV42": true
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327",
+      "unchangedSinceV42": true
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d",
+      "unchangedSinceV42": true
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852",
+      "unchangedSinceV42": true
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "04d89d3a53313258d89d1364734155575e3353dcc78542fdd382f803fee5e0c6",
+      "unchangedSinceV42": true
+    }
+  ],
+  "outstanding": [
+    "finite lifecycle for financial/contractual/eligibility history and remaining audit families",
+    "true anonymous aggregates and remaining minimization",
+    "off-device and complete financial recovery with category/capacity proof",
+    "final legal and technical red teams plus full44 and sixteen deliverables",
+    "deferred rendered journeys and coordinated publication",
+    "Brazilian lawyer review and real operational launch prerequisites"
+  ]
+}

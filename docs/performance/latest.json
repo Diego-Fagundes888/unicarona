@@ -1,0 +1,115 @@
+{
+  "measuredAt": "2026-10-02T18:24:55.933Z",
+  "scope": "Local Fastify injection + real PostgreSQL; excludes browser, HTTP transport and production traffic",
+  "fixtures": {
+    "students": 5000,
+    "drivers": 20,
+    "offers": 3000,
+    "notifications": 3000,
+    "paidReservations": 10
+  },
+  "results": {
+    "login": {
+      "samples": 7,
+      "p50Ms": 42.92,
+      "p95Ms": 111.09,
+      "maxMs": 111.09,
+      "minQueries": 10,
+      "maxQueries": 10
+    },
+    "search30": {
+      "samples": 20,
+      "p50Ms": 23.76,
+      "p95Ms": 31.86,
+      "maxMs": 66.75,
+      "minQueries": 4,
+      "maxQueries": 4
+    },
+    "search100": {
+      "samples": 5,
+      "p50Ms": 30.96,
+      "p95Ms": 33.78,
+      "maxMs": 33.78,
+      "minQueries": 4,
+      "maxQueries": 4
+    },
+    "detail": {
+      "samples": 20,
+      "p50Ms": 6.12,
+      "p95Ms": 7.89,
+      "maxMs": 19.56,
+      "minQueries": 6,
+      "maxQueries": 6
+    },
+    "notifications": {
+      "samples": 20,
+      "p50Ms": 3.82,
+      "p95Ms": 10.91,
+      "maxMs": 183.37,
+      "minQueries": 4,
+      "maxQueries": 4
+    },
+    "request": {
+      "samples": 10,
+      "p50Ms": 6.94,
+      "p95Ms": 46.24,
+      "maxMs": 46.24,
+      "minQueries": 17,
+      "maxQueries": 17
+    },
+    "driverLogin": {
+      "samples": 10,
+      "p50Ms": 40.08,
+      "p95Ms": 52.99,
+      "maxMs": 52.99,
+      "minQueries": 10,
+      "maxQueries": 10
+    },
+    "accept": {
+      "samples": 10,
+      "p50Ms": 8.39,
+      "p95Ms": 25.06,
+      "maxMs": 25.06,
+      "minQueries": 19,
+      "maxQueries": 19
+    },
+    "checkout": {
+      "samples": 10,
+      "p50Ms": 9.19,
+      "p95Ms": 21.88,
+      "maxMs": 21.88,
+      "minQueries": 21,
+      "maxQueries": 21
+    },
+    "confirmation": {
+      "samples": 10,
+      "p50Ms": 14.66,
+      "p95Ms": 50.22,
+      "maxMs": 50.22,
+      "minQueries": 35,
+      "maxQueries": 35
+    },
+    "reservations": {
+      "samples": 10,
+      "p50Ms": 7.76,
+      "p95Ms": 33.65,
+      "maxMs": 33.65,
+      "minQueries": 3,
+      "maxQueries": 3
+    },
+    "searchConcurrent5": {
+      "samples": 5,
+      "p50Ms": 119.55,
+      "p95Ms": 122.75,
+      "maxMs": 122.75,
+      "totalQueries": 20
+    }
+  },
+  "searchPlan": {
+    "executionMs": 18.187,
+    "planningMs": 7.784,
+    "indexes": [
+      "users_pkey"
+    ]
+  }
+}

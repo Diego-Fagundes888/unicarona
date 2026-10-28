@@ -1,0 +1,9 @@
+# Send only production Java sources, Maven metadata and public frontend assets.
+**
+!backend-java/
+!backend-java/pom.xml
+!backend-java/src/
+!backend-java/src/main/
+!backend-java/src/main/**
+!dist/
+!dist/**

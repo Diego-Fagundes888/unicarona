@@ -1,0 +1,1531 @@
+{
+  "at": "2026-10-26T20:07:41.7936344-03:00",
+  "status": "V46 boarding credential lifecycle verified in source; full44 goal remains active",
+  "schemaVersion": 46,
+  "newMigration": "V46__boarding_pin_lifecycle.sql",
+  "snapshotFormat": 3,
+  "window": "End of original trip date in original institution time zone",
+  "universalLegalDeadlineClaimed": false,
+  "currentDatabaseConsumptionErasure": true,
+  "expiredPinRecoveryVerified": true,
+  "consumptionForwardRecoveryImplemented": false,
+  "financialForwardRecoveryImplemented": false,
+  "paidFinancialHistoryRetired": false,
+  "trueAnonymousAggregatesImplemented": false,
+  "originalDeadlineCannotRenew": true,
+  "moneyAndBoardingEvidencePreserved": true,
+  "ownerExportIncludesDatesOnly": true,
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "realProviderCalls": false,
+  "realEmailDelivery": false,
+  "nativeV26MutationPerformed": false,
+  "privateFrozenFrontendMutationPerformed": false,
+  "activeClusterConfigurationChanged": false,
+  "activeClusterRestarted": false,
+  "productionPublication": false,
+  "legalPublicationState": "draft",
+  "privacyDraftRevision": 10,
+  "driverTermsDraftRevision": 3,
+  "priorPrivacySource": "history/privacy-r9.md",
+  "previousPrivacySourcePreservedExactly": true,
+  "finalRun": "privacy-boarding-pin-final-contract-proof-26oct.log",
+  "finalUnit": 176,
+  "finalIntegration": 132,
+  "boardingPinScenarios": 15,
+  "countsOverlap": true,
+  "complementaryCoverage": {
+    "unit": 176,
+    "integration": 291,
+    "method": "Latest result per class from broad final and directed final; unchanged production sources; no sum of reruns",
+    "allLatestClassesPassed": true,
+    "productionSourcesUnchangedSinceBroadFinal": true,
+    "compiledMigrationMatchesSource": true,
+    "classes": [
+      {
+        "name": "com.unicarona.auth.AuthBoundaryTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.config.FlywayCompatibilityIT",
+        "tests": 16,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.file.FileHttpIT",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-26oct.log"
+      },
+      {
+        "name": "com.unicarona.file.service.ImageProcessorTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.file.storage.PrivateFileStorageTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.job.service.MaintenanceServiceTest",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.job.service.WorkerLifecycleTest",
+        "tests": 11,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.notification.EmailProviderTest",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.notification.provider.ResendEmailProviderTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.payment.PaymentHttpIT",
+        "tests": 24,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-26oct.log"
+      },
+      {
+        "name": "com.unicarona.payment.PaymentProviderTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.payment.PricingCalculatorTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+        "tests": 65,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-26oct.log"
+      },
+      {
+        "name": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.payment.provider.MercadoPagoSignatureTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+        "tests": 7,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.payment.WebhookAuthenticationTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.BoardingPinRetentionIT",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+        "tests": 17,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.LegalHttpIT",
+        "tests": 15,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.ParticipantIdentityTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacyCopiesTest",
+        "tests": 32,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+        "tests": 9,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacyPhysicalRestoreIT",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+        "tests": 8,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacyRightsHttpIT",
+        "tests": 18,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacySchemaIT",
+        "tests": 6,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacySettingsTest",
+        "tests": 4,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-26oct.log"
+      },
+      {
+        "name": "com.unicarona.privacy.PrivacyUnusedFilesMaintenanceTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.reservation.LifecycleHttpIT",
+        "tests": 30,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.ride.RideHttpIT",
+        "tests": 18,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-26oct.log"
+      },
+      {
+        "name": "com.unicarona.security.CryptoServiceTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.security.RequestContractValidationTest",
+        "tests": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.seed.SeedCatalogTest",
+        "tests": 5,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.seed.SeedSettingsTest",
+        "tests": 3,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.shared.ExternalCallsTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.shared.JavaScriptNumbersTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.shared.TransactionRetriesTest",
+        "tests": 2,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.student.CatalogServiceTest",
+        "tests": 1,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      },
+      {
+        "name": "com.unicarona.subscription.ContractHttpIT",
+        "tests": 38,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "log": "privacy-boarding-pin-final-contract-proof-26oct.log"
+      }
+    ]
+  },
+  "newCss": false,
+  "newFrontendCode": false,
+  "jsRunThisPhase": false,
+  "visualState": "Deferred by user; no browser-policy bypass",
+  "globalShipVerdict": false,
+  "runs": [
+    {
+      "log": "privacy-boarding-pin-first-26oct.log",
+      "scope": "Initial 30 lifecycle cases before expanded expiry proof.",
+      "sha256": "a8d81ed0ba844c7f0a74fac4ac2cc103178be2df97c2ba68f64c72c04ccb6aae",
+      "testsExecuted": true,
+      "preflightRejected": false,
+      "compilationFailure": false,
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 5,
+      "integration": 30,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.reservation.LifecycleHttpIT",
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-boarding-pin-cases-26oct.log",
+      "scope": "Fixture timestamp type inference rejected; one migration metadata expectation needed the new NOT NULL column.",
+      "sha256": "289015987eee2ecd2db70874965e31bebd231cf28927872e138cfa77a21cb599",
+      "testsExecuted": true,
+      "preflightRejected": false,
+      "compilationFailure": false,
+      "buildSuccess": false,
+      "buildFailure": true,
+      "unit": 5,
+      "integration": 28,
+      "failures": 1,
+      "errors": 13,
+      "classes": [
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 15,
+          "failures": 1,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.BoardingPinRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 13,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-boarding-pin-fixtures-fixed-26oct.log",
+      "scope": "Valid monetary fixture; three unsupported test time zones rejected by existing database constraint.",
+      "sha256": "a7b1279c7475b939f17eef72743847958397850a80844ddfe9f6ab8e039209d3",
+      "testsExecuted": true,
+      "preflightRejected": false,
+      "compilationFailure": false,
+      "buildSuccess": false,
+      "buildFailure": true,
+      "unit": 5,
+      "integration": 29,
+      "failures": 0,
+      "errors": 3,
+      "classes": [
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.BoardingPinRetentionIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 3,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-boarding-pin-regression-26oct.log",
+      "scope": "Unknown selected test class; launcher refused before Maven or tests.",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "testsExecuted": false,
+      "preflightRejected": false,
+      "compilationFailure": false,
+      "buildSuccess": false,
+      "buildFailure": false,
+      "unit": 0,
+      "integration": 0,
+      "failures": 0,
+      "errors": 0,
+      "classes": []
+    },
+    {
+      "log": "privacy-boarding-pin-regression-fixed-selection-26oct.log",
+      "scope": "Broad regression before final export and boarding-evidence refinements; 14 own cases.",
+      "sha256": "51ea0540ea1e9c3c1c0cadf65a7cddd3200642883df1ce7aed3e0642b61f7a44",
+      "testsExecuted": true,
+      "preflightRejected": false,
+      "compilationFailure": false,
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 176,
+      "integration": 252,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "name": "com.unicarona.payment.PaymentProviderTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PricingCalculatorTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.WebhookAuthenticationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoSignatureTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.CryptoServiceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.RequestContractValidationTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.ExternalCallsTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.JavaScriptNumbersTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.TransactionRetriesTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.student.CatalogServiceTest",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.auth.AuthBoundaryTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.service.ImageProcessorTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.storage.PrivateFileStorageTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.MaintenanceServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.WorkerLifecycleTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.provider.ResendEmailProviderTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.EmailProviderTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedCatalogTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedSettingsTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ParticipantIdentityTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySettingsTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyUnusedFilesMaintenanceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PaymentHttpIT",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 65,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.FileHttpIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.ride.RideHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.reservation.LifecycleHttpIT",
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.BoardingPinRetentionIT",
+          "tests": 14,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyPhysicalRestoreIT",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySchemaIT",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-boarding-pin-final-26oct.log",
+      "scope": "Current production source; one obsolete monthly fixture/consumed-PIN expectation failed.",
+      "sha256": "1634988726481dae898222417dbeeb82da0256a54842de5c767f81971964338f",
+      "testsExecuted": true,
+      "preflightRejected": false,
+      "compilationFailure": false,
+      "buildSuccess": false,
+      "buildFailure": true,
+      "unit": 176,
+      "integration": 291,
+      "failures": 0,
+      "errors": 1,
+      "classes": [
+        {
+          "name": "com.unicarona.payment.PaymentProviderTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PricingCalculatorTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.WebhookAuthenticationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoSignatureTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.CryptoServiceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.RequestContractValidationTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.ExternalCallsTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.JavaScriptNumbersTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.TransactionRetriesTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.student.CatalogServiceTest",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.auth.AuthBoundaryTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.service.ImageProcessorTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.storage.PrivateFileStorageTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.MaintenanceServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.WorkerLifecycleTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.provider.ResendEmailProviderTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.EmailProviderTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedCatalogTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedSettingsTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ParticipantIdentityTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySettingsTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyUnusedFilesMaintenanceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PaymentHttpIT",
+          "tests": 24,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoHttpIT",
+          "tests": 65,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.FileHttpIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.ride.RideHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.reservation.LifecycleHttpIT",
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.BoardingPinRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.FinancialIdentityRetentionIT",
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyPhysicalRestoreIT",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySchemaIT",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.subscription.ContractHttpIT",
+          "tests": 38,
+          "failures": 0,
+          "errors": 1,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-boarding-pin-final-contract-proof-26oct.log",
+      "scope": "Current production source with corrected monthly fixture and stronger expiry projection proof; 15 own cases.",
+      "sha256": "b2515710ea73f8a4376038c235797f4025a488bca6e5e45e6ea8ede1c6ea1b21",
+      "testsExecuted": true,
+      "preflightRejected": false,
+      "compilationFailure": false,
+      "buildSuccess": true,
+      "buildFailure": false,
+      "unit": 176,
+      "integration": 132,
+      "failures": 0,
+      "errors": 0,
+      "classes": [
+        {
+          "name": "com.unicarona.payment.PaymentProviderTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.PricingCalculatorTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.WebhookAuthenticationTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoOrdersClientTest",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.provider.MercadoPagoSignatureTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.payment.service.MercadoPagoCardCommandTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.CryptoServiceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.security.RequestContractValidationTest",
+          "tests": 12,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.ExternalCallsTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.JavaScriptNumbersTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.shared.TransactionRetriesTest",
+          "tests": 2,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.student.CatalogServiceTest",
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.auth.AuthBoundaryTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.service.ImageProcessorTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.file.storage.PrivateFileStorageTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.MaintenanceServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.job.service.WorkerLifecycleTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.provider.ResendEmailProviderTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.notification.EmailProviderTest",
+          "tests": 7,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedCatalogTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.seed.SeedSettingsTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ContractIdentityPurposeTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.ParticipantIdentityTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyEvidenceCryptoTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRetainedFileBlobsTest",
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacySettingsTest",
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyUnusedFilesMaintenanceTest",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.config.FlywayCompatibilityIT",
+          "tests": 16,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.subscription.ContractHttpIT",
+          "tests": 38,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.reservation.LifecycleHttpIT",
+          "tests": 30,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.BoardingPinRetentionIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "name": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "file": "backend-java/src/main/resources/db/migration/V46__boarding_pin_lifecycle.sql",
+      "sha256": "f1067cc9543fb9ba2bb9de62261ac9cc55214a23f084bd49f82f91afd21c0058"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyBoardingPinRetention.java",
+      "sha256": "a36f1b18293804a5a04ea79a101200d1daace3576c256bcaf03fdd0ff46dd25b"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyBoardingPinMaintenance.java",
+      "sha256": "07dbf23afc12278bbd8e9094f273b4a6301de7be6379a279b58ad8c03aad93fc"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRestoreGuard.java",
+      "sha256": "0f64c24a8f6b4d8b8ab924afe414f247d41d3bef172a163956a0bcb2c9501e4c"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/reservation/repository/ReservationReadRepository.java",
+      "sha256": "8bebad674b84ec5db8af623d88badb30ee65189427762e4f1b7f5498a9468f92"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/reservation/repository/LifecycleRepository.java",
+      "sha256": "bcea471c6d842512762fe9b5bb64db8f36ec14af36c6ba4c405e3c49b03b7cb9"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/reservation/service/LifecycleTransactions.java",
+      "sha256": "7e4f6b4cf217b8d0738d5a072c5c64dd46cd3db45d584865325d5e3e9344484a"
+    },
+    {
+      "file": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyExportService.java",
+      "sha256": "0de77da7ca70a74203a3ddd591d2acddb398d3a0b19417a2eea5dcc67705129d"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "577b93aef8a819e7e89f1ae1aed8635afa9e01852ab0bbc7193ac850696ab637"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "c7bd3512d9d355159ea4d9609c2f55ae748415c4127ee32bb8abbffdbd3219c7"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/privacy/BoardingPinRetentionIT.java",
+      "sha256": "26522d96113ad3d3f920c8cc48d32aed67105b45032b52d97a26b516239c5af6"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/support/PaidReservationFixture.java",
+      "sha256": "ad64c9c5f63bd5bb615b7ae5232b171ace110f870790f349314f18fd4e6de4aa"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/config/FlywayCompatibilityIT.java",
+      "sha256": "536464e6ee455fc09ab4fe44c82f418b1f92c36b175ca35f21533926bfa24e2b"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/file/FileHttpIT.java",
+      "sha256": "9b15eed600d42c9ea6010ba2ce01e9a41025715c469c2a66718e7e6c9510388d"
+    },
+    {
+      "file": "backend-java/src/test/java/com/unicarona/subscription/ContractHttpIT.java",
+      "sha256": "288caf3f3befab2bf144bf14c146e561e7acce993df67496ae38fd284d8dc43e"
+    },
+    {
+      "file": "backend-java/src/main/resources/legal/history/privacy-r9.md",
+      "sha256": "8574cba4b1301c5a4fc1fbb110913ab25e466292f4bbd91e9a16b20b7353d6cf"
+    },
+    {
+      "file": "docs/privacy/PIN_Embarque_Retencao.md",
+      "sha256": "c623d79171be750f1bd5bd990060d14d2370e25dbb8f6c7dcd82eda9137f2709"
+    },
+    {
+      "file": "docs/privacy/Plano_Implementacao.md",
+      "sha256": "b16861ce90590acb4e73f91c9bedf00d1f24291e99c07aad371bf4d5d3c70dd8"
+    },
+    {
+      "file": "docs/privacy/Inventario_Dados.md",
+      "sha256": "bd5fb1027522c379c3dc75eefb9a4ff7cf2af2592af35e1c31e9d1d5ac87daca"
+    },
+    {
+      "file": "docs/privacy/Matriz_44_Requisitos.md",
+      "sha256": "44050d416e4c9c9f17c27dc6f93059aef2d8f606728e52badad41205adea17c4"
+    },
+    {
+      "file": "docs/privacy/Consistencia_Documentos.md",
+      "sha256": "0a63812e87c620b7034ea8f35e1061d1de4e20c7d31e3d4ab6fef0f79e47016d"
+    }
+  ],
+  "preserved": [
+    {
+      "file": "dist/privacy.css",
+      "sha256": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f",
+      "unchangedSinceV45": true
+    },
+    {
+      "file": "dist/design-system.css",
+      "sha256": "a028fbfd0b4aedef2322b37612fd131b9564f22a12d910a34a0d08ccbff6b912",
+      "unchangedSinceV45": true
+    },
+    {
+      "file": "DESIGN.md",
+      "sha256": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327",
+      "unchangedSinceV45": true
+    },
+    {
+      "file": "PRODUCT.md",
+      "sha256": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d",
+      "unchangedSinceV45": true
+    },
+    {
+      "file": "dist/legal.js",
+      "sha256": "4276f5242625b5d38015e7e2b672d4c390b4ebf7e63cb559ba37c03614983852",
+      "unchangedSinceV45": true
+    },
+    {
+      "file": "dist/backend-ui.js",
+      "sha256": "04d89d3a53313258d89d1364734155575e3353dcc78542fdd382f803fee5e0c6",
+      "unchangedSinceV45": true
+    }
+  ],
+  "outstanding": [
+    "Replay of boarding/cancellation events after an older still-unexpired snapshot; no independent consumption journal or full transactional recovery yet",
+    "Transactionally complete recovery with measured loss window, protection/retention of backups and independent privacy controls; separate synthetic cluster rehearsal still to implement",
+    "Received financial history, performed contracts, remaining location/academic snapshots and audit families retention",
+    "True anonymous aggregates, remaining minimization, final legal/technical red teams and all44/16 deliverables",
+    "Deferred visual review, Brazilian lawyer validation and coordinated production publication"
+  ]
+}

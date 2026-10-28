@@ -1,0 +1,42 @@
+{
+  "name": "unicarona",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <27"
+  },
+  "scripts": {
+    "dev": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1",
+    "worker": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1 -Mode worker",
+    "build": "pwsh -NoProfile -File backend-java/scripts/maven-local.ps1 -DskipTests package",
+    "start": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1",
+    "start:worker": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1 -Mode worker",
+    "db:migrate": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1 -Mode migrate",
+    "db:seed": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1 -Mode seed",
+    "db:seed:scenarios": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1 -Mode seed-scenarios",
+    "db:migrate:compiled": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1 -Mode migrate",
+    "db:seed:compiled": "pwsh -NoProfile -File backend-java/scripts/run-local.ps1 -Mode seed",
+    "test": "node scripts/verify.mjs",
+    "test:unit": "pwsh -NoProfile -File backend-java/scripts/maven-local.ps1 test",
+    "test:e2e": "pwsh -NoProfile -File backend-java/scripts/e2e-local.ps1",
+    "test:migrations": "pwsh -NoProfile -File backend-java/scripts/maven-local.ps1 -Dit.test=FlywayCompatibilityIT verify",
+    "api:export": "pwsh -NoProfile -File backend-java/scripts/export-api.ps1",
+    "docker": "pwsh -NoProfile -File backend-java/scripts/compose-local.ps1",
+    "test:java": "pwsh -NoProfile -File backend-java/scripts/maven-local.ps1 verify",
+    "test:client": "node --test tests/privacy-ui.test.mjs tests/admin-privacy-ui.test.mjs tests/tooling.test.mjs",
+    "test:tooling": "node --test backend-java/scripts/private-environment.test.mjs",
+    "lint": "node scripts/check-source.mjs",
+    "assets:version": "node scripts/static-assets.mjs --write",
+    "demo": "node --import tsx scripts/demo.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/pg": "^8.23.1",
+    "pg": "^8.23.1",
+    "playwright": "^1.63.0",
+    "sharp": "^0.35.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

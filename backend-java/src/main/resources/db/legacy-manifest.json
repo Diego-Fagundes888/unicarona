@@ -1,0 +1,80 @@
+[
+  {
+    "version": 1,
+    "legacyVersion": "001_core.sql",
+    "resource": "V1__core.sql",
+    "checksum": "af8a3e6d8d61aafc86a2734dadbff566bdd4ae6a688b4e7d80c3b6e1f349c3ac"
+  },
+  {
+    "version": 2,
+    "legacyVersion": "002_invariants.sql",
+    "resource": "V2__invariants.sql",
+    "checksum": "acb49bc07c1fc29e4b8fa1723e5339e677b2ede93b0d2ff1a17ad5ace0ffd35e"
+  },
+  {
+    "version": 3,
+    "legacyVersion": "003_ledger_event_hash.sql",
+    "resource": "V3__ledger_event_hash.sql",
+    "checksum": "50fd9ec0798afcd3591dcd8112f2b54bab4c4b76e06f8bda14af50277ea4e7f3"
+  },
+  {
+    "version": 4,
+    "legacyVersion": "004_ledger_trigger_record.sql",
+    "resource": "V4__ledger_trigger_record.sql",
+    "checksum": "36c38d149d49e31902a7a79822ac30ef76cb01dd252a4b4b138c12a47ec86133"
+  },
+  {
+    "version": 5,
+    "legacyVersion": "005_mobility_indexes.sql",
+    "resource": "V5__mobility_indexes.sql",
+    "checksum": "4dc593f74350ae42521d4895a01b0bb6c9966fb1b94594e9a2139628a5187b26"
+  },
+  {
+    "version": 6,
+    "legacyVersion": "006_balance_timezone.sql",
+    "resource": "V6__balance_timezone.sql",
+    "checksum": "1ecbf50b6772bdda778e56510f0684730160561287b31f00325a9bbf35a0ef7c"
+  },
+  {
+    "version": 7,
+    "legacyVersion": "007_request_transitions.sql",
+    "resource": "V7__request_transitions.sql",
+    "checksum": "e4c1232342871b253610e6c0a3b87cb9b54e2a565774d2bf86016f0d5ae265cd"
+  },
+  {
+    "version": 8,
+    "legacyVersion": "008_deadline_indexes.sql",
+    "resource": "V8__deadline_indexes.sql",
+    "checksum": "be34e95d8cfcbf34ba3ca4f72975b38561988b794c91fa9d5f5f376e6ead9040"
+  },
+  {
+    "version": 9,
+    "legacyVersion": "009_webhook_diagnostics.sql",
+    "resource": "V9__webhook_diagnostics.sql",
+    "checksum": "633ef6400b8794f109c1cd6bae37a11e374fdd207100bb194e4716ce7a262406"
+  },
+  {
+    "version": 10,
+    "legacyVersion": "010_admin_calendar_pricing.sql",
+    "resource": "V10__admin_calendar_pricing.sql",
+    "checksum": "f1e2a6014c8b4515dc099d2b86b95dae28eb90fa94f65bd0de41b751b7251a63"
+  },
+  {
+    "version": 11,
+    "legacyVersion": "011_private_file_lookup.sql",
+    "resource": "V11__private_file_lookup.sql",
+    "checksum": "ecadb249147ebd06f525386a98f2d19429218262e5b12868e6f7a25bdd4f5b05"
+  },
+  {
+    "version": 12,
+    "legacyVersion": "012_domain_state_guards.sql",
+    "resource": "V12__domain_state_guards.sql",
+    "checksum": "01cb7e076128d9bd773958b8ede27473980f43a508694f2861de80375cb4130c"
+  },
+  {
+    "version": 13,
+    "legacyVersion": "013_payment_transfer_guards.sql",
+    "resource": "V13__payment_transfer_guards.sql",
+    "checksum": "655b977b21db7921b564a26185fe61d4100c1fe01f4d9fbe4c4900bf1668f8eb"
+  }
+]

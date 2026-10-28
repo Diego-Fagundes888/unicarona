@@ -1,0 +1,3 @@
+com.unicarona.payment.config.TransferProviderConfiguration
+com.unicarona.payment.config.PaymentProviderConfiguration
+com.unicarona.notification.config.EmailProviderConfiguration

@@ -1,0 +1,1890 @@
+{
+  "status": "complete",
+  "scope": "all_frontend",
+  "source_audit": "<LOCAL_USER_HOME>",
+  "approval_requires": [
+    "structure",
+    "design_system",
+    "refinement",
+    "ux",
+    "responsive",
+    "states",
+    "global_consistency",
+    "quality_review"
+  ],
+  "entries": [
+    {
+      "number": 1,
+      "page": "Página inicial pública",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "public-desktop-current.png",
+        "public-notebook-current.png",
+        "public-tablet-current.png",
+        "public-mobile-current.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 2,
+      "page": "Entrar",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-login-desktop.png",
+        "auth-login-notebook.png",
+        "auth-login-tablet.png",
+        "auth-login-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 3,
+      "page": "Recuperar senha",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-recovery-desktop.png",
+        "auth-recovery-notebook.png",
+        "auth-recovery-tablet.png",
+        "auth-recovery-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 4,
+      "page": "Instruções de recuperação",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-recovery-instructions-desktop.png",
+        "auth-recovery-instructions-notebook.png",
+        "auth-recovery-instructions-tablet.png",
+        "auth-recovery-instructions-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 5,
+      "page": "Definir nova senha",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-reset-desktop.png",
+        "auth-reset-notebook.png",
+        "auth-reset-tablet.png",
+        "auth-reset-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 6,
+      "page": "Senha alterada",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-reset-success-desktop.png",
+        "auth-reset-success-notebook.png",
+        "auth-reset-success-tablet.png",
+        "auth-reset-success-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 7,
+      "page": "Link de recuperação indisponível",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-reset-invalid-desktop.png",
+        "auth-reset-invalid-notebook.png",
+        "auth-reset-invalid-tablet.png",
+        "auth-reset-invalid-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 8,
+      "page": "Criar conta — dados pessoais",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-signup-access-desktop.png",
+        "auth-signup-access-notebook.png",
+        "auth-signup-access-tablet.png",
+        "auth-signup-access-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 9,
+      "page": "Criar conta — perfil acadêmico",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-signup-academic-desktop.png",
+        "auth-signup-academic-notebook.png",
+        "auth-signup-academic-tablet.png",
+        "auth-signup-academic-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 10,
+      "page": "Criar conta — confirmar e-mail",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-confirmation-reloaded-desktop.png",
+        "auth-confirmation-reloaded-notebook.png",
+        "auth-confirmation-reloaded-tablet.png",
+        "auth-confirmation-reloaded-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 11,
+      "page": "Verificando e-mail",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-verification-loading-desktop.png",
+        "auth-verification-loading-notebook.png",
+        "auth-verification-loading-tablet.png",
+        "auth-verification-loading-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 12,
+      "page": "E-mail confirmado",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-verification-success-desktop.png",
+        "auth-verification-success-notebook.png",
+        "auth-verification-success-tablet.png",
+        "auth-verification-success-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 13,
+      "page": "Verificação de e-mail inválida",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "auth-verification-invalid-desktop.png",
+        "auth-verification-invalid-notebook.png",
+        "auth-verification-invalid-tablet.png",
+        "auth-verification-invalid-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 14,
+      "page": "Dashboard — início",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-home-desktop.png",
+        "passenger-home-notebook.png",
+        "passenger-home-tablet.png",
+        "passenger-home-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 15,
+      "page": "Buscar carona",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-search-desktop.png",
+        "passenger-search-notebook.png",
+        "passenger-search-tablet.png",
+        "passenger-search-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 16,
+      "page": "Resultados — avulsas",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-single-results-desktop.png",
+        "passenger-single-results-notebook.png",
+        "passenger-single-results-tablet.png",
+        "passenger-single-results-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 17,
+      "page": "Resultados — mensais",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-monthly-results-desktop.png",
+        "passenger-monthly-results-notebook.png",
+        "passenger-monthly-results-tablet.png",
+        "passenger-monthly-results-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 18,
+      "page": "Detalhe de carona avulsa",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-ride-detail-desktop.png",
+        "passenger-ride-detail-notebook.png",
+        "passenger-ride-detail-tablet.png",
+        "passenger-ride-detail-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 19,
+      "page": "Mensal — configuração e prévia",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-monthly-desktop.png",
+        "passenger-monthly-notebook.png",
+        "passenger-monthly-tablet.png",
+        "passenger-monthly-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 20,
+      "page": "Renovar mensal",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-renew-desktop.png",
+        "passenger-renew-notebook.png",
+        "passenger-renew-tablet.png",
+        "passenger-renew-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 21,
+      "page": "Solicitação — passageiro",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-request-accepted-desktop.png",
+        "passenger-request-accepted-notebook.png",
+        "passenger-request-accepted-tablet.png",
+        "passenger-request-accepted-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 22,
+      "page": "Checkout — início, pendência e sucesso",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-checkout-desktop.png",
+        "passenger-checkout-notebook.png",
+        "passenger-checkout-tablet.png",
+        "passenger-checkout-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 23,
+      "page": "Reserva — avulsa e mensal",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-reservation-desktop.png",
+        "passenger-reservation-notebook.png",
+        "passenger-reservation-tablet.png",
+        "passenger-reservation-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 24,
+      "page": "Contrato mensal",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-contract-desktop.png",
+        "passenger-contract-notebook.png",
+        "passenger-contract-tablet.png",
+        "passenger-contract-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 25,
+      "page": "Minhas — reservas",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-mine-reservations-desktop.png",
+        "passenger-mine-reservations-notebook.png",
+        "passenger-mine-reservations-tablet.png",
+        "passenger-mine-reservations-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 26,
+      "page": "Minhas — pedidos",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-mine-requests-desktop.png",
+        "passenger-mine-requests-notebook.png",
+        "passenger-mine-requests-tablet.png",
+        "passenger-mine-requests-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 27,
+      "page": "Minhas — mensais",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-mine-monthly-desktop.png",
+        "passenger-mine-monthly-notebook.png",
+        "passenger-mine-monthly-tablet.png",
+        "passenger-mine-monthly-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 28,
+      "page": "Minhas — ofertas",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "driver-offers-desktop.png",
+        "driver-offers-notebook.png",
+        "driver-offers-tablet.png",
+        "driver-offers-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 29,
+      "page": "Histórico",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-history-desktop.png",
+        "passenger-history-notebook.png",
+        "passenger-history-tablet.png",
+        "passenger-history-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 30,
+      "page": "Motorista — inscrição/análise",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "states-driver-pending-desktop.png",
+        "states-driver-pending-notebook.png",
+        "states-driver-pending-tablet.png",
+        "states-driver-pending-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 31,
+      "page": "Motorista — painel aprovado",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "driver-approved-desktop.png",
+        "driver-approved-notebook.png",
+        "driver-approved-tablet.png",
+        "driver-approved-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 32,
+      "page": "Publicar avulsa",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "driver-publish-desktop.png",
+        "driver-publish-notebook.png",
+        "driver-publish-tablet.png",
+        "driver-publish-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 33,
+      "page": "Publicar mensal",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "driver-publish-monthly-desktop.png",
+        "driver-publish-monthly-notebook.png",
+        "driver-publish-monthly-tablet.png",
+        "driver-publish-monthly-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 34,
+      "page": "Editar oferta",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "driver-edit-desktop.png",
+        "driver-edit-notebook.png",
+        "driver-edit-tablet.png",
+        "driver-edit-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 35,
+      "page": "Pedidos recebidos — motorista",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "driver-requests-desktop.png",
+        "driver-requests-notebook.png",
+        "driver-requests-tablet.png",
+        "driver-requests-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 36,
+      "page": "Gerenciar trecho/passageiros",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "driver-passengers-desktop.png",
+        "driver-passengers-notebook.png",
+        "driver-passengers-tablet.png",
+        "driver-passengers-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 37,
+      "page": "Carteira",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-wallet-passenger-desktop.png",
+        "passenger-wallet-passenger-notebook.png",
+        "passenger-wallet-passenger-tablet.png",
+        "passenger-wallet-passenger-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 38,
+      "page": "Perfil",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-profile-desktop.png",
+        "passenger-profile-notebook.png",
+        "passenger-profile-tablet.png",
+        "passenger-profile-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 39,
+      "page": "Configurações",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-settings-desktop.png",
+        "passenger-settings-notebook.png",
+        "passenger-settings-tablet.png",
+        "passenger-settings-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 40,
+      "page": "Segurança/ocorrências",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "states-safety-receipt-desktop.png",
+        "states-safety-receipt-notebook.png",
+        "states-safety-receipt-tablet.png",
+        "states-safety-receipt-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 41,
+      "page": "Relatar ocorrência",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-report-desktop.png",
+        "passenger-report-notebook.png",
+        "passenger-report-tablet.png",
+        "passenger-report-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 42,
+      "page": "Notificações",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-notifications-desktop.png",
+        "passenger-notifications-notebook.png",
+        "passenger-notifications-tablet.png",
+        "passenger-notifications-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 43,
+      "page": "Ajuda",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "passenger-help-desktop.png",
+        "passenger-help-notebook.png",
+        "passenger-help-tablet.png",
+        "passenger-help-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 44,
+      "page": "Simulador de pagamento",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "test-payment-pending-desktop.png",
+        "test-payment-pending-notebook.png",
+        "test-payment-pending-tablet.png",
+        "test-payment-pending-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 45,
+      "page": "Admin — motoristas",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-approvals-desktop.png",
+        "admin-approvals-notebook.png",
+        "admin-approvals-tablet.png",
+        "admin-approvals-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 46,
+      "page": "Admin — ocorrências",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-cases-desktop.png",
+        "admin-cases-notebook.png",
+        "admin-cases-tablet.png",
+        "admin-cases-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 47,
+      "page": "Admin — apuração",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-case-detail-desktop.png",
+        "admin-case-detail-notebook.png",
+        "admin-case-detail-tablet.png",
+        "admin-case-detail-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 48,
+      "page": "Admin — contas",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-accounts-desktop.png",
+        "admin-accounts-notebook.png",
+        "admin-accounts-tablet.png",
+        "admin-accounts-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 49,
+      "page": "Admin — vínculo acadêmico",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-academic-desktop.png",
+        "admin-academic-notebook.png",
+        "admin-academic-tablet.png",
+        "admin-academic-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 50,
+      "page": "Admin — calendário",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-calendar-desktop.png",
+        "admin-calendar-notebook.png",
+        "admin-calendar-tablet.png",
+        "admin-calendar-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 51,
+      "page": "Admin — parâmetros",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-pricing-desktop.png",
+        "admin-pricing-notebook.png",
+        "admin-pricing-tablet.png",
+        "admin-pricing-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 52,
+      "page": "Admin — conciliação",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-finance-desktop.png",
+        "admin-finance-notebook.png",
+        "admin-finance-tablet.png",
+        "admin-finance-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    },
+    {
+      "number": 53,
+      "page": "Admin — tarefas de envio",
+      "implementation": "approved",
+      "observed_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "required_viewports": [
+        "desktop",
+        "notebook",
+        "tablet",
+        "mobile"
+      ],
+      "final_gates": {
+        "structure": true,
+        "design_system": true,
+        "refinement": true,
+        "ux": true,
+        "responsive": true,
+        "states": true,
+        "global_consistency": true,
+        "quality_review": true
+      },
+      "approved": true,
+      "evidence": [
+        "admin-jobs-desktop.png",
+        "admin-jobs-notebook.png",
+        "admin-jobs-tablet.png",
+        "admin-jobs-mobile.png"
+      ],
+      "approved_at": "2026-10-09"
+    }
+  ],
+  "latest_validation": {
+    "date": "2026-10-09",
+    "business_regression": "11/11 passed, 0 failures/skips/cancellations; 268060.8451 ms",
+    "independent_review": "Full review plus material fix1 resolved / ship",
+    "design_documentation": "schema v2, 13 source hashes and 10 snippets validated",
+    "final_approval": "53 entries approved within documented frontend scope",
+    "quality_scores": {
+      "design_visual": 9,
+      "ux": 9,
+      "consistency": 9,
+      "responsive": 9,
+      "accessibility": 8.5,
+      "implementation": 9,
+      "professional_quality": 9
+    },
+    "validation_packet": ".impeccable/review/FINAL_VALIDATION.json"
+  },
+  "approval_scope": "Revisão de frontend pelas oito passadas e evidência disponível. Acessibilidade assistiva e prontidão comercial não certificadas."
+}

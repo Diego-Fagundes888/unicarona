@@ -1,0 +1,80 @@
+{
+  "at": "2026-10-25T02:59:02.4513697Z",
+  "status": "Foundation and transaction commit-gap bridge verified; typed hold replay and administrative mutation integration remain incomplete.",
+  "nativeV26Changed": false,
+  "frontendChanged": false,
+  "syntheticOnly": true,
+  "database": "unicarona_java_test",
+  "runs": [
+    {
+      "unit": 36,
+      "integration": 31,
+      "skipped": 0,
+      "errors": 0,
+      "scope": "Encrypted control/catalog foundation before V38 bridge.",
+      "failures": 0,
+      "log": "privacy-hold-control-foundation-regression-24oct.log"
+    },
+    {
+      "unit": 36,
+      "integration": 32,
+      "skipped": 0,
+      "errors": 0,
+      "scope": "Initial six bridge cases before final startup/no-op changes.",
+      "failures": 0,
+      "log": "privacy-hold-control-commit-first-24oct.log"
+    },
+    {
+      "unit": 36,
+      "integration": 28,
+      "skipped": 0,
+      "errors": 0,
+      "scope": "Failed old migration counts; compatibility fixed subsequently, not a successful full run.",
+      "failures": 3,
+      "log": "privacy-hold-control-guard-final-24oct.log"
+    },
+    {
+      "unit": 8,
+      "integration": 13,
+      "skipped": 0,
+      "errors": 0,
+      "scope": "Eight migration compatibility cases and five full startup/fence cases.",
+      "failures": 0,
+      "log": "privacy-hold-control-compat-confirmed-24oct.log"
+    },
+    {
+      "unit": 13,
+      "integration": 26,
+      "skipped": 0,
+      "errors": 0,
+      "scope": "Seven bridge, fourteen existing holds HTTP and five startup/fence cases; final no-downgrade source.",
+      "failures": 0,
+      "log": "privacy-hold-control-no-downgrade-final-24oct.log"
+    }
+  ],
+  "countsOverlap": true,
+  "sources": {
+    "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyBackupCatalog.java": "e90f0cc5c4fb150affc4b5d2b9677b9c60f3a6db7179e7187924d439f1a58249",
+    "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyEvidenceCrypto.java": "40d14b452ce0f87fb52d5d9ca2ea102c21bfbcb2161eafdb3bb901741c769f35",
+    "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyOperationFiles.java": "ba1ffbe84d245b633bbdcccd00cc0de7d0a6c5e73da9c30863054649979a7e92",
+    "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyHoldControlJournal.java": "484459a53289691aa6842df72d56b4aebdfdce182767aa7fbb120a25297eff9c",
+    "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyHoldControlTransactions.java": "eee68649450f8af24fb1a856af652bda84a8f2dfbe653ecf3dd7004628f86f53",
+    "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRestoreGuard.java": "ef174dfa76817116432bd7f300b190240a6277523341628211e9d77fce7cd30a",
+    "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRetentionLock.java": "fbafc20cd2ebc3d18e7fa7c7b8cb64c8a706d587ec0a41771ac8706b3ed83c7c",
+    "backend-java/src/main/resources/db/migration/V38__hold_control_commit_state.sql": "5832a0e513a386c48ada5f27ec29ccae81c5d46c2567be7e1acd6874e6c0d327"
+  },
+  "remaining": [
+    "Typed retention snapshots and restore replay",
+    "Administrative/erasure/rotation/prune integration",
+    "Encrypted retained-file blobs and expiry",
+    "Trusted off-device control/key recovery",
+    "Remaining 44-requirement objective"
+  ],
+  "syntheticPreview": {
+    "origin": "http://localhost:4190",
+    "readinessHttp": 200,
+    "paymentProvider": "development",
+    "productionPublication": false,
+    "scope": "Current source smoke only; not typed retention replay proof"
+  }
+}

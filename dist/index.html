@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="UniCarona: caronas avulsas e mensais de ida e volta à UNICEPLAC. Confira trajeto, agenda e vagas. Para maiores de 18 anos."
+    />
+    <title>UniCarona | Caronas de ida e volta à UNICEPLAC</title>
+    <link rel="icon" href="assets/brand/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/brand/site.webmanifest" />
+    <link rel="stylesheet" href="design-system.css?v=a028fbfd0b4a" />
+    <script src="ui.js?v=3b7f71853ad8" defer></script>
+    <link rel="stylesheet" href="styles.css?v=28b9efec299e" />
+    <link rel="stylesheet" href="home.css?v=56486e985570" />
+    <link rel="stylesheet" href="brand.css?v=b7d66a6a3fae" />
+    <script src="app.js?v=98268268ea7d" defer></script>
+  </head>
+  <body class="home">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="header">
+      <div class="container header-inner">
+        <a class="brand" href="#inicio" aria-label="UniCarona, início">
+          <img class="uc-brand-logo" src="assets/brand/logo-horizontal-dark.svg" width="194" height="44" alt="" />
+        </a>
+        <nav class="desktop-nav" aria-label="Navegação principal"></nav>
+        <button
+          class="public-menu-button"
+          type="button"
+          popovertarget="public-menu"
+        >
+          Menu
+        </button>
+        <div class="header-actions">
+          <a class="login-link" href="login.html">Entrar</a
+          ><a class="header-signup" href="login.html#cadastro"> Cadastre-se </a>
+        </div>
+      </div>
+    </header>
+    <main id="conteudo" tabindex="-1">
+      <div class="discovery">
+        <section class="hero" id="inicio">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <h1>Vá de carona à UNICEPLAC.</h1>
+              <form id="ride-search" class="ride-search" novalidate>
+                <div
+                  class="ride-types"
+                  role="group"
+                  aria-label="Tipo de carona"
+                >
+                  <button
+                    type="button"
+                    class="type-choice selected"
+                    data-type="avulsa"
+                    aria-pressed="true"
+                  >
+                    <span data-icon="car"></span> Avulsa</button
+                  ><button
+                    type="button"
+                    class="type-choice"
+                    data-type="mensal"
+                    aria-pressed="false"
+                  >
+                    <span data-icon="calendar"></span> Mensal
+                  </button>
+                </div>
+                <div class="route-fields">
+                  <label class="route-field"
+                    ><span class="origin-dot" aria-hidden="true"></span
+                    ><span class="sr-only">De onde você sai?</span
+                    ><input
+                      id="origin"
+                      name="origin"
+                      placeholder="De onde você sai?"
+                      autocomplete="off"
+                      required
+                      maxlength="100" /><span data-icon="pin"></span></label
+                  ><label class="route-field"
+                    ><span class="destination-dot" aria-hidden="true"></span
+                    ><span class="sr-only">Para onde você vai?</span
+                    ><input
+                      id="destination"
+                      name="destination"
+                      value="UNICEPLAC"
+                      placeholder="Para onde você vai?"
+                      autocomplete="off"
+                      required
+                      maxlength="100" /></label
+                  ><button
+                    type="button"
+                    id="swap-route"
+                    class="swap-route"
+                    aria-label="Inverter origem e destino"
+                  >
+                    <span data-icon="swap"></span>
+                  </button>
+                </div>
+                <div class="hero-actions">
+                  <button class="button primary m-button" type="submit">
+                    Buscar caronas
+                  </button>
+                  <a class="underlined" href="login.html"
+                    >Entrar na minha conta</a
+                  >
+                </div>
+                <span class="search-demo"
+                  >Entre para conferir ofertas e vagas da sua faculdade.
+                  Pagamentos disponíveis em ambiente de testes.</span
+                >
+              </form>
+            </div>
+            <figure class="hero-art">
+              <picture>
+                <source srcset="assets/campus.webp" type="image/webp" />
+              <img
+                src="assets/campus.png"
+                width="1024"
+                height="1024"
+                alt="Ilustração de estudantes adultos se encontrando para uma carona em um campus."
+              />
+              </picture>
+              <figcaption>
+                <span>Sua turma. Seu trajeto.</span>
+                <a class="details" href="#mensal">Conhecer o mensal</a>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        <section class="how section container" id="como-funciona">
+          <h2>Descubra as possibilidades do UniCarona</h2>
+          <div class="suggestions">
+            <article>
+              <div>
+                <h3>Carona avulsa</h3>
+                <p>
+                  Procure uma vaga para uma data e um trajeto específicos, de
+                  ida ou de volta da faculdade.
+                </p>
+                <button class="details" data-modal="avulsa">
+                  Entender a carona avulsa
+                </button>
+              </div>
+              <span class="suggestion-icon" data-icon="car"></span>
+            </article>
+            <article>
+              <div>
+                <h3>Plano mensal</h3>
+                <p>
+                  Combine caronas recorrentes com alguém do mesmo curso e
+                  período/turma, conforme os dias e trajetos do plano.
+                </p>
+                <button class="details" data-modal="monthly">
+                  Entender o plano mensal
+                </button>
+              </div>
+              <span class="suggestion-icon" data-icon="calendar"></span>
+            </article>
+            <article>
+              <div>
+                <h3>Oferecer carona</h3>
+                <p>
+                  Informe o percurso que você já pretende fazer, o horário de
+                  saída e quantas vagas pode oferecer.
+                </p>
+                <button class="details" data-modal="oferecer">
+                  Como oferecer carona
+                </button>
+              </div>
+              <span class="suggestion-icon" data-icon="cap"></span>
+            </article>
+          </div>
+        </section>
+      </div>
+      <section class="flow-section container">
+        <h2>Sua carona, passo a passo.</h2>
+        <p>
+          Compare as ofertas disponíveis e acompanhe o aceite, o pagamento de
+          teste e a confirmação no seu painel.
+        </p>
+        <ol class="flow-steps">
+          <li>
+            <h3>Informe seu trajeto e horário.</h3>
+            <p>
+              Procure viagens compatíveis com a ida ou a volta da faculdade.
+            </p>
+          </li>
+          <li>
+            <h3>Confira os detalhes.</h3>
+            <p>
+              Veja a saída, o ponto de encontro, as vagas e o valor antes de
+              solicitar.
+            </p>
+          </li>
+          <li>
+            <h3>Acompanhe a confirmação.</h3>
+            <p>Confira o status do pedido antes de contar com a carona.</p>
+          </li>
+        </ol>
+        <p class="support-note">
+          As ofertas dependem de quem vai fazer o percurso. Uma solicitação
+          pendente ainda não é uma vaga confirmada.
+        </p>
+      </section>
+      <section class="account-section container editorial-section">
+        <div class="editorial-copy">
+          <h2>Suas caronas em um só lugar.</h2>
+          <p>
+            Em Minhas caronas, você acompanha seus pedidos, as viagens que
+            oferece e os trajetos do plano mensal.
+          </p>
+          <p>
+            Você busca e oferece caronas com a mesma conta. O cadastro usa
+            e-mail comum; o vínculo acadêmico pode passar por análise.
+          </p>
+          <div class="section-actions">
+            <a class="button primary m-button" href="dashboard.html?view=minhas"
+              >Acessar Minhas caronas</a
+            ><a class="underlined" href="login.html#cadastro">
+              Conhecer o cadastro
+            </a>
+          </div>
+        </div>
+        <div class="account-art" aria-label="Organização de Minhas caronas">
+          <div class="account-panel-heading">
+            <img class="uc-brand-symbol" src="assets/brand/logo-symbol-dark.svg" width="48" height="48" alt="" />
+            <div>
+              <h3>Minhas caronas</h3>
+              <span>Pedidos, reservas e ofertas</span>
+            </div>
+          </div>
+          <ul class="account-panel-list">
+            <li>
+              <span data-icon="user"></span>
+              <div>
+                <h4>Seus pedidos</h4>
+                <p>Solicitações pendentes e caronas confirmadas.</p>
+              </div>
+            </li>
+            <li>
+              <span data-icon="car"></span>
+              <div>
+                <h4>Viagens que você oferece</h4>
+                <p>Seu percurso, seus horários e suas vagas.</p>
+              </div>
+            </li>
+            <li>
+              <span data-icon="calendar"></span>
+              <div>
+                <h4>Seu plano mensal</h4>
+                <p>Dias e trajetos combinados com a sua turma.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="monthly-section container" id="mensal">
+        <h2>Sua turma. A mesma rotina.</h2>
+        <div class="monthly-grid">
+          <div class="monthly-panel">
+            <h3>Caronas com pessoas da mesma turma.</h3>
+            <p>
+              O plano mensal reúne motorista e passageiro do mesmo curso,
+              período numérico e turma. Confira os dias e escolha ida, volta ou
+              os dois trajetos.
+            </p>
+            <button class="button primary m-button" data-modal="monthly">
+              Entender o plano mensal
+            </button>
+          </div>
+          <div class="benefits">
+            <h3>Sua agenda do mês</h3>
+            <div>
+              <span data-icon="calendar"></span>
+              <p>Combinar os dias e horários antes do período contratado.</p>
+            </div>
+            <div>
+              <span data-icon="car"></span>
+              <p>Saber quais trajetos fazem parte do plano.</p>
+            </div>
+            <div>
+              <span data-icon="user"></span>
+              <p>Consultar as reservas recorrentes em Minhas caronas.</p>
+            </div>
+            <button class="underlined" data-modal="monthlyRules">
+              Ler as regras do mensal
+            </button>
+          </div>
+        </div>
+        <div class="billing-note">
+          <h3>Como o valor mensal é calculado</h3>
+          <p>
+            A prévia mostra os trechos e o total proporcional antes do pedido.
+            Feriados e recessos já conhecidos ficam fora do cálculo. Se uma aula
+            for suspensa após a contratação, a parcela do trecho é destinada ao
+            aplicativo, sem repasse ao motorista; o passageiro pode confirmar ou
+            contestar o registro.
+          </p>
+        </div>
+      </section>
+      <section class="safety-section container" id="seguranca">
+        <div class="safety-intro">
+          <span class="shield-symbol" data-icon="shield"></span>
+          <h2>Mais clareza antes de embarcar.</h2>
+          <p>
+            Confira veículo e placa após a confirmação da reserva. Use o PIN
+            somente ao embarcar e acompanhe os registros no seu painel.
+          </p>
+          <button class="button outline" data-modal="safety">
+            Ver os cuidados <span data-icon="arrow"></span>
+          </button>
+          <p class="support-note">
+            O UniCarona não acompanha localização em tempo real nem aciona
+            atendimento de emergência.
+          </p>
+        </div>
+        <div class="safety-list">
+          <article>
+            <div>
+              <h3>Aprovação para oferecer caronas</h3>
+              <p>
+                Motorista e veículo passam por análise antes da publicação de
+                ofertas.
+              </p>
+            </div>
+          </article>
+          <article>
+            <div>
+              <h3>Informações para conferir o embarque</h3>
+              <p>
+                Após a confirmação, o passageiro pode conferir os dados do
+                motorista e do veículo e usar o código de embarque.
+              </p>
+            </div>
+          </article>
+          <article>
+            <div>
+              <h3>Acesso à segurança durante a viagem</h3>
+              <p>
+                Compartilhe os detalhes da carona, registre uma ocorrência
+                vinculada à reserva e bloqueie novas combinações.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="faq-section container">
+        <h2>Dúvidas antes de participar</h2>
+        <details>
+          <summary>Preciso de e-mail da faculdade?</summary>
+          <p>
+            Não. O cadastro usa e-mail comum. Isso não comprova matrícula nem
+            vínculo com a UNICEPLAC.
+          </p>
+        </details>
+        <details>
+          <summary>O aplicativo é oficial da UNICEPLAC?</summary>
+          <p>
+            Não. O UniCarona é um projeto independente, sem vínculo oficial com
+            a instituição.
+          </p>
+        </details>
+        <details>
+          <summary>Quem pode participar do mensal?</summary>
+          <p>
+            Motorista e passageiro precisam pertencer ao mesmo curso, período
+            numérico e turma. As informações declaradas não equivalem a uma
+            matrícula verificada.
+          </p>
+        </details>
+        <details>
+          <summary>Quanto vai custar?</summary>
+          <p>
+            O valor é calculado a partir dos custos do trajeto e aparece antes
+            de solicitar a vaga. No mensal, confira os valores de cada trecho e
+            o desconto da agenda contratada.
+          </p>
+        </details>
+        <details>
+          <summary>A carona é garantida?</summary>
+          <p>
+            Não. Ela depende de disponibilidade e confirmação, e pode haver
+            cancelamentos. O projeto não garante um motorista substituto.
+          </p>
+        </details>
+        <details>
+          <summary>Já posso reservar?</summary>
+          <p>
+            Crie sua conta, confirme o e-mail e confira as ofertas no painel. O
+            ambiente atual usa pagamentos de teste, sem dinheiro real.
+          </p>
+        </details>
+      </section>
+      <section class="driver-section container" id="oferecer">
+        <div>
+          <h2>Seu trajeto pode levar mais alguém.</h2>
+          <p>
+            Compartilhe um percurso que você já pretende fazer. Depois da
+            aprovação como motorista, você pode informar destino, horário de
+            saída e vagas disponíveis.
+          </p>
+          <p class="support-note">
+            Os combinados e as condições de cancelamento ficam disponíveis antes
+            da confirmação.
+          </p>
+        </div>
+        <button class="button dark m-button" data-modal="oferecer">
+          Como oferecer carona
+        </button>
+      </section>
+      <section class="closing container">
+        <div>
+          <h2>Como seria a sua ida ou volta da faculdade?</h2>
+          <p>
+            Experimente informar seu trajeto e conheça a proposta do UniCarona.
+          </p>
+        </div>
+        <button class="button dark m-button" data-search-focus>
+          Experimentar a busca
+        </button>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-top">
+        <a class="brand" href="#inicio" aria-label="UniCarona, início">
+          <img class="uc-brand-logo" src="assets/brand/logo-horizontal-dark.svg" width="194" height="44" alt="" />
+        </a>
+        <nav aria-label="Informações">
+          <a href="legal.html?document=terms">Ler os Termos de Uso</a>
+          <a href="legal.html?document=privacy">Entender o uso dos dados</a>
+          <button data-modal="help">Conhecer o UniCarona</button>
+        </nav>
+      </div>
+      <div class="container footer-bottom">
+        <p>
+          UniCarona é um projeto independente, sem vínculo oficial com a
+          UNICEPLAC.
+        </p>
+        <span
+          >Para maiores de 18 anos. Pagamentos em ambiente de testes; nenhum
+          dinheiro real é movimentado.</span
+        >
+      </div>
+    </footer>
+    <nav
+      id="public-menu"
+      class="public-menu"
+      popover="auto"
+      aria-label="Navegação da página no celular"
+    ></nav>
+    <dialog id="modal" aria-labelledby="modal-title">
+      <div class="dialog-top">
+        <button class="icon-button close-modal" aria-label="Fechar janela">
+          <span data-icon="close"></span>
+        </button>
+      </div>
+      <div id="modal-content"></div>
+    </dialog>
+  </body>
+</html>

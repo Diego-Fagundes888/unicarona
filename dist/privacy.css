@@ -1,0 +1,80 @@
+/* Privacy extends the existing operational and reading components. */
+.p-page { max-width: 720px; }
+.auth-footer a { color: inherit; text-underline-offset: 4px; }
+#signup-legal { margin: 24px 0; }
+#signup-legal ul { padding-left: 24px; }
+#signup-legal li { margin-bottom: 8px; }
+.p-page .p-section { margin-top: var(--uc-space-8); }
+.p-page .p-section + .p-section { padding-top: var(--uc-space-8); border-top: 1px solid var(--uc-border); }
+.p-page .p-link-list { margin: 0; padding: 0; list-style: none; }
+.p-link-list > li { padding: 20px 0; border-bottom: 1px solid var(--uc-border); }
+.p-link-list > li:first-child { padding-top: 0; }
+.p-link-list h3 { margin: 0 0 4px; }
+.p-link-list .p-link-title { font-size: 17px; margin: 0 0 4px; }
+.p-page > form + .m-button { margin-top: 16px; }
+.p-page > .p-state { margin-bottom: 32px; }
+.p-link-list p { margin-bottom: 12px; max-width: 65ch; }
+.p-page .p-destructive { color: var(--uc-error); }
+.p-page .p-destructive:hover { color: var(--uc-error); text-decoration: underline; }
+.p-page .p-state { padding: var(--uc-space-6); background: var(--uc-soft); border-radius: var(--uc-radius); }
+.p-page .p-state h2 { margin-bottom: 8px; }
+.p-page .p-protocol { overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.p-page .p-details-list { margin: 0 0 24px; padding-left: 24px; }
+.p-page .p-details-list li { margin-bottom: 8px; }
+.p-page .p-summary { margin: 24px 0; }
+.p-page .p-summary > div { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--uc-border); }
+.p-page .p-summary dt { color: var(--uc-muted); }
+.p-page .p-summary dd { margin: 0; font-variant-numeric: tabular-nums; }
+.p-page .p-result { padding: 16px 0; border-top: 1px solid var(--uc-border); }
+.p-page .p-result h3 { margin-top: 16px; }
+.p-page .p-private-response { white-space: pre-wrap; overflow-wrap: anywhere; }
+.p-legal-page { margin: 0; background: var(--uc-surface); color: var(--uc-ink); font-family: var(--uc-font); line-height: 1.6; }
+.p-legal-page * { box-sizing: border-box; }
+.p-legal-page a { color: inherit; text-underline-offset: 4px; }
+.p-public-header { max-width: 1224px; margin: 0 auto; padding: 24px 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-bottom: 1px solid var(--uc-border); }
+.p-brand { display: inline-flex; align-items: center; gap: 10px; font-size: 24px; letter-spacing: -.025em; text-decoration: none; }
+.p-brand img { border-radius: var(--uc-control-radius); }
+.p-legal-layout.m-app { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 64px; padding: 48px 36px 64px; max-width: 1224px; }
+.p-legal-layout nav { display: flex; flex-direction: column; gap: 4px; align-items: stretch; }
+.p-legal-nav > summary { display: none; }
+.p-legal-layout nav a { padding: 12px; border-radius: var(--uc-control-radius); text-decoration: none; }
+.p-legal-layout nav a:hover { background: var(--uc-soft); }
+.p-legal-layout nav a[aria-current] { background: var(--uc-soft); font-weight: 700; }
+.p-legal-document { max-width: 72ch; min-width: 0; }
+.p-legal-document h1 { margin-bottom: 16px; }
+.p-legal-document h2 { margin: 40px 0 16px; }
+.p-legal-document h3 { margin: 28px 0 12px; }
+.p-legal-document li { margin-bottom: 8px; }
+.p-legal-document .p-version { color: var(--uc-muted); font-size: 14px; overflow-wrap: anywhere; }
+.p-legal-document .p-hash { overflow-wrap: anywhere; font-size: 13px; }
+.p-table-scroll { overflow-x: auto; margin: 24px 0; }
+.p-table-hint { color: var(--uc-muted); font-size: 14px; margin: 8px 0 24px; }
+.m-trip-review { overflow-wrap: anywhere; }
+.m-checkout.m-payment-layout { align-items: start; }
+.m-checkout .m-payment-method > a.m-button { color: var(--uc-surface); }
+.m-trip-review article { padding-block: 16px; border-bottom: 1px solid var(--uc-border); }
+.m-trip-review h3 { margin: 0 0 8px; }
+.m-trip-review p { margin: 8px 0; }
+.m-trip-times { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px 16px; padding-left: 20px; margin: 16px 0 0; }
+.p-table-scroll table { border-collapse: collapse; width: 100%; font-size: 15px; }
+.p-table-scroll th, .p-table-scroll td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--uc-border); padding: 12px; min-width: 140px; }
+.p-public-footer { max-width: 1224px; margin: 0 auto; padding: 24px 36px 40px; color: var(--uc-muted); font-size: 13px; border-top: 1px solid var(--uc-border); }
+.p-skip { position: fixed; top: 8px; left: 16px; padding: 12px; background: var(--uc-surface); z-index: 20; transform: translateY(-160%); }
+.p-skip:focus { transform: translateY(0); }
+.p-legal-page :focus-visible { outline: 3px solid var(--uc-brand); outline-offset: 4px; }
+@media (max-width: 900px) {
+  .p-legal-layout.m-app { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .p-legal-layout nav { border-bottom: 1px solid var(--uc-border); padding-bottom: 24px; }
+  .p-legal-nav > summary { display: list-item; padding: 12px 0; cursor: pointer; font-weight: 600; }
+}
+@media (max-width: 700px) {
+  .m-account-notice { flex-direction: column; align-items: stretch; }
+  .m-account-notice > .m-actions { width: 100%; margin: 12px 0 0; }
+  .m-account-notice .m-button { flex: 1 1 180px; overflow-wrap: normal; word-break: normal; }
+  .p-public-header, .p-public-footer { padding-left: 16px; padding-right: 16px; }
+  .p-public-header { flex-wrap: wrap; }
+  .p-legal-layout.m-app { padding: 32px 16px 48px; }
+  .p-legal-document h1 { font-size: 28px; }
+  .p-page .p-state { padding: 20px; }
+  .p-page .m-actions > .m-button { width: 100%; }
+}

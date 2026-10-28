@@ -1,0 +1,324 @@
+{
+  "at": "2026-10-25T19:42:18.3338768-03:00",
+  "status": "V39 account/file completion protocol verified in bounded synthetic scope. Full 44-requirement goal remains active.",
+  "database": "unicarona_java_test",
+  "databasePort": 55432,
+  "syntheticOnly": true,
+  "nativeV26Changed": false,
+  "frontendChanged": false,
+  "newMigration": false,
+  "productionPublication": false,
+  "privacyDraftRevision": 2,
+  "countsOverlap": true,
+  "runScope": [
+    "First unit run before dependent-profile and fair-batch refinement",
+    "First nine commit-boundary integrations before later refinements",
+    "Broad regression before final end-of-hold replay predicate and two additional scenarios",
+    "Final source with 13 completion integrations and physical/file/hold recovery regression"
+  ],
+  "runs": [
+    {
+      "log": "privacy-confirmation-unit-25oct.log",
+      "outcome": "passed",
+      "sha256": "cb1b5ab9c420bf6ea8919e86b2ca7599a1998bcbc0cbf0073f2645ed73a223a9",
+      "unit": 36,
+      "integration": 0,
+      "classes": [
+        {
+          "class": "com.unicarona.file.storage.PrivateFileStorageTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 31,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-confirmation-integration-25oct.log",
+      "outcome": "passed",
+      "sha256": "58670cbfb975ea6bdbbdaf9658e34dfcafb7f3134a61e9bdedc62a0f8406c2df",
+      "unit": 31,
+      "integration": 9,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 31,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-confirmation-regression-25oct.log",
+      "outcome": "passed",
+      "sha256": "a27d083485cbbd682c62e826511e386947bc2aaad92c7c5177ab6079d54c36cf",
+      "unit": 63,
+      "integration": 86,
+      "classes": [
+        {
+          "class": "com.unicarona.file.storage.PrivateFileStorageTest",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.job.service.MaintenanceServiceTest",
+          "tests": 6,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.job.service.WorkerLifecycleTest",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyHoldControlJournalTest",
+          "tests": 9,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.LegalHttpIT",
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyFileRetirementHttpIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyOrphanFilesIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPhysicalRestoreIT",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRestoreFenceIT",
+          "tests": 5,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyRightsHttpIT",
+          "tests": 18,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "log": "privacy-confirmation-release-final-25oct.log",
+      "outcome": "passed",
+      "sha256": "23cd2055ecb8c0591ac2e0cbcadc9d925dcdf2cb51624f6af123f58b8476aec2",
+      "unit": 32,
+      "integration": 37,
+      "classes": [
+        {
+          "class": "com.unicarona.privacy.PrivacyCopiesTest",
+          "tests": 32,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyFileRetirementHttpIT",
+          "tests": 10,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPhysicalRestoreIT",
+          "tests": 3,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacyPostBackupHoldsIT",
+          "tests": 11,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        {
+          "class": "com.unicarona.privacy.PrivacySuppressionConfirmationIT",
+          "tests": 13,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      ]
+    }
+  ],
+  "sourceHashes": [
+    {
+      "path": "backend-java/src/main/java/com/unicarona/file/service/FileTransactions.java",
+      "sha256": "b1f2a6af14603b53fd6177e591a9c5fa41da6c96720d754e1e6e79db7da03ed0"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyErasureJournal.java",
+      "sha256": "62e4c97d89cfc21e2d7542896e57977bfaa543679630125b4aa1a98055d30a82"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyErasureTransactions.java",
+      "sha256": "aa27ca6ac1037e440568844325922bf88d6df40b18c400b523b3d97ff369b01b"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyFileErasure.java",
+      "sha256": "3122cb7754e2e4933c84fbed567adf547a996c7cce61dbd9e8e24bb4d00884fa"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyErasureMaintenance.java",
+      "sha256": "03571b34008fba4da697dabbb8db8082708a17265b7966f9f9354bcdc7a5f7dc"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyCopiesMaintenance.java",
+      "sha256": "e8e1b39a2a0548088afa967275bf9cc55036a814da28cb2b56fd25609c2069f5"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyRestoreFence.java",
+      "sha256": "02cf6baa79eff9e9e1142dcde305d1caa67ed5b0735f7db88e4ca8420a473e4c"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyHoldControlTransactions.java",
+      "sha256": "98f8d524789cadfa93889306e3fa29a8da48b2adfb88f58f4896142b36239874"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacyProfileSuppression.java",
+      "sha256": "2bf3b2834774eb31ab05d09f055f82bf4a73714dabc6682122da05db09063c12"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacySuppressionConfirmationTransactions.java",
+      "sha256": "8dcdb3c96930a45acbae6127d8046934c721ed292e4ff016f3cc07cbc3fba0f5"
+    },
+    {
+      "path": "backend-java/src/main/java/com/unicarona/privacy/service/PrivacySuppressionCompletions.java",
+      "sha256": "178dfc4bdb8f6d02658ae0ed11a087f9f2cd9869725d5d5dbb615a89871271e9"
+    },
+    {
+      "path": "backend-java/src/test/java/com/unicarona/privacy/PrivacyCopiesTest.java",
+      "sha256": "7b78e1605ec7ff28bd3f78d46463870a1742e2113eeeb1fb6c7881de10376762"
+    },
+    {
+      "path": "backend-java/src/test/java/com/unicarona/privacy/PrivacySuppressionConfirmationIT.java",
+      "sha256": "26c92198111dbfd3bff7afba3d3fa67e611f7be3f774a61dfc0df52bfa2bddce"
+    },
+    {
+      "path": "backend-java/src/main/resources/legal/privacy.md",
+      "sha256": "27966bf13d6a1965318cd28bcf1646df286279631e6fcf3f23fa21e886be99e5"
+    },
+    {
+      "path": "backend-java/src/main/resources/legal/catalog.json",
+      "sha256": "bcfa114e110ec96447cccc9ee9d918b595cea0b59074fdb390be4d9082a0bbfa"
+    },
+    {
+      "path": "docs/privacy/Confirmacao_Supressoes.md",
+      "sha256": "384d7ade7c964bb040e29e8754d09682db81e2887a3706a0afa7e93e7a6e7b42"
+    },
+    {
+      "path": "docs/privacy/Fluxo_Exclusao_Backend.md",
+      "sha256": "d1b1d15ad0129fac3bfb5164269b099bc835324b54294b22d4008a0808e3d8a4"
+    },
+    {
+      "path": "docs/privacy/Retencao_Backups_Diario.md",
+      "sha256": "c7a42d9093321b5a7cc56553aa758c5646f53cfaef375f7a33e67683226ecfa1"
+    },
+    {
+      "path": "docs/privacy/Recuperacao_Retencoes.md",
+      "sha256": "26bbcc1a6f4577710e564e26d4bcf1d7bb1c336e55f3ef0d3191d7c92a6ee22f"
+    },
+    {
+      "path": "docs/privacy/Inventario_Dados.md",
+      "sha256": "5c0f0f74ee32a64372c52f06e7f3a7e8f3a42e9648874df535ce5b3a5dadf71d"
+    },
+    {
+      "path": "docs/privacy/Matriz_44_Requisitos.md",
+      "sha256": "91f2eb6a64baaa73d7918522f8c57e4a3c2b986f0dd24984cad068d110f9da35"
+    },
+    {
+      "path": "docs/privacy/Plano_Implementacao.md",
+      "sha256": "d7bb1bce5a909f006124f820cf019ef70880fa4e782618322e34658987ebbbd7"
+    },
+    {
+      "path": "docs/privacy/Arquivos_Orfaos.md",
+      "sha256": "65d5143655e6733ac51fc07fecf3d9a1791b31deaade2c0b3db1d7e1ac9022a8"
+    }
+  ],
+  "protectedDesignHashes": {
+    "PRODUCT.md": "5bd89323e8554e572eda225b37d5a145c39d08394e12199865e23e56d9e13d3d",
+    "DESIGN.md": "e244b677f58926f75eea8af9137b9e39517f60c84432ae3d4c01b3b3d105f327",
+    "dist/privacy.css": "86104fbb37304c7a7e86ffcd8572a2a793a76948b498eccdd14f21f9cafec50f",
+    "dist/backend-ui.js": "c73412314434faf0f76c9c0d04ed79848622736a12d9fa43c315abe382c2e84f"
+  },
+  "remaining": [
+    "Linked driver documents and metadata retention",
+    "Finite financial/security retention and anonymous aggregates",
+    "Trusted external recovery and category/volume exercises",
+    "Remaining minimization, consent journeys, legal consistency, red teams, coordinated publication and 16 final deliverables"
+  ],
+  "preview": {
+    "url": "http://localhost:4190",
+    "readyHttp": 200,
+    "paymentProvider": "development",
+    "operationsRootEnabled": false,
+    "scope": "Synthetic browser smoke only. Recovery proof comes from the separately enabled integration fixtures."
+  }
+}
