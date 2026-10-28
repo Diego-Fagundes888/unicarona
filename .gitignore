@@ -33,3 +33,15 @@ docs/brand/logo-integration/*.png
 docs/brand/UniCarona-Logo-Percurso-U.zip
 docs/CaronaUni_Especificacao_MVP.pdf
 docs/brand/logo-integration/
+# Credential stores and private backups; dist/ intentionally remains versioned source.
+.npmrc
+.netrc
+.pypirc
+.ssh/
+.aws/
+.azure/
+.gcloud/
+id_rsa
+id_ed25519
+*.keystore
+/backups/
